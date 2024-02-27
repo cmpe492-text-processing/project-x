@@ -20,7 +20,7 @@ class RedditPost:
 
 class Reddit:
     def __init__(self):
-        load_dotenv('/Users/bgezer/Documents/_root/_boun/8.Donem/senior-project/project-x/fetcher/.env')
+        load_dotenv('../.env')
         self.reddit: praw.Reddit = praw.Reddit(
             client_id=os.getenv("REDDIT_CLIENT_ID"),
             client_secret=os.getenv("REDDIT_CLIENT_SECRET"),
