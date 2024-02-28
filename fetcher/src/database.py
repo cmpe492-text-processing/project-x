@@ -2,10 +2,11 @@ import psycopg2
 from psycopg2 import OperationalError
 import os
 from dotenv import load_dotenv
+
+
 def create_connection():
-    conn = None
     try:
-        conn = psycopg2.connect(
+        connection = psycopg2.connect(
             host=os.getenv('host'),
             port=os.getenv('port'),
             dbname=os.getenv('dbname'),
@@ -13,26 +14,52 @@ def create_connection():
             password=os.getenv('db-password')
         )
         print("Connection to PostgreSQL DB successful")
+        return connection
     except OperationalError as e:
         print(f"The error '{e}' occurred")
-    return conn
+        return None
 
 
-def execute_query(connection, query):
-    connection.autocommit = True
-    cursor = connection.cursor()
-    try:
-        cursor.execute(query)
-        print("Query executed successfully")
-    except OperationalError as e:
-        print(f"The error '{e}' occurred")
+class DatabaseManager:
+    def __init__(self):
+        load_dotenv('../.env')
+        self.connection = create_connection()
 
+    def execute_query(self, query):
+        if self.connection is not None:
+            self.connection.autocommit = True
+            cursor = self.connection.cursor()
+            try:
+                cursor.execute(query)
+                print("Query executed successfully")
+            except OperationalError as e:
+                print(f"The error '{e}' occurred")
+            finally:
+                cursor.close()
 
-# Example usage
-if __name__ == "__main__":
-    load_dotenv('../.env')
+    def insert_posts(self, posts):
+        if self.connection is not None:
+            cursor = self.connection.cursor()
+            query = """
+            INSERT INTO posts (id, author_id, created_utc, name, permalink, score, selftext, subreddit, title, upvote_ratio)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+            ON CONFLICT (id) DO NOTHING;
+            """
+            for post in posts:
+                values = (
+                post.id, post.author_id, post.created_utc, post.name, post.permalink, post.score, post.selftext,
+                post.subreddit, post.title, post.upvote_ratio)
 
-    connection = create_connection()
+                try:
+                    cursor.execute(query, values)
+                    print("Query executed successfully")
+                except OperationalError as e:
+                    print(f"The error '{e}' occurred")
 
-    if connection is not None:
-        connection.close()
+            self.connection.commit()
+            cursor.close()
+
+    def close_connection(self):
+        if self.connection is not None:
+            self.connection.close()
+            print("Database connection closed.")
