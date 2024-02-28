@@ -2,3 +2,4 @@
 fetcher/.env
 .idea
 fetcher/src/reddit/__pycache__
+fetcher/src/__pycache__
