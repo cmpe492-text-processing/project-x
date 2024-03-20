@@ -1,5 +1,5 @@
 praw~=7.7.1
 python-dotenv~=1.0.1
 psycopg2-binary
-tagme
+git+https://github.com/alabeybahri/tagme-python.git
 requests

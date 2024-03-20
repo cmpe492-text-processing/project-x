@@ -48,6 +48,7 @@ def get_wikidata_item_info(wikidata_item_id):
 
     return item_info
 
+
 class TagmeManager:
 
     def __init__(self, rho):
@@ -55,27 +56,47 @@ class TagmeManager:
         self.api_key = os.getenv('TAGME_API_KEY')
         tagme.GCUBE_TOKEN = self.api_key
         self.rho = rho
+
     def process_posts(self, posts):
         all_annotations = []
+        all_humans = []
         for post in posts:
-            post_annotations = self.process_post(post)
+            post_annotations, all_humans = self.process_post(post)
             all_annotations.append(post_annotations)
-        return all_annotations
+
+        return all_annotations, all_humans
 
     def process_post(self, post):
         selftext = post.selftext.lower()
-
-        annotations = tagme.annotate(selftext)
         print(selftext)
 
+        annotations = tagme.annotate(selftext)
+        humans = []
         for ann in annotations.get_annotations(self.rho):
-            print(ann.begin)
-            print(ann.end)
-            print(ann.entity_id)
-            print(get_wikidata_url_from_curid(ann.entity_id))
             wikidata_item_info = get_wikidata_item_info(get_wikidata_url_from_curid(ann.entity_id))
-            print(wikidata_item_info)
-            print(ann.entity_title)
-            print(ann.score)
-            print(ann.mention)
-        return annotations
+            if 'Q5' in wikidata_item_info['P31']:
+                human = {
+                    'begin': ann.begin,
+                    'end': ann.end,
+                    'entity_id': ann.entity_id,
+                    'entity_title': ann.entity_title,
+                    'relatedness_scores': []
+                }
+                humans.append(human)
+
+        for human in humans:
+            relatedness_scores = []
+            for annotation in annotations.get_annotations(self.rho):
+                if annotation.entity_id != human['entity_id']:
+                    relations = tagme.relatedness_wid((human['entity_id'], annotation.entity_id))
+                    for relatedness in relations.relatedness:
+                        relatedness_scores.append({
+                            'begin': annotation.begin,
+                            'end': annotation.end,
+                            'entity_id': annotation.entity_id,
+                            'entity_title': annotation.entity_title,
+                            'score': relatedness.rel
+                        })
+            human['relatedness_scores'] = relatedness_scores
+
+        return annotations, humans
