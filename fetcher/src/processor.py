@@ -1,5 +1,7 @@
 import nltk
-import numpy as np
+from nltk.sentiment import SentimentIntensityAnalyzer
+import spacy
+from spacy import displacy
 
 
 class TextProcessor:
@@ -14,6 +16,7 @@ class TextProcessor:
         self._nltk.download('vader_lexicon', quiet=True)
         self._nltk.download('omw', quiet=True)
         self._nltk.download('universal_tagset', quiet=True)
+        self._nlp = spacy.load("en_core_web_sm")
 
     def tokenize(self, text) -> list[str]:
         return self._nltk.word_tokenize(text)
@@ -34,17 +37,21 @@ class TextProcessor:
     def pos_tag(self, tokens: list[str]) -> list[tuple[str, str]]:
         return self._nltk.pos_tag(tokens, tagset='universal')
 
+    def sentiment_analysis(self, text: str) -> str:
+        sia = self._nltk.sentiment.SentimentIntensityAnalyzer()
+        print("polarity scores: ", sia.polarity_scores(text))
+        print("compound: ", sia.polarity_scores(text)["compound"])
+        return sia.polarity_scores(text)
+
+    @property
+    def nlp(self):
+        return self._nlp
+
 
 if __name__ == "__main__":
     processor = TextProcessor()
     text = (
-        "I wanted to share the talks from last month’s dask demo day, where folks from the dask community give short "
-        "demos to show off ongoing work. hopefully this helps elevate some of the great work people are doing.  last "
-        "month's talks:) \n- one trillion row challenge \n- deploy dask on databricks with dask-databricks \n- deploy "
-        "prefect workflows on the cloud with coiled  \n- scale embedding pipelines (llamaindex + dask)  \n- use aws "
-        "cost explorer to see the cost of public ipv4 addresses  \nrecording on youtube: "
-        "https://www.youtube.com/watch?v=07e1jl83ur8  join the next one this thursday, march 21st, "
-        "11am et https://github.com/dask/community/issues/307"
+        "South Carolina Gov, Henry McMaster held a ceremony Tuesday to spotlight a new law allowing any adult who can legally own a gun to carry the weapon openly without a permit."
     )
     tokens = processor.tokenize(text)
     print(tokens)
@@ -54,4 +61,15 @@ if __name__ == "__main__":
     print(lemmatized)
     pos_tagged = processor.pos_tag(lemmatized)
     print(pos_tagged)
+
+    sentiment = processor.sentiment_analysis(text)
+    print(sentiment)
+
+    doc = processor.nlp(" ".join(cleaned))
+    for token in doc:
+        print("=========")
+        print(token.text, "->", token.dep_, "->", token.head.text)
+
+    displacy.serve(doc, style="dep", port=6969)
+
     print("done")
