@@ -6,19 +6,13 @@ from dotenv import load_dotenv
 
 def create_connection():
     try:
-        connection = psycopg2.connect(
-            host=os.getenv('host'),
-            port=os.getenv('port'),
-            dbname=os.getenv('dbname'),
-            user=os.getenv('user'),
-            password=os.getenv('db-password')
-        )
+        # Connect to the database using DATABASE_URL environment variable
+        connection = psycopg2.connect(os.getenv('DATABASE_URL'), sslmode='require')
         print("Connection to PostgreSQL DB successful")
         return connection
     except OperationalError as e:
         print(f"The error '{e}' occurred")
         return None
-
 
 class DatabaseManager:
     def __init__(self):
