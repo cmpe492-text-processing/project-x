@@ -2,7 +2,7 @@ import psycopg2
 from psycopg2 import OperationalError
 import os
 from dotenv import load_dotenv
-
+import json
 
 def create_connection():
     try:
@@ -30,6 +30,27 @@ class DatabaseManager:
                 print(f"The error '{e}' occurred")
             finally:
                 cursor.close()
+
+    def insert_corpuses(self, corpuses):
+        if self.connection is not None:
+            cursor = self.connection.cursor()
+            query = """
+            INSERT INTO corpuses (platform, entry_id, data)
+            VALUES (%s, %s, %s::jsonb)
+            ON CONFLICT (platform, entry_id) DO NOTHING;
+            """
+            for corpus in corpuses:
+                json_data = json.dumps(corpus, indent=0)
+                values = (corpus['platform'], corpus['id'], json_data)
+
+                try:
+                    cursor.execute(query, values)
+                    print("Query executed successfully")
+                except OperationalError as e:
+                    print(f"The error '{e}' occurred")
+
+            self.connection.commit()
+            cursor.close()
 
     def insert_posts(self, posts):
         if self.connection is not None:

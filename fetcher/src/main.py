@@ -226,11 +226,14 @@ def main():
 
 def bg_main():
     reddit = rddt.Reddit()
+    database_manager = db.DatabaseManager()
     post_list: list[rddt.RedditPost] = reddit.get_hot_posts("PoliticalDiscussion", limit=2)
     corpus_list: list = []
     for post in post_list:
         corpus_list.append(generate_corpus(Platform.REDDIT, "PoliticalDiscussion", post.id, post.title, post.selftext))
 
+    database_manager.insert_posts(post_list)
+    database_manager.insert_corpuses(corpus_list)
     print(json.dumps(corpus_list, indent=2))
 
 
