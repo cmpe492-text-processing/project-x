@@ -57,7 +57,7 @@ class TagmeManager:
         tagme.GCUBE_TOKEN = self.api_key
         self.rho = rho
 
-    def process_posts(self, posts):
+    def tag_posts(self, posts):
         all_annotations = []
         all_humans = []
         for post in posts:

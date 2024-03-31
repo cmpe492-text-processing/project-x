@@ -18,6 +18,8 @@ class RedditPost:
     subreddit: str
     title: str
     upvote_ratio: float
+    cleaned_selftext: str = None
+    cleaned_title: str = None
 
 
 class TimeFilter(enum.Enum):

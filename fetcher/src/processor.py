@@ -4,6 +4,8 @@ import spacy
 from spacy import displacy
 from spacy.tokens import Span
 
+from fetcher.src.reddit.reddit import RedditPost
+
 
 class TextProcessor:
     def __init__(self):
@@ -22,14 +24,15 @@ class TextProcessor:
     def tokenize(self, text) -> list[str]:
         return self._nltk.word_tokenize(text)
 
-    def clean_text(self, tokens: list[str]) -> list[str]:
+    def clean_text(self, text: str) -> str:
         # lowercase and remove punctuation
-        tokens = [word.lower() for word in tokens]
-        tokens = [word for word in tokens if word.isalnum()]
+        tk = self.tokenize(text)
+        tk = [word.lower() for word in tk]
+        tk = [word for word in tk if word.isalnum()]
         # remove stopwords
         stop_words = set(self._nltk.corpus.stopwords.words('english'))
-        tokens = [word for word in tokens if word not in stop_words]
-        return tokens
+        tk = [word for word in tk if word not in stop_words]
+        return " ".join(tk)
 
     def lemmatize(self, tokens: list[str]) -> list[str]:
         lemmatizer = self._nltk.stem.WordNetLemmatizer()
@@ -43,6 +46,12 @@ class TextProcessor:
         print("polarity scores: ", sia.polarity_scores(text))
         print("compound: ", sia.polarity_scores(text)["compound"])
         return sia.polarity_scores(text)["compound"]
+
+    def clean_posts(self, posts: list[RedditPost]) -> list[RedditPost]:
+        for post in posts:
+            post.cleaned_selftext = self.clean_text(post.selftext)
+            post.cleaned_title = self.clean_text(post.title)
+        return posts
 
     @property
     def nlp(self):
