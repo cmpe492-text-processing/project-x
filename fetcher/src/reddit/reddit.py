@@ -1,3 +1,5 @@
+import enum
+
 import praw
 import os
 from dotenv import load_dotenv
@@ -18,6 +20,15 @@ class RedditPost:
     upvote_ratio: float
 
 
+class TimeFilter(enum.Enum):
+    ALL = "all"
+    DAY = "day"
+    HOUR = "hour"
+    MONTH = "month"
+    WEEK = "week"
+    YEAR = "year"
+
+
 class Reddit:
     def __init__(self):
         load_dotenv('../.env')
@@ -29,9 +40,47 @@ class Reddit:
             username=os.getenv("USERNAME"),
         )
 
-    def get_hot_posts(self, subreddit) -> list[RedditPost]:
+    def get_hot_posts(self, subreddit, limit=10) -> list[RedditPost]:
         posts: list[RedditPost] = []
-        for submission in self.reddit.subreddit(subreddit).hot(limit=10):
+        for submission in self.reddit.subreddit(subreddit).hot(limit=limit):
+            post = RedditPost(
+                id=submission.id,
+                author_id=submission.author.id,
+                created_utc=submission.created_utc,
+                name=submission.name,
+                permalink=submission.permalink,
+                score=submission.score,
+                selftext=submission.selftext,
+                subreddit=submission.subreddit.display_name,
+                title=submission.title,
+                upvote_ratio=submission.upvote_ratio
+            )
+            posts.append(post)
+
+        return posts
+
+    def get_top_posts(self, subreddit, time_filter: TimeFilter = TimeFilter.ALL, limit=10) -> list[RedditPost]:
+        posts: list[RedditPost] = []
+        for submission in self.reddit.subreddit(subreddit).top(time_filter=time_filter, limit=limit):
+            post = RedditPost(
+                id=submission.id,
+                author_id=submission.author.id,
+                created_utc=submission.created_utc,
+                name=submission.name,
+                permalink=submission.permalink,
+                score=submission.score,
+                selftext=submission.selftext,
+                subreddit=submission.subreddit.display_name,
+                title=submission.title,
+                upvote_ratio=submission.upvote_ratio
+            )
+            posts.append(post)
+
+        return posts
+
+    def get_new_posts(self, subreddit, limit=10) -> list[RedditPost]:
+        posts: list[RedditPost] = []
+        for submission in self.reddit.subreddit(subreddit).new(limit=limit):
             post = RedditPost(
                 id=submission.id,
                 author_id=submission.author.id,

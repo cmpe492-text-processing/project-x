@@ -2,6 +2,7 @@ import nltk
 from nltk.sentiment import SentimentIntensityAnalyzer
 import spacy
 from spacy import displacy
+from spacy.tokens import Span
 
 
 class TextProcessor:
@@ -37,11 +38,11 @@ class TextProcessor:
     def pos_tag(self, tokens: list[str]) -> list[tuple[str, str]]:
         return self._nltk.pos_tag(tokens, tagset='universal')
 
-    def sentiment_analysis(self, text: str) -> str:
+    def sentiment_analysis(self, text: str):
         sia = self._nltk.sentiment.SentimentIntensityAnalyzer()
         print("polarity scores: ", sia.polarity_scores(text))
         print("compound: ", sia.polarity_scores(text)["compound"])
-        return sia.polarity_scores(text)
+        return sia.polarity_scores(text)["compound"]
 
     @property
     def nlp(self):
@@ -51,7 +52,8 @@ class TextProcessor:
 if __name__ == "__main__":
     processor = TextProcessor()
     text = (
-        "South Carolina Gov, Henry McMaster held a ceremony Tuesday to spotlight a new law allowing any adult who can legally own a gun to carry the weapon openly without a permit."
+        "South Carolina Gov, Henry McMaster held a ceremony Tuesday to spotlight a new law allowing any adult who can "
+        "legally own a gun to carry the weapon openly without a permit."
     )
     tokens = processor.tokenize(text)
     print(tokens)
@@ -66,6 +68,37 @@ if __name__ == "__main__":
     print(sentiment)
 
     doc = processor.nlp(" ".join(cleaned))
+
+    entity = "carolina"
+    entity_span = None
+
+    for ent in doc.ents:
+        if entity in ent.text:
+            entity_span = ent
+            break
+
+    # Function to extract sentiment-related words connected to the entity
+    def extract_sentiment_phrases(entity_span: Span):
+        relevant_tokens = []
+        for token in entity_span.root.subtree:
+            if token.dep_ in ["amod", "acomp", "advmod", "neg"]:  # adjectives, adverbs, negations
+                relevant_tokens.append(token)
+        return relevant_tokens
+
+
+    # Extract sentiment-relevant tokens for the entity
+    if entity_span:
+        sentiment_tokens = extract_sentiment_phrases(entity_span)
+        sentiment_text = " ".join([token.text for token in sentiment_tokens])
+        print(f"Sentiment-related text for '{entity}': {sentiment_text}")
+
+        # Analyze sentiment of the relevant text
+        sentiment_doc = processor.nlp(sentiment_text)
+        sentiment = processor.sentiment_analysis(sentiment_text)
+        print(f"Sentiment for '{entity}': {sentiment}")
+    else:
+        print(f"Entity '{entity}' not found.")
+
     for token in doc:
         print("=========")
         print(token.text, "->", token.dep_, "->", token.head.text)
