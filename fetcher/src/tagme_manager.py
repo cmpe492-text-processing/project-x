@@ -2,46 +2,7 @@ import os
 from dotenv import load_dotenv
 import tagme
 import requests
-
-WIKIPEDIA_URI_BASE = u"https://{}.wikipedia.org/wiki/{}"
-
-
-def title_to_uri(entity_title, lang="en"):
-    '''
-    Get the URI of the page describing a Wikipedia entity.
-    :param entity_title: an entity title.
-    :param lang: the Wikipedia language.
-    '''
-    return WIKIPEDIA_URI_BASE.format(lang, normalize_title(entity_title))
-
-
-def normalize_title(title):
-    '''
-    Normalize a title to Wikipedia format. E.g. "barack Obama" becomes "Barack_Obama"
-    :param title: a title to normalize.
-    '''
-    title = title.strip().replace(" ", "_")
-    return title[0].upper() + title[1:]
-
-
-class Annotation(object):
-    def __init__(self, ann_json):
-        self.begin = int(ann_json.get("start"))
-        self.end = int(ann_json.get("end"))
-        self.entity_id = int(ann_json.get("id"))
-        self.entity_title = ann_json.get("title")
-        self.score = float(ann_json.get("rho"))
-        self.mention = ann_json.get("spot")
-
-    def __str__(self):
-        return u"{} -> {} (score: {})".format(self.mention, self.entity_title, self.score)
-
-    def uri(self, lang="en"):
-        '''
-        Get the URI of this annotation entity.
-        :param lang: the Wikipedia language.
-        '''
-        return title_to_uri(self.entity_title, lang)
+from tagme import Annotation
 
 
 def get_wikidata_url_from_curid(curid):

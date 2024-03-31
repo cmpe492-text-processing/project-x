@@ -4,7 +4,7 @@ import spacy
 from spacy import displacy
 from spacy.tokens import Span
 
-from fetcher.src.reddit.reddit import RedditPost
+from fetcher.src.reddit import RedditPost
 
 
 class TextProcessor:

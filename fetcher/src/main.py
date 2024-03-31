@@ -1,9 +1,10 @@
 import enum
 
-import reddit.reddit as rddt
+from fetcher.src import reddit as rddt
 import database as db
 from fetcher.src.processor import TextProcessor
-from fetcher.src.tagme.tagme_manager import TagmeManager, Annotation
+from fetcher.src.tagme_manager import TagmeManager
+import json
 
 
 class Platform(enum.Enum):
@@ -114,8 +115,10 @@ def generate_corpus(platform: Platform,
         entity = {
             "name": annotation.entity_title,
             "location": "title",
+            "mention": annotation.mention,
             "begin": annotation.begin,
             "end": annotation.end,
+            "confidence": annotation.score,
             "sentiment": None,
             "wiki_id": annotation.entity_id,
             "wiki_info": {},
@@ -127,14 +130,18 @@ def generate_corpus(platform: Platform,
         entity = {
             "name": annotation.entity_title,
             "location": "body",
+            "mention": annotation.mention,
             "begin": annotation.begin,
             "end": annotation.end,
+            "confidence": annotation.score,
             "sentiment": None,
             "wiki_id": annotation.entity_id,
             "wiki_info": {},
             "dependent_entities": []
         }
         entities.append(entity)
+
+    text_processor.sentiment_analysis()
 
     corpus["entities"] = entities
 
@@ -157,12 +164,12 @@ def main():
 
 def bg_main():
     reddit = rddt.Reddit()
-    post_list: list[rddt.RedditPost] = reddit.get_hot_posts("PoliticalDiscussion", limit=5)
+    post_list: list[rddt.RedditPost] = reddit.get_hot_posts("PoliticalDiscussion", limit=2)
     corpus_list: list = []
     for post in post_list:
         corpus_list.append(generate_corpus(Platform.REDDIT, "PoliticalDiscussion", post.id, post.title, post.selftext))
 
-    print(corpus_list)
+    print(json.dumps(corpus_list, indent=4))
 
 if __name__ == "__main__":
     # main()
