@@ -57,6 +57,74 @@ class TextProcessor:
     def nlp(self):
         return self._nlp
 
+""" 
+    list[Corpuses]
+    [
+        {
+            platform: "reddit/politics",
+            id: "123",
+            title: "title",
+            body: "body",
+            sentiment: 0.5, # -1 to 1
+            entities: [
+                {
+                    name: "entity1",
+                    location: "title",
+                    begin: 0,
+                    end: 5,
+                    sentiment: 0.5,
+                    wiki_id: "Q123",
+                    wiki_info: {
+                        P31: ["Q5"],
+                        P21: ["Q123"],
+                        P17: ["Q456"]
+                    }, 
+                    dependent_entities: [
+                        {
+                            name: "entity2",
+                            relatedness: 0.5
+                            sentiment: 0.5
+                        }, 
+                        {
+                            name: "entity3",
+                            relatedness: 0.5
+                            sentiment: 0.5
+                        }
+                    ]
+                }, 
+                {
+                    name: "entity2",
+                    location: "body",
+                    begin: 10,
+                    end: 20,
+                    sentiment: 0.5,
+                    related_entities: [
+                        {
+                            name: "entity1",
+                            relatedness: 0.5
+                            sentiment: 0.5
+                        }, 
+                        {
+                            name: "entity3",
+                            relatedness: 0.5
+                            sentiment: 0.5
+                        }
+                    ]
+                }
+            ]  
+        },
+        {
+            
+        }
+        .
+        .
+        .
+        {
+            
+        }
+    ]
+    
+"""
 
 if __name__ == "__main__":
     processor = TextProcessor()
@@ -64,6 +132,12 @@ if __name__ == "__main__":
         "South Carolina Gov, Henry McMaster held a ceremony Tuesday to spotlight a new law allowing any adult who can "
         "legally own a gun to carry the weapon openly without a permit."
     )
+
+
+
+
+
+
     tokens = processor.tokenize(text)
     print(tokens)
     cleaned = processor.clean_text(tokens)
