@@ -3,6 +3,7 @@ from nltk.sentiment import SentimentIntensityAnalyzer
 import spacy
 from spacy import displacy
 from spacy.tokens import Span
+import re
 
 from fetcher.src.reddit import RedditPost
 
@@ -20,32 +21,65 @@ class TextProcessor:
         self._nltk.download('omw', quiet=True)
         self._nltk.download('universal_tagset', quiet=True)
         self._nlp = spacy.load("en_core_web_sm")
+        self._link_pattern = r'http\S+'
+        self._markdown_link_pattern = r'\[([^\]]+)\]\((http\S+)\)'
 
-    def tokenize(self, text) -> list[str]:
-        return self._nltk.word_tokenize(text)
+    def tokenize(self, txt) -> list[str]:
+        return self._nltk.word_tokenize(txt)
 
-    def clean_text(self, text: str) -> str:
-        # lowercase and remove punctuation
-        tk = self.tokenize(text)
-        tk = [word.lower() for word in tk]
-        tk = [word for word in tk if word.isalnum()]
-        # remove stopwords
+    def clean_text(self, txt: str) -> str:
+        txt = self.lowercase(txt)
+        txt = self.replace_links(txt)
+        txt = self.remove_punctuation(txt)
+        # txt = self.replace_stopwords(txt)
+        return txt
+
+    def replace_stopwords(self, txt: str) -> str:
         stop_words = set(self._nltk.corpus.stopwords.words('english'))
-        tk = [word for word in tk if word not in stop_words]
-        return " ".join(tk)
+        return " ".join([word for word in txt.split() if word not in stop_words])
 
-    def lemmatize(self, tokens: list[str]) -> list[str]:
+    @staticmethod
+    def lowercase(txt: str) -> str:
+        return txt.lower()
+
+    @staticmethod
+    def remove_punctuation(txt: str) -> str:
+        # remove punctuation except for hyphens and apostrophes, commas, and periods
+        return re.sub(r'[^\w\s\-\'\.,]', '', txt)
+
+    def replace_links(self, txt: str) -> str:
+        # Function to replace plain URLs with '<link>', avoiding markdown links
+        def replace_plain_links(match):
+            # If the match is a markdown link, return it unchanged
+            if re.match(self._markdown_link_pattern, match.group(0)):
+                return match.group(0)
+            # Otherwise, it's a plain URL, so replace it with '<link>'
+            return '<link>'
+
+        # First pass: Replace markdown links with their anchor text
+        def replace_markdown_link(match):
+            return match.group(1)  # Return the anchor text
+
+        # Replace markdown links with anchor text
+        txt = re.sub(self._markdown_link_pattern, replace_markdown_link, txt)
+
+        # Replace other links with '<link>', being careful not to affect markdown links
+        txt = re.sub(r'(\[([^\]]+)\]\((http\S+)\))|' + self._link_pattern, replace_plain_links, txt)
+
+        return txt
+
+    def lemmatize(self, tks: list[str]) -> list[str]:
         lemmatizer = self._nltk.stem.WordNetLemmatizer()
-        return [lemmatizer.lemmatize(word) for word in tokens]
+        return [lemmatizer.lemmatize(word) for word in tks]
 
-    def pos_tag(self, tokens: list[str]) -> list[tuple[str, str]]:
-        return self._nltk.pos_tag(tokens, tagset='universal')
+    def pos_tag(self, tks: list[str]) -> list[tuple[str, str]]:
+        return self._nltk.pos_tag(tks, tagset='universal')
 
-    def sentiment_analysis(self, text: str):
+    def sentiment_analysis(self, txt: str) -> float:
         sia = self._nltk.sentiment.SentimentIntensityAnalyzer()
-        print("polarity scores: ", sia.polarity_scores(text))
-        print("compound: ", sia.polarity_scores(text)["compound"])
-        return sia.polarity_scores(text)["compound"]
+        print("polarity scores: ", sia.polarity_scores(txt))
+        print("compound: ", sia.polarity_scores(txt)["compound"])
+        return sia.polarity_scores(txt)["compound"]
 
     def clean_posts(self, posts: list[RedditPost]) -> list[RedditPost]:
         for post in posts:
@@ -56,6 +90,8 @@ class TextProcessor:
     @property
     def nlp(self):
         return self._nlp
+
+
 
 """ 
     list[Corpuses]

@@ -6,6 +6,9 @@ import database as db
 from fetcher.src.processor import TextProcessor
 from fetcher.src.tagme_manager import TagmeManager
 import json
+import re
+
+DEBUG = True
 
 
 class Platform(enum.Enum):
@@ -86,9 +89,48 @@ class Platform(enum.Enum):
 """
 
 
-def print_annotations(tagged: list[Annotation]):
-    for annotation in tagged:
-        print(annotation)
+def preprocess_text(text):
+    # Replace common escape sequences with their actual character representations
+    # You might need to add more replacements based on the escape sequences you encounter
+    replacements = {
+        '\\n': '\n',  # Newline
+        '\\t': '\t',  # Tab
+        '\\\\': '\\'  # Backslash
+    }
+    for escaped, char in replacements.items():
+        text = text.replace(escaped, char)
+    return text
+
+
+def find_closest_match(original_text, mention, start_index):
+    pattern = re.escape(mention)
+    for match in re.finditer(pattern, original_text, re.IGNORECASE):
+        if abs(match.start() - start_index) <= len(mention):
+            return match.start(), match.end()
+    return None, None
+
+
+def adjust_entity_indices(original_text, cleaned_text, entity):
+    # Preprocess the original text to handle escaped characters
+    preprocessed_original_text = preprocess_text(original_text)
+
+    cleaned_begin = entity['begin']
+    cleaned_end = entity['end']
+    mention = entity['mention']
+
+    # Estimate the original start index (a simple heuristic)
+    original_index = preprocessed_original_text.find(mention, cleaned_begin - 5 if cleaned_begin > 5 else 0)
+
+    if original_index != -1:
+        entity['begin'] = original_index
+        entity['end'] = original_index + len(mention)
+    else:
+        # If not found with the simple heuristic, use a more robust method
+        original_begin, original_end = find_closest_match(preprocessed_original_text, mention, cleaned_begin)
+        if original_begin is not None and original_end is not None:
+            entity['begin'] = original_begin
+            entity['end'] = original_end
+    return entity
 
 
 def generate_corpus(platform: Platform,
@@ -111,6 +153,12 @@ def generate_corpus(platform: Platform,
     tagged_title: list[Annotation] = tagme_manager.tag_text(cleaned_title)
     tagged_body: list[Annotation] = tagme_manager.tag_text(cleaned_body)
 
+    if DEBUG:
+        print("Title:")
+        print(cleaned_title)
+        print("Body:")
+        print(cleaned_body)
+
     entities = []
     for annotation in tagged_title:
         entity = {
@@ -125,7 +173,8 @@ def generate_corpus(platform: Platform,
             "wiki_info": {},
             "dependent_entities": []
         }
-        entities.append(entity)
+        adjusted_entity = adjust_entity_indices(title, cleaned_title, entity)
+        entities.append(adjusted_entity)
 
     for annotation in tagged_body:
         entity = {
@@ -140,9 +189,11 @@ def generate_corpus(platform: Platform,
             "wiki_info": {},
             "dependent_entities": []
         }
-        entities.append(entity)
+        adjusted_entity = adjust_entity_indices(body, cleaned_body, entity)
+        entities.append(adjusted_entity)
 
-    text_processor.sentiment_analysis()
+    for entity in entities:
+        entity['found_word'] = title[entity['begin']:entity['end']]
 
     corpus["entities"] = entities
 
@@ -170,7 +221,8 @@ def bg_main():
     for post in post_list:
         corpus_list.append(generate_corpus(Platform.REDDIT, "PoliticalDiscussion", post.id, post.title, post.selftext))
 
-    print(json.dumps(corpus_list, indent=4))
+    print(json.dumps(corpus_list, indent=2))
+
 
 if __name__ == "__main__":
     # main()
