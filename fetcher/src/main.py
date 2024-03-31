@@ -1,5 +1,6 @@
 import enum
 
+from tagme import Annotation
 from fetcher.src import reddit as rddt
 import database as db
 from fetcher.src.processor import TextProcessor
