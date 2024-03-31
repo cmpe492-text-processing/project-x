@@ -138,6 +138,7 @@ def generate_corpus(platform: Platform,
                     platform_id: str,
                     title: str,
                     body: str) -> dict:
+
     corpus: dict = {"platform": platform.value + "/" + platform_ext if platform_ext else platform.value,
                     "id": platform_id,
                     "title": title,
@@ -159,6 +160,7 @@ def generate_corpus(platform: Platform,
         print("Body:")
         print(cleaned_body)
 
+    # create entities with their base tagme information
     entities = []
     for annotation in tagged_title:
         entity = {
@@ -192,8 +194,16 @@ def generate_corpus(platform: Platform,
         adjusted_entity = adjust_entity_indices(body, cleaned_body, entity)
         entities.append(adjusted_entity)
 
+    # filter entities that have their indices adjusted
     for entity in entities:
-        entity['found_word'] = title[entity['begin']:entity['end']]
+        if entity['location'] == 'title':
+            found_word = title[entity['begin']:entity['end']]
+        elif entity['location'] == 'body':
+            found_word = body[entity['begin']:entity['end']]
+        else:
+            found_word = None
+        if entity['mention'] != found_word:
+            entities.remove(entity)
 
     corpus["entities"] = entities
 
