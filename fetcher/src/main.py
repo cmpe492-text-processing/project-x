@@ -145,12 +145,14 @@ def main():
     reddit = rddt.Reddit()
     database_manager = db.DatabaseManager()
     tagme_manager = TagmeManager(rho=0.1)
+    processor_manager = TextProcessor()
 
-    post_list: list[rddt.RedditPost] = reddit.get_hot_posts("PoliticalDiscussion")
-    tagged_post_list, humans = tagme_manager.process_posts(post_list)
-    print(tagged_post_list)
-    print(humans)
+    post_list: list[rddt.RedditPost] = reddit.get_hot_posts("Trump")
+    post_list = processor_manager.clean_posts(post_list)
     database_manager.insert_posts(post_list)
+    post_all_annotations, post_all_humans, title_all_annotations, title_all_humans = tagme_manager.tag_posts(post_list)
+    print(post_all_humans)
+    print(title_all_humans)
 
 
 def bg_main():
