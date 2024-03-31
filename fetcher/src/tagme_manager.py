@@ -129,4 +129,8 @@ class TagmeManager:
         return annotations, humans
 
     def tag_text(self, txt: str) -> list[Annotation]:
-        return tagme.annotate(txt).get_annotations(self.rho)
+        try:
+            return tagme.annotate(txt).get_annotations(self.rho)
+        except Exception as e:
+            print(f"Error tagging text: {e}")
+            return []

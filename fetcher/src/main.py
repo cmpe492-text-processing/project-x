@@ -89,19 +89,6 @@ class Platform(enum.Enum):
 """
 
 
-def preprocess_text(text):
-    # Replace common escape sequences with their actual character representations
-    # You might need to add more replacements based on the escape sequences you encounter
-    replacements = {
-        '\\n': '\n',  # Newline
-        '\\t': '\t',  # Tab
-        '\\\\': '\\'  # Backslash
-    }
-    for escaped, char in replacements.items():
-        text = text.replace(escaped, char)
-    return text
-
-
 def find_closest_match(original_text, mention, start_index):
     pattern = re.escape(mention)
     for match in re.finditer(pattern, original_text, re.IGNORECASE):
@@ -110,23 +97,15 @@ def find_closest_match(original_text, mention, start_index):
     return None, None
 
 
-def adjust_entity_indices(original_text, cleaned_text, entity):
-    # Preprocess the original text to handle escaped characters
-    preprocessed_original_text = preprocess_text(original_text)
-
+def adjust_entity_indices(original_text, entity):
     cleaned_begin = entity['begin']
-    cleaned_end = entity['end']
     mention = entity['mention']
-
-    # Estimate the original start index (a simple heuristic)
-    original_index = preprocessed_original_text.find(mention, cleaned_begin - 5 if cleaned_begin > 5 else 0)
-
+    original_index = original_text.find(mention, cleaned_begin - 5 if cleaned_begin > 5 else 0)
     if original_index != -1:
         entity['begin'] = original_index
         entity['end'] = original_index + len(mention)
     else:
-        # If not found with the simple heuristic, use a more robust method
-        original_begin, original_end = find_closest_match(preprocessed_original_text, mention, cleaned_begin)
+        original_begin, original_end = find_closest_match(original_text, mention, cleaned_begin)
         if original_begin is not None and original_end is not None:
             entity['begin'] = original_begin
             entity['end'] = original_end
@@ -138,7 +117,6 @@ def generate_corpus(platform: Platform,
                     platform_id: str,
                     title: str,
                     body: str) -> dict:
-
     corpus: dict = {"platform": platform.value + "/" + platform_ext if platform_ext else platform.value,
                     "id": platform_id,
                     "title": title,
@@ -161,7 +139,7 @@ def generate_corpus(platform: Platform,
         print(cleaned_body)
 
     # create entities with their base tagme information
-    entities = []
+    entities: list[dict] = []
     for annotation in tagged_title:
         entity = {
             "name": annotation.entity_title,
@@ -175,7 +153,7 @@ def generate_corpus(platform: Platform,
             "wiki_info": {},
             "dependent_entities": []
         }
-        adjusted_entity = adjust_entity_indices(title, cleaned_title, entity)
+        adjusted_entity = adjust_entity_indices(title, entity)
         entities.append(adjusted_entity)
 
     for annotation in tagged_body:
@@ -191,8 +169,11 @@ def generate_corpus(platform: Platform,
             "wiki_info": {},
             "dependent_entities": []
         }
-        adjusted_entity = adjust_entity_indices(body, cleaned_body, entity)
+        adjusted_entity = adjust_entity_indices(body, entity)
         entities.append(adjusted_entity)
+
+    if len(entities) == 0:
+        return corpus
 
     # filter entities that have their indices adjusted
     for entity in entities:
@@ -203,10 +184,59 @@ def generate_corpus(platform: Platform,
         else:
             found_word = None
         if entity['mention'] != found_word:
+            # concurrent modification exception?
             entities.remove(entity)
 
-    corpus["entities"] = entities
+    title_doc = text_processor.nlp(title)
+    body_doc = text_processor.nlp(body)
 
+    for entity in entities:
+        if entity['location'] == 'title':
+            entity_doc = title_doc
+        elif entity['location'] == 'body':
+            entity_doc = body_doc
+        else:
+            entities.remove(entity)
+            continue
+
+        # find the entity itself
+        dependent_tokens = []
+        for token in entity_doc:
+            if entity['begin'] <= token.idx <= entity['end']:
+                dependent_tokens.append(token)
+
+        # find related entities using dep_ attribute
+        for token in dependent_tokens:
+            # search the subtree
+            for child in token.subtree:
+                if child not in dependent_tokens:
+                    dependent_tokens.append(child)
+
+        dependent_entities = []
+        for token in dependent_tokens:
+            dependent_entity = {
+                "name": token.text,
+                "begin": token.idx,
+                "end": token.idx + len(token.text)
+            }
+            dependent_entities.append(dependent_entity)
+
+        entity['dependent_entities'] = dependent_entities
+
+        # find the max and min index to extract the sentence
+        min_index = min([token.idx for token in dependent_tokens], default=0)
+        max_index = max([token.idx + len(token.text) for token in dependent_tokens], default=0)
+        sentence = entity_doc.text[min_index:max_index]
+        entity['sentence'] = sentence
+        comp, pos, neg, neu = text_processor.get_sentiment(sentence)
+        entity['sentiment'] = {
+            "compound": comp,
+            "positive": pos,
+            "negative": neg,
+            "neutral": neu
+        }
+
+    corpus["entities"] = entities
     return corpus
 
 
@@ -216,7 +246,7 @@ def main():
     tagme_manager = TagmeManager(rho=0.1)
     processor_manager = TextProcessor()
 
-    post_list: list[rddt.RedditPost] = reddit.get_hot_posts("Trump")
+    post_list: list[rddt.RedditPost] = reddit.get_hot_posts("python", limit=5)
     post_list = processor_manager.clean_posts(post_list)
     database_manager.insert_posts(post_list)
     post_all_annotations, post_all_humans, title_all_annotations, title_all_humans = tagme_manager.tag_posts(post_list)
@@ -227,10 +257,11 @@ def main():
 def bg_main():
     reddit = rddt.Reddit()
     database_manager = db.DatabaseManager()
-    post_list: list[rddt.RedditPost] = reddit.get_hot_posts("PoliticalDiscussion", limit=2)
+    subreddit = "Trump"
+    post_list: list[rddt.RedditPost] = reddit.get_hot_posts(subreddit, limit=10)
     corpus_list: list = []
     for post in post_list:
-        corpus_list.append(generate_corpus(Platform.REDDIT, "PoliticalDiscussion", post.id, post.title, post.selftext))
+        corpus_list.append(generate_corpus(Platform.REDDIT, subreddit, post.id, post.title, post.selftext))
 
     database_manager.insert_posts(post_list)
     database_manager.insert_corpuses(corpus_list)

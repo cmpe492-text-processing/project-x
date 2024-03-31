@@ -63,7 +63,7 @@ class Reddit:
 
     def get_top_posts(self, subreddit, time_filter: TimeFilter = TimeFilter.ALL, limit=10) -> list[RedditPost]:
         posts: list[RedditPost] = []
-        for submission in self.reddit.subreddit(subreddit).top(time_filter=time_filter, limit=limit):
+        for submission in self.reddit.subreddit(subreddit).top(time_filter=time_filter.value, limit=limit):
             post = RedditPost(
                 id=submission.id,
                 author_id=submission.author.id,

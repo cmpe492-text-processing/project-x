@@ -48,24 +48,17 @@ class TextProcessor:
         return re.sub(r'[^\w\s\-\'\.,]', '', txt)
 
     def replace_links(self, txt: str) -> str:
-        # Function to replace plain URLs with '<link>', avoiding markdown links
+
         def replace_plain_links(match):
-            # If the match is a markdown link, return it unchanged
             if re.match(self._markdown_link_pattern, match.group(0)):
                 return match.group(0)
-            # Otherwise, it's a plain URL, so replace it with '<link>'
             return '<link>'
 
-        # First pass: Replace markdown links with their anchor text
         def replace_markdown_link(match):
-            return match.group(1)  # Return the anchor text
+            return match.group(1)
 
-        # Replace markdown links with anchor text
         txt = re.sub(self._markdown_link_pattern, replace_markdown_link, txt)
-
-        # Replace other links with '<link>', being careful not to affect markdown links
         txt = re.sub(r'(\[([^\]]+)\]\((http\S+)\))|' + self._link_pattern, replace_plain_links, txt)
-
         return txt
 
     def lemmatize(self, tks: list[str]) -> list[str]:
@@ -75,11 +68,9 @@ class TextProcessor:
     def pos_tag(self, tks: list[str]) -> list[tuple[str, str]]:
         return self._nltk.pos_tag(tks, tagset='universal')
 
-    def sentiment_analysis(self, txt: str) -> float:
+    def get_sentiment(self, txt: str) -> (float, float, float, float):
         sia = self._nltk.sentiment.SentimentIntensityAnalyzer()
-        print("polarity scores: ", sia.polarity_scores(txt))
-        print("compound: ", sia.polarity_scores(txt)["compound"])
-        return sia.polarity_scores(txt)["compound"]
+        return sia.polarity_scores(txt)["compound"], sia.polarity_scores(txt)["pos"], sia.polarity_scores(txt)["neg"], sia.polarity_scores(txt)["neu"]
 
     def clean_posts(self, posts: list[RedditPost]) -> list[RedditPost]:
         for post in posts:
@@ -91,6 +82,17 @@ class TextProcessor:
     def nlp(self):
         return self._nlp
 
+    def construct_dependency_graph(self, text: str):
+        doc = self._nlp(text)
+        # add begin and end attributes to each token
+        for token in doc:
+            print("token: " + token.__str__())
+            print("repr: " + token.__repr__())
+            print("idx: " + token.idx.__repr__())
+            print("text: " + token.text)
+            print("dep: " + token.dep_)
+            print("head: " + token.head.text)
+            print("children: " + token.children.__str__())
 
 
 """ 
@@ -169,24 +171,13 @@ if __name__ == "__main__":
         "legally own a gun to carry the weapon openly without a permit."
     )
 
-
-
-
-
-
     tokens = processor.tokenize(text)
-    print(tokens)
-    cleaned = processor.clean_text(tokens)
-    print(cleaned)
-    lemmatized = processor.lemmatize(cleaned)
+    lemmatized = processor.lemmatize(tokens)
     print(lemmatized)
     pos_tagged = processor.pos_tag(lemmatized)
     print(pos_tagged)
 
-    sentiment = processor.sentiment_analysis(text)
-    print(sentiment)
-
-    doc = processor.nlp(" ".join(cleaned))
+    doc = processor.nlp(" ".join(tokens))
 
     entity = "carolina"
     entity_span = None
@@ -195,6 +186,7 @@ if __name__ == "__main__":
         if entity in ent.text:
             entity_span = ent
             break
+
 
     # Function to extract sentiment-related words connected to the entity
     def extract_sentiment_phrases(entity_span: Span):
@@ -205,23 +197,23 @@ if __name__ == "__main__":
         return relevant_tokens
 
 
-    # Extract sentiment-relevant tokens for the entity
-    if entity_span:
-        sentiment_tokens = extract_sentiment_phrases(entity_span)
-        sentiment_text = " ".join([token.text for token in sentiment_tokens])
-        print(f"Sentiment-related text for '{entity}': {sentiment_text}")
-
-        # Analyze sentiment of the relevant text
-        sentiment_doc = processor.nlp(sentiment_text)
-        sentiment = processor.sentiment_analysis(sentiment_text)
-        print(f"Sentiment for '{entity}': {sentiment}")
-    else:
-        print(f"Entity '{entity}' not found.")
-
-    for token in doc:
-        print("=========")
-        print(token.text, "->", token.dep_, "->", token.head.text)
-
-    displacy.serve(doc, style="dep", port=6969)
+    # # Extract sentiment-relevant tokens for the entity
+    # if entity_span:
+    #     sentiment_tokens = extract_sentiment_phrases(entity_span)
+    #     sentiment_text = " ".join([token.text for token in sentiment_tokens])
+    #     print(f"Sentiment-related text for '{entity}': {sentiment_text}")
+    #
+    #     # Analyze sentiment of the relevant text
+    #     sentiment_doc = processor.nlp(sentiment_text)
+    #     sentiment = processor.sentiment_analysis(sentiment_text)
+    #     print(f"Sentiment for '{entity}': {sentiment}")
+    # else:
+    #     print(f"Entity '{entity}' not found.")
+    #
+    # for token in doc:
+    #     print("=========")
+    #     print(token.text, "->", token.dep_, "->", token.head.text)
+    #
+    # displacy.serve(doc, style="dep", port=6969)
 
     print("done")
