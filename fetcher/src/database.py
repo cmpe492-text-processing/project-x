@@ -4,20 +4,21 @@ import os
 from dotenv import load_dotenv
 import json
 
-def create_connection():
-    try:
-        # Connect to the database using DATABASE_URL environment variable
-        connection = psycopg2.connect(os.getenv('DATABASE_URL'), sslmode='require')
-        print("Connection to PostgreSQL DB successful")
-        return connection
-    except OperationalError as e:
-        print(f"The error '{e}' occurred")
-        return None
 
 class DatabaseManager:
     def __init__(self):
         load_dotenv('../.env')
-        self.connection = create_connection()
+        self.connection = None
+        self.create_connection()
+
+    def create_connection(self):
+        try:
+            # Connect to the database using DATABASE_URL environment variable
+            connection = psycopg2.connect(os.getenv('DATABASE_URL'), sslmode='require')
+            print("Connection to PostgreSQL DB successful")
+            self.connection = connection
+        except OperationalError as e:
+            print(f"The error '{e}' occurred")
 
     def execute_query(self, query):
         if self.connection is not None:
@@ -39,10 +40,10 @@ class DatabaseManager:
             VALUES (%s, %s, %s::jsonb)
             ON CONFLICT (platform, entry_id) DO NOTHING;
             """
+
             for corpus in corpuses:
                 json_data = json.dumps(corpus, indent=0)
                 values = (corpus['platform'], corpus['id'], json_data)
-
                 try:
                     cursor.execute(query, values)
                     print("Query executed successfully")
@@ -60,11 +61,10 @@ class DatabaseManager:
             VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
             ON CONFLICT (id) DO NOTHING;
             """
-            for post in posts:
-                values = (
-                post.id, post.author_id, post.created_utc, post.name, post.permalink, post.score, post.selftext,
-                post.subreddit, post.title, post.upvote_ratio)
 
+            for post in posts:
+                values = (post.id, post.author_id, post.created_utc, post.name, post.permalink, post.score,
+                          post.selftext, post.subreddit, post.title, post.upvote_ratio)
                 try:
                     cursor.execute(query, values)
                     print("Query executed successfully")

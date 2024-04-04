@@ -6,13 +6,15 @@ from tagme import Annotation
 
 
 def get_wikidata_url_from_curid(curid):
-    wikipedia_api_url = "https://en.wikipedia.org/w/api.php"
+
     params = {
         "action": "query",
         "prop": "pageprops",
         "pageids": curid,
         "format": "json"
     }
+    wikipedia_api_url = "https://en.wikipedia.org/w/api.php"
+
     response = requests.get(wikipedia_api_url, params=params)
     data = response.json()
     try:
@@ -24,6 +26,7 @@ def get_wikidata_url_from_curid(curid):
 
 
 def get_wikidata_item_info(wikidata_item_id):
+
     attempts = 0
     max_attempts = 5
     wikidata_entity_url = f"https://www.wikidata.org/wiki/Special:EntityData/{wikidata_item_id}.json"
@@ -73,9 +76,11 @@ class TagmeManager:
         annotations = tagme.annotate(selftext)
         print(selftext)
         humans = []
+
         if annotations is None:
             print(f"No annotations found for the text {selftext}.")
             return [], []
+
         for ann in annotations.get_annotations(self.rho):
             wikidata_item_info = get_wikidata_item_info(get_wikidata_url_from_curid(ann.entity_id))
             if wikidata_item_info is not None and 'P31' in wikidata_item_info:
@@ -92,21 +97,6 @@ class TagmeManager:
                             print(f"Human entity found: {human}")
                             humans.append(human)
 
-        # for human in humans:
-        #     relatedness_scores = []
-        #     for annotation in annotations.get_annotations(self.rho):
-        #         if annotation.entity_id != human['entity_id']:
-        #             relations = tagme.relatedness_wid((human['entity_id'], annotation.entity_id))
-        #             for relatedness in relations.relatedness:
-        #                 if relatedness.rel > 0.25:
-        #                     relatedness_scores.append({
-        #                         'begin': annotation.begin,
-        #                         'end': annotation.end,
-        #                         'entity_id': annotation.entity_id,
-        #                         'entity_title': annotation.entity_title,
-        #                         'score': relatedness.rel
-        #                     })
-        #     human['relatedness_scores'] = relatedness_scores
         for human in humans:
             print(f"Processing relatedness scores for human entity {human['entity_title']}.")
 

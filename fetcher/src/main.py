@@ -19,76 +19,6 @@ class Platform(enum.Enum):
         return self.value
 
 
-"""
-    list[Corpuses]
-    [
-        {
-            platform: "reddit/politics",
-            id: "123",
-            title: "title",
-            body: "body",
-            sentiment: 0.5, # -1 to 1
-            entities: [
-                {
-                    name: "entity1",
-                    location: "title",
-                    begin: 0,
-                    end: 5,
-                    sentiment: 0.5,
-                    wiki_id: "Q123",
-                    wiki_info: {
-                        P31: ["Q5"],
-                        P21: ["Q123"],
-                        P17: ["Q456"]
-                    }, 
-                    dependent_entities: [
-                        {
-                            name: "entity2",
-                            relatedness: 0.5
-                            sentiment: 0.5
-                        }, 
-                        {
-                            name: "entity3",
-                            relatedness: 0.5
-                            sentiment: 0.5
-                        }
-                    ]
-                }, 
-                {
-                    name: "entity2",
-                    location: "body",
-                    begin: 10,
-                    end: 20,
-                    sentiment: 0.5,
-                    related_entities: [
-                        {
-                            name: "entity1",
-                            relatedness: 0.5
-                            sentiment: 0.5
-                        }, 
-                        {
-                            name: "entity3",
-                            relatedness: 0.5
-                            sentiment: 0.5
-                        }
-                    ]
-                }
-            ]  
-        },
-        {
-
-        }
-        .
-        .
-        .
-        {
-
-        }
-    ]
-
-"""
-
-
 def find_closest_match(original_text, mention, start_index):
     pattern = re.escape(mention)
     for match in re.finditer(pattern, original_text, re.IGNORECASE):
@@ -100,6 +30,7 @@ def find_closest_match(original_text, mention, start_index):
 def adjust_entity_indices(original_text, entity):
     cleaned_begin = entity['begin']
     mention = entity['mention']
+
     original_index = original_text.find(mention, cleaned_begin - 5 if cleaned_begin > 5 else 0)
     if original_index != -1:
         entity['begin'] = original_index
@@ -117,6 +48,7 @@ def generate_corpus(platform: Platform,
                     platform_id: str,
                     title: str,
                     body: str) -> dict:
+
     corpus: dict = {"platform": platform.value + "/" + platform_ext if platform_ext else platform.value,
                     "id": platform_id,
                     "title": title,
@@ -254,7 +186,7 @@ def main():
     print(title_all_humans)
 
 
-def bg_main():
+def other_main():
     reddit = rddt.Reddit()
     database_manager = db.DatabaseManager()
     subreddit = "Trump"
@@ -269,5 +201,4 @@ def bg_main():
 
 
 if __name__ == "__main__":
-    # main()
-    bg_main()
+    other_main()

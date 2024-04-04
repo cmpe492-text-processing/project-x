@@ -31,7 +31,7 @@ class TextProcessor:
         txt = self.lowercase(txt)
         txt = self.replace_links(txt)
         txt = self.remove_punctuation(txt)
-        # txt = self.replace_stopwords(txt)
+        # txt = self.replace_stopwords(txt) ### we are not moving forward with stopword removal
         return txt
 
     def replace_stopwords(self, txt: str) -> str:
@@ -95,76 +95,8 @@ class TextProcessor:
             print("children: " + token.children.__str__())
 
 
-""" 
-    list[Corpuses]
-    [
-        {
-            platform: "reddit/politics",
-            id: "123",
-            title: "title",
-            body: "body",
-            sentiment: 0.5, # -1 to 1
-            entities: [
-                {
-                    name: "entity1",
-                    location: "title",
-                    begin: 0,
-                    end: 5,
-                    sentiment: 0.5,
-                    wiki_id: "Q123",
-                    wiki_info: {
-                        P31: ["Q5"],
-                        P21: ["Q123"],
-                        P17: ["Q456"]
-                    }, 
-                    dependent_entities: [
-                        {
-                            name: "entity2",
-                            relatedness: 0.5
-                            sentiment: 0.5
-                        }, 
-                        {
-                            name: "entity3",
-                            relatedness: 0.5
-                            sentiment: 0.5
-                        }
-                    ]
-                }, 
-                {
-                    name: "entity2",
-                    location: "body",
-                    begin: 10,
-                    end: 20,
-                    sentiment: 0.5,
-                    related_entities: [
-                        {
-                            name: "entity1",
-                            relatedness: 0.5
-                            sentiment: 0.5
-                        }, 
-                        {
-                            name: "entity3",
-                            relatedness: 0.5
-                            sentiment: 0.5
-                        }
-                    ]
-                }
-            ]  
-        },
-        {
-            
-        }
-        .
-        .
-        .
-        {
-            
-        }
-    ]
-    
-"""
-
 if __name__ == "__main__":
+
     processor = TextProcessor()
     text = (
         "South Carolina Gov, Henry McMaster held a ceremony Tuesday to spotlight a new law allowing any adult who can "
@@ -187,7 +119,6 @@ if __name__ == "__main__":
             entity_span = ent
             break
 
-
     # Function to extract sentiment-related words connected to the entity
     def extract_sentiment_phrases(entity_span: Span):
         relevant_tokens = []
@@ -196,24 +127,21 @@ if __name__ == "__main__":
                 relevant_tokens.append(token)
         return relevant_tokens
 
+    if entity_span:
+        sentiment_tokens = extract_sentiment_phrases(entity_span)
+        sentiment_text = " ".join([token.text for token in sentiment_tokens])
+        print(f"Sentiment-related text for '{entity}': {sentiment_text}")
 
-    # # Extract sentiment-relevant tokens for the entity
-    # if entity_span:
-    #     sentiment_tokens = extract_sentiment_phrases(entity_span)
-    #     sentiment_text = " ".join([token.text for token in sentiment_tokens])
-    #     print(f"Sentiment-related text for '{entity}': {sentiment_text}")
-    #
-    #     # Analyze sentiment of the relevant text
-    #     sentiment_doc = processor.nlp(sentiment_text)
-    #     sentiment = processor.sentiment_analysis(sentiment_text)
-    #     print(f"Sentiment for '{entity}': {sentiment}")
-    # else:
-    #     print(f"Entity '{entity}' not found.")
-    #
-    # for token in doc:
-    #     print("=========")
-    #     print(token.text, "->", token.dep_, "->", token.head.text)
-    #
-    # displacy.serve(doc, style="dep", port=6969)
+        # Analyze sentiment of the relevant text
+        sentiment_doc = processor.nlp(sentiment_text)
+        sentiment = processor.sentiment_analysis(sentiment_text)
+        print(f"Sentiment for '{entity}': {sentiment}")
+    else:
+        print(f"Entity '{entity}' not found.")
 
+    for token in doc:
+        print("=========")
+        print(token.text, "->", token.dep_, "->", token.head.text)
+
+    displacy.serve(doc, style="dep", port=6969)
     print("done")
