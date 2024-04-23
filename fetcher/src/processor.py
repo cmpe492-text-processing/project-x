@@ -35,7 +35,7 @@ class TextProcessor:
         return txt
 
     @staticmethod
-    def get_sentiment_scores(self, sentence: str) -> (float, float, float, float):
+    def get_sentiment_scores(sentence: str) -> (float, float, float, float):
         sia = SentimentIntensityAnalyzer()
         scores = sia.polarity_scores(sentence)
         return scores['compound'], scores['pos'], scores['neg'], scores['neu']

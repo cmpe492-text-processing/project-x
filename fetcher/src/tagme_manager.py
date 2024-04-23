@@ -72,6 +72,16 @@ class TagmeManager:
 
         return post_all_annotations, post_all_humans, title_all_annotations, title_all_humans
 
+    @staticmethod
+    def get_annotation_info(annotation):
+        info = get_wikidata_item_info(get_wikidata_url_from_curid(annotation.entity_id))
+
+        for key, value in info.items():
+            value = list(map(lambda x: x['mainsnak']['datavalue']['value']['id'], value))
+            info[key] = value
+
+        return info
+
     def process_text(self, selftext):
         annotations = tagme.annotate(selftext)
         print(selftext)
@@ -122,5 +132,5 @@ class TagmeManager:
         try:
             return tagme.annotate(txt).get_annotations(self.rho)
         except Exception as e:
-            print(f"Error tagging text: {e}")
+            print(f"Error tagging text: {e.__str__()}")
             return []

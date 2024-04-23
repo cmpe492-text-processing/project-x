@@ -63,11 +63,22 @@ def generate_corpus(platform: Platform,
                     platform_id: str,
                     title: str,
                     body: str) -> dict:
+    """
+    Generate a corpus from the given parameters.
+
+    :param platform:        platform
+    :param platform_ext:    platform extension
+    :param platform_id:     platform id
+    :param title:           title
+    :param body:            body
+    :return:                corpus dictionary
+    """
+
     corpus: dict = {"platform": platform.value + "/" + platform_ext if platform_ext else platform.value,
                     "id": platform_id,
                     "title": title,
                     "body": body,
-                    "version": 2}
+                    "version": 3}
 
     # clean text - remove special characters, remove stopwords, lower case, etc
     text_processor = TextProcessor()
@@ -98,8 +109,11 @@ def generate_corpus(platform: Platform,
             "sentiment": None,
             "wiki_id": annotation.entity_id,
             "wiki_info": {},
-            "dependent_entities": []
         }
+
+        info = tagme_manager.get_annotation_info(annotation)
+        entity['wiki_info'] = info
+
         adjusted_entity = adjust_entity_indices(title, entity)
         entities.append(adjusted_entity)
 
@@ -114,7 +128,6 @@ def generate_corpus(platform: Platform,
             "sentiment": None,
             "wiki_id": annotation.entity_id,
             "wiki_info": {},
-            "dependent_entities": []
         }
         adjusted_entity = adjust_entity_indices(body, entity)
         entities.append(adjusted_entity)
@@ -180,7 +193,7 @@ def main():
     tagme_manager = TagmeManager(rho=0.1)
     processor_manager = TextProcessor()
 
-    post_list: list[rddt.RedditPost] = reddit.get_hot_posts("python", limit=5)
+    post_list: list[rddt.RedditPost] = reddit.get_hot_posts("python", limit=2)
     post_list = processor_manager.clean_posts(post_list)
     database_manager.insert_posts(post_list)
     post_all_annotations, post_all_humans, title_all_annotations, title_all_humans = tagme_manager.tag_posts(post_list)
