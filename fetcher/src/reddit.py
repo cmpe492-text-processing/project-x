@@ -64,19 +64,22 @@ class Reddit:
     def get_top_posts(self, subreddit, time_filter: TimeFilter = TimeFilter.ALL, limit=10) -> list[RedditPost]:
         posts: list[RedditPost] = []
         for submission in self.reddit.subreddit(subreddit).top(time_filter=time_filter.value, limit=limit):
-            post = RedditPost(
-                id=submission.id,
-                author_id=submission.author.id,
-                created_utc=submission.created_utc,
-                name=submission.name,
-                permalink=submission.permalink,
-                score=submission.score,
-                selftext=submission.selftext,
-                subreddit=submission.subreddit.display_name,
-                title=submission.title,
-                upvote_ratio=submission.upvote_ratio
-            )
-            posts.append(post)
+            try:
+                post = RedditPost(
+                    id=submission.id,
+                    author_id=submission.author.id,
+                    created_utc=submission.created_utc,
+                    name=submission.name,
+                    permalink=submission.permalink,
+                    score=submission.score,
+                    selftext=submission.selftext,
+                    subreddit=submission.subreddit.display_name,
+                    title=submission.title,
+                    upvote_ratio=submission.upvote_ratio
+                )
+                posts.append(post)
+            except Exception as e:
+                print(e)
 
         return posts
 
