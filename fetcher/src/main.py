@@ -3,7 +3,6 @@ import json
 import os
 import re
 
-from nltk.sentiment import SentimentIntensityAnalyzer
 from nltk.tokenize import sent_tokenize
 from tagme import Annotation
 
@@ -204,7 +203,7 @@ def main():
 def other_main():
     reddit = rddt.Reddit()
     database_manager = db.DatabaseManager()
-    subreddit = "Trump"
+    subreddit = "Politics"
     post_list: list[rddt.RedditPost] = reddit.get_hot_posts(subreddit, limit=8)
     corpus_list: list = []
     for post in post_list:

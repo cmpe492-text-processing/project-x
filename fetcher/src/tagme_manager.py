@@ -119,15 +119,26 @@ class TagmeManager:
                 continue
 
             for item in value:
+                try:
+                    item = item['mainsnak']['datavalue']['value']['id']
+                except KeyError:
+                    continue
+
+                if key not in final:
+                    final[key] = []
+
+                if item not in final[key]:
+                    final[key].append(item)
+
+        """
+            for item in value:
                 item = item['mainsnak']['datavalue']['value']['id']
                 if key not in final:
                     final[key] = []
                 name = TagmeManager.get_wikidata_name(item)
                 if name is not None:
                     final[key].append((item, name))
-
-        for key, value in final.items():
-            final[key] = list(set(value))
+        """
 
         return final
 
