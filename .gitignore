@@ -1,5 +1,7 @@
 .DS_Store
-fetcher/.env
+.env
 .idea
 fetcher/src/reddit/__pycache__
 fetcher/src/__pycache__
+data/*
+vision/src/graphs
