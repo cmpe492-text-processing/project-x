@@ -78,3 +78,15 @@ class DatabaseManager:
         if self.connection is not None:
             self.connection.close()
             print("Database connection closed.")
+
+    def get_corpuses(self):
+        if self.connection is not None:
+            cursor = self.connection.cursor()
+            query = "SELECT * FROM corpuses"
+            try:
+                cursor.execute(query)
+                corpuses = cursor.fetchall()
+                return corpuses
+            except OperationalError as e:
+                print(f"The error '{e}' occurred")
+        return None

@@ -7,6 +7,7 @@ from fetcher.src.processor import TextProcessor
 from fetcher.src.tagme_manager import TagmeManager
 import json
 import re
+import os
 
 DEBUG = True
 
@@ -200,5 +201,25 @@ def other_main():
     print(json.dumps(corpus_list, indent=2))
 
 
+def exporter():
+    dbmng = db.DatabaseManager()
+    corpuses = dbmng.get_corpuses()
+    corpuses = [corp[3] for corp in corpuses]
+
+    raw_dir = '../../data/raw/'
+    pattern = re.compile(r'corpus(\d+)\.json')
+    files = os.listdir(raw_dir)
+    used_nums = {int(match.group(1)) for match in (pattern.match(f) for f in files) if match}
+    max_num = max(used_nums) if used_nums else 0
+    available_num = next((num for num in range(1, max_num + 2) if num not in used_nums), 1)
+
+    new_filename = f'corpus{available_num}.json'
+
+    with open(raw_dir + new_filename, 'w') as f:
+        json.dump(corpuses, f, indent=2)
+        print(f'Exported {len(corpuses)} corpuses to {new_filename}')
+
+
 if __name__ == "__main__":
-    other_main()
+    exporter()
+
