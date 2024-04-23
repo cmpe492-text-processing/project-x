@@ -1,15 +1,18 @@
 import enum
+import json
+import os
+import re
 
+from nltk.sentiment import SentimentIntensityAnalyzer
+from nltk.tokenize import sent_tokenize
 from tagme import Annotation
-from fetcher.src import reddit as rddt
+
 import database as db
+from fetcher.src import reddit as rddt
 from fetcher.src.processor import TextProcessor
 from fetcher.src.tagme_manager import TagmeManager
-import json
-import re
-import os
 
-DEBUG = True
+DEBUG = False
 
 
 class Platform(enum.Enum):
@@ -44,16 +47,27 @@ def adjust_entity_indices(original_text, entity):
     return entity
 
 
+def find_full_sentence(doc, start_idx, end_idx):
+    """
+    This function finds the full sentence that contains the entity based on starting and ending index.
+    """
+    sentences = sent_tokenize(doc.text)
+    for sentence in sentences:
+        if doc.text.find(sentence) <= start_idx and doc.text.find(sentence) + len(sentence) >= end_idx:
+            return sentence
+    return ""
+
+
 def generate_corpus(platform: Platform,
                     platform_ext: str,
                     platform_id: str,
                     title: str,
                     body: str) -> dict:
-
     corpus: dict = {"platform": platform.value + "/" + platform_ext if platform_ext else platform.value,
                     "id": platform_id,
                     "title": title,
-                    "body": body}
+                    "body": body,
+                    "version": 2}
 
     # clean text - remove special characters, remove stopwords, lower case, etc
     text_processor = TextProcessor()
@@ -120,6 +134,7 @@ def generate_corpus(platform: Platform,
             # concurrent modification exception?
             entities.remove(entity)
 
+    # Process title and body with NLP
     title_doc = text_processor.nlp(title)
     body_doc = text_processor.nlp(body)
 
@@ -129,39 +144,25 @@ def generate_corpus(platform: Platform,
         elif entity['location'] == 'body':
             entity_doc = body_doc
         else:
-            entities.remove(entity)
-            continue
+            continue  # Skip if location is not title or body
 
-        # find the entity itself
+        # find the entity itself and its boundaries
         dependent_tokens = []
         for token in entity_doc:
-            if entity['begin'] <= token.idx <= entity['end']:
+            if entity['begin'] <= token.idx < entity['end']:
                 dependent_tokens.append(token)
 
-        # find related entities using dep_ attribute
-        for token in dependent_tokens:
-            # search the subtree
-            for child in token.subtree:
-                if child not in dependent_tokens:
-                    dependent_tokens.append(child)
+        if not dependent_tokens:
+            continue
 
-        dependent_entities = []
-        for token in dependent_tokens:
-            dependent_entity = {
-                "name": token.text,
-                "begin": token.idx,
-                "end": token.idx + len(token.text)
-            }
-            dependent_entities.append(dependent_entity)
+        # Extend to full sentence for context
+        min_index = min(token.idx for token in dependent_tokens)
+        max_index = max(token.idx + len(token.text) for token in dependent_tokens)
+        full_sentence = find_full_sentence(entity_doc, min_index, max_index)
 
-        entity['dependent_entities'] = dependent_entities
+        entity['sentence'] = full_sentence
 
-        # find the max and min index to extract the sentence
-        min_index = min([token.idx for token in dependent_tokens], default=0)
-        max_index = max([token.idx + len(token.text) for token in dependent_tokens], default=0)
-        sentence = entity_doc.text[min_index:max_index]
-        entity['sentence'] = sentence
-        comp, pos, neg, neu = text_processor.get_sentiment(sentence)
+        comp, pos, neg, neu = text_processor.get_sentiment_scores(full_sentence)
         entity['sentiment'] = {
             "compound": comp,
             "positive": pos,
@@ -191,7 +192,7 @@ def other_main():
     reddit = rddt.Reddit()
     database_manager = db.DatabaseManager()
     subreddit = "Trump"
-    post_list: list[rddt.RedditPost] = reddit.get_hot_posts(subreddit, limit=10)
+    post_list: list[rddt.RedditPost] = reddit.get_hot_posts(subreddit, limit=8)
     corpus_list: list = []
     for post in post_list:
         corpus_list.append(generate_corpus(Platform.REDDIT, subreddit, post.id, post.title, post.selftext))
@@ -221,5 +222,4 @@ def exporter():
 
 
 if __name__ == "__main__":
-    exporter()
-
+    other_main()

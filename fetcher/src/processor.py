@@ -34,6 +34,12 @@ class TextProcessor:
         # txt = self.replace_stopwords(txt) ### we are not moving forward with stopword removal
         return txt
 
+    @staticmethod
+    def get_sentiment_scores(self, sentence: str) -> (float, float, float, float):
+        sia = SentimentIntensityAnalyzer()
+        scores = sia.polarity_scores(sentence)
+        return scores['compound'], scores['pos'], scores['neg'], scores['neu']
+
     def replace_stopwords(self, txt: str) -> str:
         stop_words = set(self._nltk.corpus.stopwords.words('english'))
         return " ".join([word for word in txt.split() if word not in stop_words])
