@@ -7,7 +7,7 @@ import json
 
 class DatabaseManager:
     def __init__(self):
-        load_dotenv('../.env')
+        load_dotenv('../../.env')
         self.connection = None
         self.create_connection()
 

@@ -89,7 +89,7 @@ def get_wikidata_item_info_general(wikidata_item_id):
 class TagmeManager:
 
     def __init__(self, rho):
-        load_dotenv('../.env')
+        load_dotenv('../../.env')
         self.api_key = os.getenv('TAGME_API_KEY')
         tagme.GCUBE_TOKEN = self.api_key
         self.rho = rho
@@ -210,4 +210,13 @@ class TagmeManager:
                 attempts += 1
 
         return None
+
+    def relatedness_score(self, wid1, wid2):
+        try:
+            relations = tagme.relatedness_wid((wid1, wid2))
+            for relation in relations.relatedness:
+                return relation.rel
+        except Exception as e:
+            print(f"Error fetching relatedness score: {e}")
+            return None
 
