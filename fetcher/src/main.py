@@ -78,7 +78,7 @@ def generate_corpus(platform: Platform,
                     "id": platform_id,
                     "title": title,
                     "body": body,
-                    "version": 3}
+                    "version": 4}
 
     # clean text - remove special characters, remove stopwords, lower case, etc
     text_processor = TextProcessor()

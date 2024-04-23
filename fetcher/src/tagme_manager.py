@@ -6,7 +6,6 @@ from tagme import Annotation
 
 
 def get_wikidata_url_from_curid(curid):
-
     params = {
         "action": "query",
         "prop": "pageprops",
@@ -26,7 +25,6 @@ def get_wikidata_url_from_curid(curid):
 
 
 def get_wikidata_item_info(wikidata_item_id):
-
     attempts = 0
     max_attempts = 5
     wikidata_entity_url = f"https://www.wikidata.org/wiki/Special:EntityData/{wikidata_item_id}.json"
@@ -40,6 +38,45 @@ def get_wikidata_item_info(wikidata_item_id):
                 'P21': data.get('entities', {}).get(wikidata_item_id, {}).get('claims', {}).get('P21', []),
                 'P17': data.get('entities', {}).get(wikidata_item_id, {}).get('claims', {}).get('P17', [])
             }
+            return item_info
+        else:
+            attempts += 1
+            print(f"Attempt {attempts}/{max_attempts} failed with status code {response.status_code}. Retrying...")
+
+    print("Error fetching Wikidata API data after maximum attempts.")
+    return {}
+
+
+def get_wikidata_item_info_general(wikidata_item_id):
+    attempts = 0
+    max_attempts = 5
+    wikidata_entity_url = f"https://www.wikidata.org/wiki/Special:EntityData/{wikidata_item_id}.json"
+
+    while attempts < max_attempts:
+        response = requests.get(wikidata_entity_url)
+        if response.status_code == 200:
+            data = response.json()
+            # https://hay.toolforge.org/propbrowse/
+            item_info = {
+                'instance of': data.get('entities', {}).get(wikidata_item_id, {}).get('claims', {}).get('P31', []),
+                'sex or gender': data.get('entities', {}).get(wikidata_item_id, {}).get('claims', {}).get('P21', []),
+                'country': data.get('entities', {}).get(wikidata_item_id, {}).get('claims', {}).get('P17', []),
+                'occupation': data.get('entities', {}).get(wikidata_item_id, {}).get('claims', {}).get('P106', []),
+                'given name': data.get('entities', {}).get(wikidata_item_id, {}).get('claims', {}).get('P735', []),
+                'date of birth': data.get('entities', {}).get(wikidata_item_id, {}).get('claims', {}).get('P569', []),
+                'date of death': data.get('entities', {}).get(wikidata_item_id, {}).get('claims', {}).get('P570', []),
+                'place of birth': data.get('entities', {}).get(wikidata_item_id, {}).get('claims', {}).get('P19', []),
+                'place of death': data.get('entities', {}).get(wikidata_item_id, {}).get('claims', {}).get('P20', []),
+                'country of citizenship': data.get('entities', {}).get(wikidata_item_id, {}).get('claims', {}).get(
+                    'P27', []),
+                'educated at': data.get('entities', {}).get(wikidata_item_id, {}).get('claims', {}).get('P69', []),
+                'employer': data.get('entities', {}).get(wikidata_item_id, {}).get('claims', {}).get('P108', []),
+                'award received': data.get('entities', {}).get(wikidata_item_id, {}).get('claims', {}).get('P166', []),
+                'position held': data.get('entities', {}).get(wikidata_item_id, {}).get('claims', {}).get('P39', []),
+                'work location': data.get('entities', {}).get(wikidata_item_id, {}).get('claims', {}).get('P937', []),
+                'field of work': data.get('entities', {}).get(wikidata_item_id, {}).get('claims', {}).get('P101', []),
+            }
+
             return item_info
         else:
             attempts += 1
@@ -74,13 +111,25 @@ class TagmeManager:
 
     @staticmethod
     def get_annotation_info(annotation):
-        info = get_wikidata_item_info(get_wikidata_url_from_curid(annotation.entity_id))
+        info = get_wikidata_item_info_general(get_wikidata_url_from_curid(annotation.entity_id))
 
+        final = {}
         for key, value in info.items():
-            value = list(map(lambda x: x['mainsnak']['datavalue']['value']['id'], value))
-            info[key] = value
+            if len(value) == 0:
+                continue
 
-        return info
+            for item in value:
+                item = item['mainsnak']['datavalue']['value']['id']
+                if key not in final:
+                    final[key] = []
+                name = TagmeManager.get_wikidata_name(item)
+                if name is not None:
+                    final[key].append((item, name))
+
+        for key, value in final.items():
+            final[key] = list(set(value))
+
+        return final
 
     def process_text(self, selftext):
         annotations = tagme.annotate(selftext)
@@ -134,3 +183,20 @@ class TagmeManager:
         except Exception as e:
             print(f"Error tagging text: {e.__str__()}")
             return []
+
+    @staticmethod
+    def get_wikidata_name(curid):
+        attempts = 0
+        max_attempts = 5
+        wikidata_entity_url = f"https://www.wikidata.org/wiki/Special:EntityData/{curid}.json"
+
+        while attempts < max_attempts:
+            response = requests.get(wikidata_entity_url)
+            if response.status_code == 200:
+                data = response.json()
+                return data['entities'][curid]['labels']['en']['value']
+            else:
+                attempts += 1
+
+        return None
+
