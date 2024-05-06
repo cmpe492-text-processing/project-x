@@ -130,6 +130,9 @@ def generate_corpus(platform: Platform,
             "wiki_id": annotation.entity_id,
             "wiki_info": {},
         }
+        info = tagme_manager.get_annotation_info(annotation)
+        entity['wiki_info'] = info
+
         adjusted_entity = adjust_entity_indices(body, entity)
         entities.append(adjusted_entity)
 
@@ -215,15 +218,16 @@ def main():
     post_list: list[rddt.RedditPost] = reddit.get_hot_posts("python", limit=2)
     post_list = processor_manager.clean_posts(post_list)
     database_manager.insert_posts(post_list)
-    post_all_annotations, post_all_humans, title_all_annotations, title_all_humans = tagme_manager.tag_posts(post_list)
-    print(post_all_humans)
-    print(title_all_humans)
+    post_all_annotations, title_all_annotations = tagme_manager.tag_posts(post_list)
+    print(post_all_annotations)
+    print(title_all_annotations)
 
 
 def other_main():
     reddit = rddt.Reddit()
     database_manager = db.DatabaseManager()
-    subreddits = ["trump", "politics", "elections", "democrats", "republican", "PoliticalDiscussion"]
+    # subreddits = ["trump", "politics", "elections", "democrats", "republican", "PoliticalDiscussion"]
+    subreddits = ['trump']
     for subreddit in subreddits:
         post_list: list[rddt.RedditPost] = reddit.get_hot_posts(subreddit, limit=3)
 
@@ -236,6 +240,8 @@ def other_main():
 
         print(
             f"Inserting {len(post_list)} posts and {len(corpus_list)} corpuses into the database related to {subreddit}.")
+        print(post_list)
+        print(corpus_list)
         database_manager.insert_posts(post_list)
         database_manager.insert_corpuses(corpus_list)
 

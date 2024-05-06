@@ -180,6 +180,8 @@ def main():
 
     # Read the data from the file
     data = read_json_file(processed_data_filepath)
+    # gather_result_json = gather_instance_of(data)
+
 
     # Ensure the data is a list
     if not isinstance(data, list):
@@ -198,6 +200,26 @@ def main():
     for fig_num, data_chunk in enumerate(chunk_data(data, 50)):
         graph, pos, labels, colors, sizes = create_graph(data_chunk)
         draw_graph(graph, pos, labels, colors, sizes, text_label, fig_num)
+
+
+def gather_instance_of(data):
+    result_json = {}
+    for post in data:
+        entities = post.get("entities", [])
+        for entity in entities:
+            wiki_info = entity.get("wiki_info", {})
+            instance_of = wiki_info.get("instance of", [])
+            if 'Q5' in instance_of:
+                result_json['humans'] = result_json.get('humans', [])
+                result_json['humans'].append(entity)
+            if 'Q7278' in instance_of:
+                result_json['political_parties'] = result_json.get('political_parties', [])
+                result_json['political_parties'].append(entity)
+            if 'Q7275' in instance_of:
+                result_json['states'] = result_json.get('states', [])
+                result_json['states'].append(entity)
+
+    return result_json
 
 
 if __name__ == "__main__":

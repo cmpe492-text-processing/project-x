@@ -1,0 +1,883 @@
+Q5	human
+Q6581097	male
+Q7210362	political party committee
+Q47566	United States presidential election
+Q1920219	social issue
+Q20820018	elements of an offence
+Q3624078	sovereign state
+Q35657	U.S. state
+Q74817647	aspect in a geographic region
+Q12340140	weekly magazine
+Q5741069	rock band
+Q24333627	United States Senate election
+Q7278	political party
+Q8488433	Category:Georgia (U.S. state) elections
+Q2145277	house of representatives
+Q1093829	city in the United States
+Q13410438	county of Indiana
+Q2438541	manner of death
+Q1114461	comics character
+Q191600	civil and political rights
+Q11828004	province of Canada
+Q96251598	type of object
+Q4830453	business
+Q2570643	senate
+Q4182287	web search engine
+Q12909644	political ideology
+Q930933	relation
+Q33104069	political concept
+Q1768043	metropolitan statistical area
+Q1006644	federal government
+Q131569	treaty
+Q11481802	dub actor
+Q13610143	Mark
+Q17042	Oakland
+Q30	United States of America
+Q1727138	Los Angeles City College
+Q1150306	Disney Legends
+Q5300150	Doublespeak Award
+Q911554	business magnate
+Q13422248	Donald
+Q97354861	Jamaica Hospital Medical Center
+Q130965	Fordham University
+Q17985761	star on Hollywood Walk of Fame
+Q11696	President of the United States
+Q60	New York City
+Q10494269	real property
+Q145	United Kingdom
+Q935843	Grammy Lifetime Achievement Award
+Q851436	bodyguard
+Q14516546	Daniel
+Q16	Canada
+Q82955	politician
+Q471788	Joseph
+Q271395	Scranton
+Q617433	Syracuse University
+Q49117	University of Pennsylvania
+Q22303943	Order of the Three Stars, 2nd Class
+Q11699	Vice President of the United States
+Q61	Washington, D.C.
+Q7748	law
+Q3282637	film producer
+Q1342	Pittsburgh
+Q1079140	Indiana University Bloomington
+Q17279032	elective office
+Q6581072	female
+Q6437836	Kristi
+Q1065503	Watertown
+Q2302260	South Dakota State University
+Q19360976	member of the South Dakota House of Representatives
+Q11451	agriculture
+Q1139665	political murder
+Q31629	type of sport
+Q110530811	BigBrotherAwards
+Q5	human
+Q6581097	male
+Q3282637	film producer
+Q33999	actor
+Q2259451	stage actor
+Q10798782	television actor
+Q2526255	film director
+Q10800557	film actor
+Q2405480	voice actor
+Q36180	writer
+Q1249148	Richard
+Q17042	Oakland
+Q30	United States of America
+Q6138766	James Madison High School
+Q4767927	Annandale High School
+Q2687578	Inkpot Award
+Q64588497	accounting term
+Q11862829	academic discipline
+Q151885	concept
+Q116505632	type of process
+Q20820018	elements of an offence
+Q1920219	social issue
+Q20820018	elements of an offence
+Q5	human
+Q6581097	male
+Q3282637	film producer
+Q7301138	real estate entrepreneur
+Q131524	entrepreneur
+Q36180	writer
+Q33999	actor
+Q484876	chief executive officer
+Q43845	businessperson
+Q82955	politician
+Q22662561	game show host
+Q19831149	conspiracy theorist
+Q215536	merchant
+Q3427922	restaurateur
+Q578109	television producer
+Q557880	investor
+Q4925477	John
+Q97354861	Jamaica Hospital Medical Center
+Q60	New York City
+Q30	United States of America
+Q49117	University of Pennsylvania
+Q7013764	New York Military Academy
+Q1329269	The Wharton School
+Q7744153	The Kew-Forest School
+Q2663492	Order of the Mohammedi
+Q207826	Time Person of the Year
+Q93923	Order of King Abdulaziz al Saud
+Q104858002	Order of Freedom
+Q105308519	King Abdulaziz Medal
+Q36001	WWE Hall of Fame
+Q5300150	Doublespeak Award
+Q184253	Ig Nobel Prize
+Q6189894	Jewish National Fund Tree of Life Award
+Q641316	Golden Raspberry Award for Worst Supporting Actor
+Q604370	Time 100
+Q112451	Presidential Order of Excellence
+Q5365910	Ellis Island Medal of Honor
+Q5449677	Financial Times Person of the Year
+Q5520192	Gaming Hall of Fame
+Q1467287	President-elect of the United States
+Q140686	chairperson
+Q1162163	director
+Q1255921	president
+Q60	New York City
+Q61	Washington, D.C.
+Q7163	politics
+Q7188	government
+Q1407228	television production
+Q26643	commerce
+Q113489728	OECD country
+Q5255892	democratic republic
+Q1520223	constitutional republic
+Q512187	federal republic
+Q1489259	superpower
+Q99541706	historical unrecognized state
+Q6256	country
+Q30	United States of America
+Q35657	U.S. state
+Q30	United States of America
+Q74817647	aspect in a geographic region
+Q30	United States of America
+Q5	human
+Q6581097	male
+Q3282637	film producer
+Q7301138	real estate entrepreneur
+Q131524	entrepreneur
+Q36180	writer
+Q33999	actor
+Q484876	chief executive officer
+Q43845	businessperson
+Q82955	politician
+Q22662561	game show host
+Q19831149	conspiracy theorist
+Q215536	merchant
+Q3427922	restaurateur
+Q578109	television producer
+Q13422248	Donald
+Q4925477	John
+Q97354861	Jamaica Hospital Medical Center
+Q60	New York City
+Q30	United States of America
+Q7013764	New York Military Academy
+Q49117	University of Pennsylvania
+Q2663492	Order of the Mohammedi
+Q207826	Time Person of the Year
+Q93923	Order of King Abdulaziz al Saud
+Q104858002	Order of Freedom
+Q105308519	King Abdulaziz Medal
+Q36001	WWE Hall of Fame
+Q5300150	Doublespeak Award
+Q184253	Ig Nobel Prize
+Q641316	Golden Raspberry Award for Worst Supporting Actor
+Q604370	Time 100
+Q112451	Presidential Order of Excellence
+Q5449677	Financial Times Person of the Year
+Q5520192	Gaming Hall of Fame
+Q1162163	director
+Q60	New York City
+Q61	Washington, D.C.
+Q7163	politics
+Q26643	commerce
+Q12340140	weekly magazine
+Q30	United States of America
+Q5741069	rock band
+Q145	United Kingdom
+Q179191	Rock and Roll Hall of Fame
+Q24333627	United States Senate election
+Q30	United States of America
+Q7278	political party
+Q30	United States of America
+Q35657	U.S. state
+Q30	United States of America
+Q8488433	Category:Georgia (U.S. state) elections
+Q74817647	aspect in a geographic region
+Q30	United States of America
+Q7278	political party
+Q30	United States of America
+Q115456878	legislative branch agency
+Q110315658	elected legislative house
+Q471855	jurisdiction
+Q30	United States of America
+Q1093829	city in the United States
+Q30	United States of America
+Q13410438	county of Indiana
+Q30	United States of America
+Q1549591	big city
+Q30	United States of America
+Q7278	political party
+Q30	United States of America
+Q2438541	manner of death
+Q115456878	legislative branch agency
+Q30	United States of America
+Q15632617	fictional human
+Q15773317	television character
+Q20085850	fictional vigilante
+Q6581097	male
+Q11124885	martial artist
+Q3190387	vigilante
+Q1058617	private investigator
+Q188784	superhero
+Q9352089	spy
+Q14516546	Daniel
+Q30	United States of America
+Q191600	civil and political rights
+Q11828004	province of Canada
+Q16	Canada
+Q104086571	first-order class
+Q4830453	business
+Q16	Canada
+Q5	human
+Q6581097	male
+Q1622272	university teacher
+Q193391	diplomat
+Q40348	lawyer
+Q185351	jurist
+Q36180	writer
+Q89286597	Robinette
+Q271395	Scranton
+Q30	United States of America
+Q5522201	Garden City Collegiate
+Q1068072	University of Delaware
+Q2860580	Archmere Academy
+Q3443325	Widener University
+Q116848905	Walk of the Brave plaque
+Q2469017	Order of Liberty
+Q1820710	Nishan-e-Pakistan
+Q23058092	Grand Cross with collar of the Order of Vytautas the Great
+Q23058979	Order of the Cross of Terra Mariana, 1st Class
+Q2028158	St. George's Order of Victory
+Q604370	Time 100
+Q73136954	Grand Cross of the Order of Boyacá
+Q1800135	Laetare Medal
+Q17144	Presidential Medal of Freedom
+Q5365910	Ellis Island Medal of Honor
+Q111866683	Cross of Military Merit
+Q28323742	Hilal-e-Pakistan
+Q708492	council member
+Q1467287	President-elect of the United States
+Q4416090	United States senator
+Q11696	President of the United States
+Q174224	Wilmington
+Q7748	law
+Q7163	politics
+Q5	human
+Q6581097	male
+Q131524	entrepreneur
+Q16023665	venture capitalist
+Q43845	businessperson
+Q82955	politician
+Q4853732	children's writer
+Q8246794	blogger
+Q10800557	film actor
+Q1979607	financier
+Q578109	television producer
+Q13610143	Mark
+Q1342	Pittsburgh
+Q30	United States of America
+Q6608367	Indiana University
+Q7743071	The Jean and Samuel Frankel Jewish Academy of Metropolitan Detroit
+Q6123576	Indiana University Kelley School of Business
+Q5	human
+Q6581097	male
+Q185351	jurist
+Q1622272	university teacher
+Q193391	diplomat
+Q36180	writer
+Q471788	Joseph
+Q89286597	Robinette
+Q271395	Scranton
+Q30	United States of America
+Q5522201	Garden City Collegiate
+Q49117	University of Pennsylvania
+Q3443325	Widener University
+Q116848905	Walk of the Brave plaque
+Q2469017	Order of Liberty
+Q1820710	Nishan-e-Pakistan
+Q23058092	Grand Cross with collar of the Order of Vytautas the Great
+Q23058979	Order of the Cross of Terra Mariana, 1st Class
+Q604370	Time 100
+Q73136954	Grand Cross of the Order of Boyacá
+Q1800135	Laetare Medal
+Q5365910	Ellis Island Medal of Honor
+Q111866683	Cross of Military Merit
+Q2028158	St. George's Order of Victory
+Q708492	council member
+Q11696	President of the United States
+Q1467287	President-elect of the United States
+Q61	Washington, D.C.
+Q174224	Wilmington
+Q7748	law
+Q7163	politics
+Q5	human
+Q6581097	male
+Q3282637	film producer
+Q7301138	real estate entrepreneur
+Q131524	entrepreneur
+Q484876	chief executive officer
+Q33999	actor
+Q578109	television producer
+Q43845	businessperson
+Q22662561	game show host
+Q215536	merchant
+Q19831149	conspiracy theorist
+Q36180	writer
+Q13422248	Donald
+Q4925477	John
+Q97354861	Jamaica Hospital Medical Center
+Q60	New York City
+Q30	United States of America
+Q130965	Fordham University
+Q1329269	The Wharton School
+Q7744153	The Kew-Forest School
+Q7013764	New York Military Academy
+Q49117	University of Pennsylvania
+Q2663492	Order of the Mohammedi
+Q105308519	King Abdulaziz Medal
+Q93923	Order of King Abdulaziz al Saud
+Q604370	Time 100
+Q641316	Golden Raspberry Award for Worst Supporting Actor
+Q112451	Presidential Order of Excellence
+Q104858002	Order of Freedom
+Q36001	WWE Hall of Fame
+Q5449677	Financial Times Person of the Year
+Q184253	Ig Nobel Prize
+Q11696	President of the United States
+Q1467287	President-elect of the United States
+Q140686	chairperson
+Q1255921	president
+Q1162163	director
+Q60	New York City
+Q61	Washington, D.C.
+Q10494269	real property
+Q7188	government
+Q1407228	television production
+Q7163	politics
+Q26643	commerce
+Q66712772	governor's office
+Q4164871	position
+Q30	United States of America
+Q5	human
+Q6581072	female
+Q131512	farmer
+Q1524582	rancher
+Q18581305	beauty pageant contestant
+Q36180	writer
+Q3841018	Lynn
+Q1065503	Watertown
+Q30	United States of America
+Q2001088	Northern State University
+Q14709772	Mount Marty University
+Q2626318	Governor of South Dakota
+Q13218630	United States representative
+Q61	Washington, D.C.
+Q11451	agriculture
+Q132821	murder
+Q9026907	magnicide
+Q3882219	assassination
+Q30	United States of America
+Q31629	type of sport
+Q35127	website
+Q19541	search engine
+Q30	United States of America
+Q110530811	BigBrotherAwards
+Q273005	economic system
+Q51576574	Mediterranean country
+Q82794	geographic region
+Q6256	country
+Q15634554	state with limited recognition
+Q801	Israel
+Q902814	border city
+Q1549591	big city
+Q515	city
+Q219060	State of Palestine
+Q1530022	religious organization
+Q43229	organization
+Q138796	resistance movement
+Q7210356	political organization
+Q15627509	military organization
+Q219060	State of Palestine
+Q2342867	Palestinian political violence
+Q902814	border city
+Q1549591	big city
+Q219060	State of Palestine
+Q1006644	federal government
+Q30	United States of America
+Q131569	treaty
+Q5	human
+Q6581097	male
+Q36180	writer
+Q3282637	film producer
+Q2526255	film director
+Q10798782	television actor
+Q33999	actor
+Q2405480	voice actor
+Q13610143	Mark
+Q1249148	Richard
+Q17042	Oakland
+Q30	United States of America
+Q6138766	James Madison High School
+Q1150306	Disney Legends
+Q17985761	star on Hollywood Walk of Fame
+Q2687578	Inkpot Award
+Q5	human
+Q6581097	male
+Q36180	writer
+Q33999	actor
+Q2526255	film director
+Q3282637	film producer
+Q13610143	Mark
+Q1249148	Richard
+Q17042	Oakland
+Q30	United States of America
+Q1727138	Los Angeles City College
+Q4767927	Annandale High School
+Q6138766	James Madison High School
+Q1150306	Disney Legends
+Q17985761	star on Hollywood Walk of Fame
+Q2687578	Inkpot Award
+Q64588497	accounting term
+Q11862829	academic discipline
+Q151885	concept
+Q116505632	type of process
+Q20820018	elements of an offence
+Q1920219	social issue
+Q20820018	elements of an offence
+Q5	human
+Q6581097	male
+Q215536	merchant
+Q484876	chief executive officer
+Q19831149	conspiracy theorist
+Q3282637	film producer
+Q33999	actor
+Q43845	businessperson
+Q131524	entrepreneur
+Q36180	writer
+Q578109	television producer
+Q7301138	real estate entrepreneur
+Q13422248	Donald
+Q4925477	John
+Q97354861	Jamaica Hospital Medical Center
+Q60	New York City
+Q30	United States of America
+Q130965	Fordham University
+Q1329269	The Wharton School
+Q7744153	The Kew-Forest School
+Q7013764	New York Military Academy
+Q49117	University of Pennsylvania
+Q184253	Ig Nobel Prize
+Q104858002	Order of Freedom
+Q2663492	Order of the Mohammedi
+Q641316	Golden Raspberry Award for Worst Supporting Actor
+Q93923	Order of King Abdulaziz al Saud
+Q604370	Time 100
+Q105308519	King Abdulaziz Medal
+Q112451	Presidential Order of Excellence
+Q5449677	Financial Times Person of the Year
+Q11696	President of the United States
+Q1467287	President-elect of the United States
+Q140686	chairperson
+Q1255921	president
+Q1162163	director
+Q60	New York City
+Q61	Washington, D.C.
+Q10494269	real property
+Q7188	government
+Q1407228	television production
+Q7163	politics
+Q26643	commerce
+Q99541706	historical unrecognized state
+Q5255892	democratic republic
+Q512187	federal republic
+Q113489728	OECD country
+Q6256	country
+Q1489259	superpower
+Q30	United States of America
+Q35657	U.S. state
+Q30	United States of America
+Q74817647	aspect in a geographic region
+Q30	United States of America
+Q5	human
+Q6581097	male
+Q215536	merchant
+Q484876	chief executive officer
+Q19831149	conspiracy theorist
+Q3282637	film producer
+Q33999	actor
+Q43845	businessperson
+Q131524	entrepreneur
+Q36180	writer
+Q578109	television producer
+Q13422248	Donald
+Q4925477	John
+Q97354861	Jamaica Hospital Medical Center
+Q60	New York City
+Q30	United States of America
+Q130965	Fordham University
+Q1329269	The Wharton School
+Q7744153	The Kew-Forest School
+Q7013764	New York Military Academy
+Q49117	University of Pennsylvania
+Q184253	Ig Nobel Prize
+Q104858002	Order of Freedom
+Q2663492	Order of the Mohammedi
+Q641316	Golden Raspberry Award for Worst Supporting Actor
+Q93923	Order of King Abdulaziz al Saud
+Q604370	Time 100
+Q5449677	Financial Times Person of the Year
+Q11696	President of the United States
+Q1467287	President-elect of the United States
+Q140686	chairperson
+Q1255921	president
+Q1162163	director
+Q60	New York City
+Q61	Washington, D.C.
+Q10494269	real property
+Q7188	government
+Q1407228	television production
+Q7163	politics
+Q26643	commerce
+Q12340140	weekly magazine
+Q30	United States of America
+Q5741069	rock band
+Q145	United Kingdom
+Q935843	Grammy Lifetime Achievement Award
+Q179191	Rock and Roll Hall of Fame
+Q24333627	United States Senate election
+Q30	United States of America
+Q7278	political party
+Q30	United States of America
+Q35657	U.S. state
+Q30	United States of America
+Q8488433	Category:Georgia (U.S. state) elections
+Q74817647	aspect in a geographic region
+Q30	United States of America
+Q7278	political party
+Q30	United States of America
+Q2145277	house of representatives
+Q110315658	elected legislative house
+Q471855	jurisdiction
+Q115456878	legislative branch agency
+Q30	United States of America
+Q1093829	city in the United States
+Q30	United States of America
+Q13410438	county of Indiana
+Q30	United States of America
+Q1093829	city in the United States
+Q1549591	big city
+Q30	United States of America
+Q7278	political party
+Q30	United States of America
+Q2438541	manner of death
+Q2145277	house of representatives
+Q110315658	elected legislative house
+Q471855	jurisdiction
+Q115456878	legislative branch agency
+Q30	United States of America
+Q1114461	comics character
+Q15632617	fictional human
+Q15773317	television character
+Q20085850	fictional vigilante
+Q6581097	male
+Q188784	superhero
+Q11124885	martial artist
+Q9352089	spy
+Q3190387	vigilante
+Q14516546	Daniel
+Q30	United States of America
+Q191600	civil and political rights
+Q11828004	province of Canada
+Q16	Canada
+Q96251598	type of object
+Q104086571	first-order class
+Q4830453	business
+Q16	Canada
+Q5	human
+Q6581097	male
+Q185351	jurist
+Q193391	diplomat
+Q471788	Joseph
+Q89286597	Robinette
+Q271395	Scranton
+Q30	United States of America
+Q617433	Syracuse University
+Q1068072	University of Delaware
+Q2860580	Archmere Academy
+Q5522201	Garden City Collegiate
+Q49117	University of Pennsylvania
+Q3443325	Widener University
+Q23058979	Order of the Cross of Terra Mariana, 1st Class
+Q1820710	Nishan-e-Pakistan
+Q23058092	Grand Cross with collar of the Order of Vytautas the Great
+Q1800135	Laetare Medal
+Q2469017	Order of Liberty
+Q111866683	Cross of Military Merit
+Q73136954	Grand Cross of the Order of Boyacá
+Q2028158	St. George's Order of Victory
+Q604370	Time 100
+Q116848905	Walk of the Brave plaque
+Q708492	council member
+Q1467287	President-elect of the United States
+Q11696	President of the United States
+Q61	Washington, D.C.
+Q174224	Wilmington
+Q7748	law
+Q7163	politics
+Q5	human
+Q6581097	male
+Q82955	politician
+Q43845	businessperson
+Q10800557	film actor
+Q1979607	financier
+Q4853732	children's writer
+Q578109	television producer
+Q16023665	venture capitalist
+Q13610143	Mark
+Q1342	Pittsburgh
+Q30	United States of America
+Q1079140	Indiana University Bloomington
+Q6608367	Indiana University
+Q7743071	The Jean and Samuel Frankel Jewish Academy of Metropolitan Detroit
+Q6123576	Indiana University Kelley School of Business
+Q5	human
+Q6581097	male
+Q185351	jurist
+Q471788	Joseph
+Q89286597	Robinette
+Q271395	Scranton
+Q30	United States of America
+Q617433	Syracuse University
+Q1068072	University of Delaware
+Q2860580	Archmere Academy
+Q5522201	Garden City Collegiate
+Q49117	University of Pennsylvania
+Q3443325	Widener University
+Q1820710	Nishan-e-Pakistan
+Q23058092	Grand Cross with collar of the Order of Vytautas the Great
+Q1800135	Laetare Medal
+Q2469017	Order of Liberty
+Q111866683	Cross of Military Merit
+Q73136954	Grand Cross of the Order of Boyacá
+Q604370	Time 100
+Q116848905	Walk of the Brave plaque
+Q708492	council member
+Q1467287	President-elect of the United States
+Q11696	President of the United States
+Q61	Washington, D.C.
+Q174224	Wilmington
+Q7748	law
+Q7163	politics
+Q5	human
+Q6581097	male
+Q215536	merchant
+Q484876	chief executive officer
+Q19831149	conspiracy theorist
+Q3282637	film producer
+Q33999	actor
+Q43845	businessperson
+Q131524	entrepreneur
+Q36180	writer
+Q13422248	Donald
+Q4925477	John
+Q97354861	Jamaica Hospital Medical Center
+Q60	New York City
+Q30	United States of America
+Q130965	Fordham University
+Q1329269	The Wharton School
+Q7744153	The Kew-Forest School
+Q7013764	New York Military Academy
+Q49117	University of Pennsylvania
+Q184253	Ig Nobel Prize
+Q104858002	Order of Freedom
+Q2663492	Order of the Mohammedi
+Q93923	Order of King Abdulaziz al Saud
+Q604370	Time 100
+Q5449677	Financial Times Person of the Year
+Q11696	President of the United States
+Q1467287	President-elect of the United States
+Q140686	chairperson
+Q1255921	president
+Q1162163	director
+Q60	New York City
+Q61	Washington, D.C.
+Q10494269	real property
+Q7188	government
+Q1407228	television production
+Q7163	politics
+Q26643	commerce
+Q66712772	governor's office
+Q30	United States of America
+Q5	human
+Q6581072	female
+Q131512	farmer
+Q36180	writer
+Q6437836	Kristi
+Q3841018	Lynn
+Q1065503	Watertown
+Q30	United States of America
+Q2001088	Northern State University
+Q2626318	Governor of South Dakota
+Q61	Washington, D.C.
+Q11451	agriculture
+Q9026907	magnicide
+Q30	United States of America
+Q31629	type of sport
+Q35127	website
+Q30	United States of America
+Q110530811	BigBrotherAwards
+Q12909644	political ideology
+Q273005	economic system
+Q82794	geographic region
+Q15634554	state with limited recognition
+Q801	Israel
+Q515	city
+Q902814	border city
+Q1549591	big city
+Q219060	State of Palestine
+Q138796	resistance movement
+Q43229	organization
+Q15627509	military organization
+Q1530022	religious organization
+Q219060	State of Palestine
+Q2342867	Palestinian political violence
+Q515	city
+Q902814	border city
+Q1549591	big city
+Q219060	State of Palestine
+Q1006644	federal government
+Q30	United States of America
+Q131569	treaty
+Q5	human
+Q6581097	male
+Q2526255	film director
+Q13610143	Mark
+Q1249148	Richard
+Q17042	Oakland
+Q30	United States of America
+Q1727138	Los Angeles City College
+Q4767927	Annandale High School
+Q6138766	James Madison High School
+Q1150306	Disney Legends
+Q17985761	star on Hollywood Walk of Fame
+Q2687578	Inkpot Award
+Q5	human
+Q6581097	male
+Q11481802	dub actor
+Q2259451	stage actor
+Q10800557	film actor
+Q10798782	television actor
+Q2405480	voice actor
+Q36180	writer
+Q3282637	film producer
+Q33999	actor
+Q2526255	film director
+Q13610143	Mark
+Q1249148	Richard
+Q17042	Oakland
+Q30	United States of America
+Q1727138	Los Angeles City College
+Q4767927	Annandale High School
+Q6138766	James Madison High School
+Q1150306	Disney Legends
+Q17985761	star on Hollywood Walk of Fame
+Q2687578	Inkpot Award
+Q5	human
+Q6581097	male
+Q11481802	dub actor
+Q2259451	stage actor
+Q10800557	film actor
+Q10798782	television actor
+Q2405480	voice actor
+Q36180	writer
+Q3282637	film producer
+Q33999	actor
+Q2526255	film director
+Q13610143	Mark
+Q1249148	Richard
+Q17042	Oakland
+Q30	United States of America
+Q1727138	Los Angeles City College
+Q4767927	Annandale High School
+Q6138766	James Madison High School
+Q1150306	Disney Legends
+Q17985761	star on Hollywood Walk of Fame
+Q2687578	Inkpot Award
+Q5	human
+Q6581097	male
+Q11481802	dub actor
+Q2259451	stage actor
+Q10800557	film actor
+Q10798782	television actor
+Q2405480	voice actor
+Q36180	writer
+Q3282637	film producer
+Q33999	actor
+Q2526255	film director
+Q13610143	Mark
+Q1249148	Richard
+Q17042	Oakland
+Q30	United States of America
+Q1727138	Los Angeles City College
+Q4767927	Annandale High School
+Q6138766	James Madison High School
+Q1150306	Disney Legends
+Q17985761	star on Hollywood Walk of Fame
+Q2687578	Inkpot Award
+Q132241	festival
+Q9314	Scottish Gaelic
+Q134556	single
+Q373899	record chart
+Q16	Canada
+Q105543609	musical work/composition
+Q847906	online magazine
+Q41298	magazine
+Q1684600	news magazine
+Q30	United States of America
+Q38926	news
+Q1936384	area of mathematics
+Q20026918	mathematical theory
+Q134556	single
+Q105543609	musical work/composition
+Q122759350	user-generated content platform
+Q393351	aggregator
+Q3220391	social networking service
+Q3963243	social news website
+Q6576792	online community
+Q620615	mobile app
+Q5	human
+Q6581097	male
+Q11481802	dub actor
+Q2259451	stage actor
+Q10800557	film actor
+Q10798782	television actor
+Q2405480	voice actor
+Q36180	writer
+Q3282637	film producer
+Q33999	actor
+Q2526255	film director
+Q13610143	Mark
+Q1249148	Richard
+Q17042	Oakland
+Q30	United States of America
+Q1727138	Los Angeles City College
+Q4767927	Annandale High School
+Q6138766	James Madison High School
+Q1150306	Disney Legends
+Q17985761	star on Hollywood Walk of Fame
+Q2687578	Inkpot Award
