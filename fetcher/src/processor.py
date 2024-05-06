@@ -27,6 +27,9 @@ class TextProcessor:
     def tokenize(self, txt) -> list[str]:
         return self._nltk.word_tokenize(txt)
 
+    def sent_tokenize(self, txt) -> list[str]:
+        return self._nltk.sent_tokenize(txt)
+
     def clean_text(self, txt: str) -> str:
         txt = self.lowercase(txt)
         txt = self.replace_links(txt)

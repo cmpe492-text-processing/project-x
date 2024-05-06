@@ -77,7 +77,7 @@ def generate_corpus(platform: Platform,
                     "id": platform_id,
                     "title": title,
                     "body": body,
-                    "version": 4}
+                    "version": 5}
 
     # clean text - remove special characters, remove stopwords, lower case, etc
     text_processor = TextProcessor()
@@ -94,6 +94,8 @@ def generate_corpus(platform: Platform,
         print(cleaned_title)
         print("Body:")
         print(cleaned_body)
+
+    # ENTITIES #
 
     # create entities with their base tagme information
     entities: list[dict] = []
@@ -183,6 +185,24 @@ def generate_corpus(platform: Platform,
         }
 
     corpus["entities"] = entities
+
+    # ENTITY_GROUPS #
+
+    entity_groups: list[object] = []
+    for entity in entities:
+        found = False
+        for group in entity_groups:
+            if group['sentence'] == entity['sentence']:
+                group['entities'].append(entity['wiki_id'])
+                found = True
+                break
+        if not found:
+            entity_groups.append({
+                "sentence": entity['sentence'],
+                "entities": [entity['wiki_id']]
+            })
+
+    corpus["entity_groups"] = entity_groups
     return corpus
 
 
@@ -210,6 +230,9 @@ def other_main():
         corpus_list: list = []
         for post in post_list:
             corpus_list.append(generate_corpus(Platform.REDDIT, subreddit, post.id, post.title, post.selftext))
+
+        if DEBUG:
+            print(json.dumps(corpus_list))
 
         print(
             f"Inserting {len(post_list)} posts and {len(corpus_list)} corpuses into the database related to {subreddit}.")
