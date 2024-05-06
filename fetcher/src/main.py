@@ -226,8 +226,7 @@ def main():
 def other_main():
     reddit = rddt.Reddit()
     database_manager = db.DatabaseManager()
-    # subreddits = ["trump", "politics", "elections", "democrats", "republican", "PoliticalDiscussion"]
-    subreddits = ['trump']
+    subreddits = ["trump", "politics", "elections", "democrats", "republican", "PoliticalDiscussion"]
     for subreddit in subreddits:
         post_list: list[rddt.RedditPost] = reddit.get_hot_posts(subreddit, limit=3)
 
@@ -240,8 +239,6 @@ def other_main():
 
         print(
             f"Inserting {len(post_list)} posts and {len(corpus_list)} corpuses into the database related to {subreddit}.")
-        print(post_list)
-        print(corpus_list)
         database_manager.insert_posts(post_list)
         database_manager.insert_corpuses(corpus_list)
 
@@ -266,4 +263,4 @@ def exporter():
 
 
 if __name__ == "__main__":
-    other_main()
+    ()
