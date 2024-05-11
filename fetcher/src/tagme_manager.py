@@ -183,7 +183,7 @@ class TagmeManager:
         return None
 
     @staticmethod
-    def relatedness_score(self, wid1, wid2):
+    def relatedness_score(wid1, wid2):
         try:
             relations = tagme.relatedness_wid((wid1, wid2))
             for relation in relations.relatedness:

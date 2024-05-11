@@ -881,3 +881,115 @@ Q6138766	James Madison High School
 Q1150306	Disney Legends
 Q17985761	star on Hollywood Walk of Fame
 Q2687578	Inkpot Award
+Q132241	festival
+Q9314	Scottish Gaelic
+Q134556	single
+Q373899	record chart
+Q16	Canada
+Q105543609	musical work/composition
+Q847906	online magazine
+Q30	United States of America
+Q38926	news
+Q1936384	area of mathematics
+Q20026918	mathematical theory
+Q134556	single
+Q105543609	musical work/composition
+Q122759350	user-generated content platform
+Q393351	aggregator
+Q6576792	online community
+Q5	human
+Q6581097	male
+Q11481802	dub actor
+Q2259451	stage actor
+Q10800557	film actor
+Q10798782	television actor
+Q2405480	voice actor
+Q36180	writer
+Q3282637	film producer
+Q33999	actor
+Q2526255	film director
+Q13610143	Mark
+Q1249148	Richard
+Q17042	Oakland
+Q30	United States of America
+Q1727138	Los Angeles City College
+Q4767927	Annandale High School
+Q6138766	James Madison High School
+Q1150306	Disney Legends
+Q17985761	star on Hollywood Walk of Fame
+Q2687578	Inkpot Award
+Q132241	festival
+Q9314	Scottish Gaelic
+Q134556	single
+Q373899	record chart
+Q16	Canada
+Q105543609	musical work/composition
+Q41298	magazine
+Q1684600	news magazine
+Q847906	online magazine
+Q30	United States of America
+Q38926	news
+Q1936384	area of mathematics
+Q20026918	mathematical theory
+Q134556	single
+Q105543609	musical work/composition
+Q6576792	online community
+Q122759350	user-generated content platform
+Q1323642	transcontinental country
+Q6256	country
+Q859563	secular state
+Q43702	federation
+Q159	Russia
+Q113489728	OECD country
+Q99541706	historical unrecognized state
+Q30	United States of America
+Q113489728	OECD country
+Q30	United States of America
+Q37726	army
+Q30	United States of America
+Q92429087	Silver Anvil Award
+Q132241	festival
+Q9314	Scottish Gaelic
+Q134556	single
+Q373899	record chart
+Q16	Canada
+Q132241	festival
+Q9314	Scottish Gaelic
+Q134556	single
+Q373899	record chart
+Q16	Canada
+Q105543609	musical work/composition
+Q41298	magazine
+Q1684600	news magazine
+Q847906	online magazine
+Q30	United States of America
+Q38926	news
+Q1936384	area of mathematics
+Q20026918	mathematical theory
+Q134556	single
+Q105543609	musical work/composition
+Q6576792	online community
+Q6256	country
+Q1323642	transcontinental country
+Q43702	federation
+Q159	Russia
+Q3624078	sovereign state
+Q1520223	constitutional republic
+Q5255892	democratic republic
+Q512187	federal republic
+Q1489259	superpower
+Q6256	country
+Q99541706	historical unrecognized state
+Q113489728	OECD country
+Q30	United States of America
+Q3624078	sovereign state
+Q1520223	constitutional republic
+Q5255892	democratic republic
+Q512187	federal republic
+Q1489259	superpower
+Q6256	country
+Q99541706	historical unrecognized state
+Q113489728	OECD country
+Q30	United States of America
+Q37726	army
+Q30	United States of America
