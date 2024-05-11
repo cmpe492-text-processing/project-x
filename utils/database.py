@@ -7,7 +7,9 @@ import json
 
 class DatabaseManager:
     def __init__(self):
-        load_dotenv('../../.env')
+        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        env_path = os.path.join(base_dir, '.env')
+        load_dotenv(env_path)
         self.connection = None
         self.create_connection()
 

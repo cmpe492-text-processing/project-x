@@ -1,11 +1,9 @@
 import nltk
 from nltk.sentiment import SentimentIntensityAnalyzer
 import spacy
-from spacy import displacy
-from spacy.tokens import Span
 import re
 
-from fetcher.src.reddit import RedditPost
+from utils.reddit import RedditPost
 
 
 class TextProcessor:
@@ -73,11 +71,11 @@ class TextProcessor:
     def get_sentiment(self, txt: str) -> (float, float, float, float):
         sia = self._nltk.sentiment.SentimentIntensityAnalyzer()
         return (
-                sia.polarity_scores(txt)["compound"],
-                sia.polarity_scores(txt)["pos"],
-                sia.polarity_scores(txt)["neg"],
-                sia.polarity_scores(txt)["neu"]
-                )
+            sia.polarity_scores(txt)["compound"],
+            sia.polarity_scores(txt)["pos"],
+            sia.polarity_scores(txt)["neg"],
+            sia.polarity_scores(txt)["neu"]
+        )
 
     def clean_posts(self, posts: list[RedditPost]) -> list[RedditPost]:
         for post in posts:
@@ -88,6 +86,3 @@ class TextProcessor:
     @property
     def nlp(self):
         return self._nlp
-
-if __name__ == "__main__":
-    pass
