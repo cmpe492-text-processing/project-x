@@ -2,11 +2,8 @@ import re
 from nltk import sent_tokenize
 import enum
 from tagme import Annotation
-
 from fetcher.src.processor import TextProcessor
 from fetcher.src.tagme_manager import TagmeManager
-
-DEBUG = False
 
 
 class Platform(enum.Enum):
@@ -15,41 +12,6 @@ class Platform(enum.Enum):
 
     def __str__(self):
         return self.value
-
-
-def find_closest_match(original_text, mention, start_index):
-    pattern = re.escape(mention)
-    for match in re.finditer(pattern, original_text, re.IGNORECASE):
-        if abs(match.start() - start_index) <= len(mention):
-            return match.start(), match.end()
-    return None, None
-
-
-def adjust_entity_indices(original_text, entity):
-    cleaned_begin = entity['begin']
-    mention = entity['mention']
-
-    original_index = original_text.find(mention, cleaned_begin - 5 if cleaned_begin > 5 else 0)
-    if original_index != -1:
-        entity['begin'] = original_index
-        entity['end'] = original_index + len(mention)
-    else:
-        original_begin, original_end = find_closest_match(original_text, mention, cleaned_begin)
-        if original_begin is not None and original_end is not None:
-            entity['begin'] = original_begin
-            entity['end'] = original_end
-    return entity
-
-
-def find_full_sentence(doc, start_idx, end_idx):
-    """
-    This function finds the full sentence that contains the entity based on starting and ending index.
-    """
-    sentences = sent_tokenize(doc.text)
-    for sentence in sentences:
-        if doc.text.find(sentence) <= start_idx and doc.text.find(sentence) + len(sentence) >= end_idx:
-            return sentence
-    return ""
 
 
 class GenerateCorpus:
@@ -62,12 +24,47 @@ class GenerateCorpus:
         self.text_processor = TextProcessor()
         self.tagme_manager = TagmeManager(rho=0.15)
 
+    def adjust_entity_indices(self, original_text, entity):
+        cleaned_begin = entity['begin']
+        mention = entity['mention']
+
+        original_index = original_text.find(mention, cleaned_begin - 5 if cleaned_begin > 5 else 0)
+        if original_index != -1:
+            entity['begin'] = original_index
+            entity['end'] = original_index + len(mention)
+        else:
+            original_begin, original_end = self.find_closest_match(original_text, mention, cleaned_begin)
+            if original_begin is not None and original_end is not None:
+                entity['begin'] = original_begin
+                entity['end'] = original_end
+        return entity
+
+    @staticmethod
+    def find_closest_match(original_text, mention, start_index):
+        pattern = re.escape(mention)
+        for match in re.finditer(pattern, original_text, re.IGNORECASE):
+            if abs(match.start() - start_index) <= len(mention):
+                return match.start(), match.end()
+        return None, None
+
+    @staticmethod
+    def find_full_sentence(doc, start_idx, end_idx):
+        """
+        This function finds the full sentence that contains the entity based on starting and ending index.
+        """
+        sentences = sent_tokenize(doc.text)
+        for sentence in sentences:
+            if doc.text.find(sentence) <= start_idx and doc.text.find(sentence) + len(sentence) >= end_idx:
+                return sentence
+        return ""
+
     def generate_corpus(self) -> dict:
-        corpus: dict = {"platform": self.platform.value + "/" + self.platform_ext if self.platform_ext else self.platform.value,
-                        "id": self.platform_id,
-                        "title": self.title,
-                        "body": self.body,
-                        "version": 5}
+        corpus: dict = {
+            "platform": self.platform.value + "/" + self.platform_ext if self.platform_ext else self.platform.value,
+            "id": self.platform_id,
+            "title": self.title,
+            "body": self.body,
+            "version": 5}
 
         # clean text - remove special characters, remove stopwords, lower case, etc
         text_processor = TextProcessor()
@@ -78,13 +75,6 @@ class GenerateCorpus:
         tagme_manager = TagmeManager(rho=0.15)
         tagged_title: list[Annotation] = tagme_manager.tag_text(cleaned_title)
         tagged_body: list[Annotation] = tagme_manager.tag_text(cleaned_body)
-
-        if DEBUG:
-            print("Title:")
-            print(cleaned_title)
-            print("Body:")
-            print(cleaned_body)
-
         # ENTITIES #
 
         # create entities with their base tagme information
@@ -105,7 +95,7 @@ class GenerateCorpus:
             info = tagme_manager.get_annotation_info(annotation)
             entity['wiki_info'] = info
 
-            adjusted_entity = adjust_entity_indices(self.title, entity)
+            adjusted_entity = self.adjust_entity_indices(self.title, entity)
             entities.append(adjusted_entity)
 
         for annotation in tagged_body:
@@ -123,7 +113,7 @@ class GenerateCorpus:
             info = tagme_manager.get_annotation_info(annotation)
             entity['wiki_info'] = info
 
-            adjusted_entity = adjust_entity_indices(self.body, entity)
+            adjusted_entity = self.adjust_entity_indices(self.body, entity)
             entities.append(adjusted_entity)
 
         if len(entities) == 0:
@@ -165,7 +155,7 @@ class GenerateCorpus:
             # Extend to full sentence for context
             min_index = min(token.idx for token in dependent_tokens)
             max_index = max(token.idx + len(token.text) for token in dependent_tokens)
-            full_sentence = find_full_sentence(entity_doc, min_index, max_index)
+            full_sentence = self.find_full_sentence(entity_doc, min_index, max_index)
 
             entity['sentence'] = full_sentence
 

@@ -993,3 +993,50 @@ Q113489728	OECD country
 Q30	United States of America
 Q37726	army
 Q30	United States of America
+Q132241	festival
+Q9314	Scottish Gaelic
+Q134556	single
+Q373899	record chart
+Q16	Canada
+Q105543609	musical work/composition
+Q41298	magazine
+Q1684600	news magazine
+Q847906	online magazine
+Q30	United States of America
+Q38926	news
+Q1936384	area of mathematics
+Q20026918	mathematical theory
+Q134556	single
+Q105543609	musical work/composition
+Q3220391	social networking service
+Q3963243	social news website
+Q620615	mobile app
+Q393351	aggregator
+Q122759350	user-generated content platform
+Q6576792	online community
+Q3624078	sovereign state
+Q859563	secular state
+Q6256	country
+Q1323642	transcontinental country
+Q43702	federation
+Q159	Russia
+Q3624078	sovereign state
+Q1520223	constitutional republic
+Q5255892	democratic republic
+Q512187	federal republic
+Q1489259	superpower
+Q6256	country
+Q99541706	historical unrecognized state
+Q113489728	OECD country
+Q30	United States of America
+Q3624078	sovereign state
+Q1520223	constitutional republic
+Q5255892	democratic republic
+Q512187	federal republic
+Q1489259	superpower
+Q6256	country
+Q99541706	historical unrecognized state
+Q113489728	OECD country
+Q30	United States of America
+Q37726	army
+Q30	United States of America
