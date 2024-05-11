@@ -1,9 +1,9 @@
-import re
 from nltk import sent_tokenize
 import enum
 from tagme import Annotation
-from fetcher.src.processor import TextProcessor
-from fetcher.src.tagme_manager import TagmeManager
+import re
+from corpus_generator.src.processor import TextProcessor
+from corpus_generator.src.tagme_manager import TagmeManager
 
 
 class Platform(enum.Enum):
