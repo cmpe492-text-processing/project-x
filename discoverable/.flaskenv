@@ -1,3 +1,4 @@
 FLASK_APP=app:create_app
 FLASK_ENV=development
 FLASK_DEBUG=1
+TAGME_API_KEY="e52beb72-78a8-4ee4-8b0f-e404082ced0c-843339462"
