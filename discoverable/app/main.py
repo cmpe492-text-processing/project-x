@@ -1,14 +1,13 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from config import Config
+
+from app.config import Config
+from app.routes.routes import init_routes
 
 app = Flask(__name__)
 app.config.from_object(Config)
 
 db = SQLAlchemy(app)
-
-# from app.models import *
-from app.routes import init_routes
 
 with app.app_context():
     init_routes(app)
