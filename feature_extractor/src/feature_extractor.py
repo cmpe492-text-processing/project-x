@@ -2,7 +2,6 @@ import json
 from corpus_generator.src.tagme_manager import TagmeManager
 from time import gmtime, strftime
 import os
-
 from utils.database import DatabaseManager
 
 
@@ -115,12 +114,15 @@ class FeatureExtractor:
                     }
 
                     results[wiki_id]["n"] += 1
+
+                    results[wiki_id]["sentiments_extended"].append(entity.get("sentiment", {}))
                 else:
                     inserted_entity = {
                         "wiki_id": wiki_id,
                         "name": entity.get("name", ""),
                         "sentiment": entity.get("sentiment", {}),
                         "relatedness": entity.get("relatedness", None),
+                        "sentiments_extended": [entity.get("sentiment", list())],
                         "n": 1
                     }
                     results[wiki_id] = inserted_entity
