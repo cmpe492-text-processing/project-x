@@ -61,7 +61,7 @@ document.getElementById('search-bar').addEventListener('keypress', function(even
                 entities.forEach(entity => {
                     textDiv.innerHTML += text.slice(i, entity.begin);
                     const link = document.createElement('a');
-                    link.href = `https://en.wikipedia.org/wiki/?curid=${entity.wiki_id}`;
+                    link.href = `http://localhost:3000/wiki?id=${entity.wiki_id}`;
                     link.textContent = entity.mention;
                     textDiv.appendChild(link);
                     i = entity.end;
