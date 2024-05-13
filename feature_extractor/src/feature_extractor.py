@@ -1,6 +1,10 @@
 import json
 from corpus_generator.src.tagme_manager import TagmeManager
 from time import gmtime, strftime
+import os
+
+from utils.database import DatabaseManager
+
 
 class FeatureExtractor:
     def __init__(self, wiki_id):
@@ -15,9 +19,11 @@ class FeatureExtractor:
 
     @staticmethod
     def exporter(posts, center_entity_wiki_id, directory):
-        direc = f'../../data/{directory}/'
+        direc = os.path.join('../../data', directory)
+        if not os.path.exists(direc):
+            os.makedirs(direc)  # Creates the directory and all intermediate directories if they don't exist
         new_filename = f'{directory}_{center_entity_wiki_id}.json'
-        with open(direc + new_filename, 'w') as f:
+        with open(os.path.join(direc, new_filename), 'w') as f:
             json.dump(posts, f, indent=2)
             print(f'Exported {len(posts)} {directory} to {new_filename}')
 
@@ -33,37 +39,33 @@ class FeatureExtractor:
         return related_corpuses
 
     @staticmethod
-    def add_relatedness(posts, center_entity_wiki_id, tagme_manager):
-        # Load existing relatedness scores from the file into a dictionary for faster lookups
-        relatedness_dict = {}
-        with open("../../data/relatedness_scores.txt", "r") as file:
-            for line in file:
-                entity_1, entity_2, relatedness = line.strip().split('\t')
-                relatedness_dict[(entity_1, entity_2)] = float(relatedness)
+    def check_relatedness_from_db(entity_1, entity_2):
+        db = DatabaseManager()
+        small_entity = min(entity_1, entity_2)
+        large_entity = max(entity_1, entity_2)
+        return db.get_relatedness(small_entity, large_entity)
 
-        # Process each post to update or compute relatedness
+    @staticmethod
+    def upsert_relatedness_to_db(entity_1, entity_2, relatedness):
+        db = DatabaseManager()
+        small_entity = min(entity_1, entity_2)
+        large_entity = max(entity_1, entity_2)
+        db.upsert_relatedness(small_entity, large_entity, relatedness)
+
+    @staticmethod
+    def add_relatedness(posts, center_entity_wiki_id, tagme_manager):
         for post in posts:
             entities = post.get("entities", [])
             for entity in entities:
                 wiki_id = entity.get("wiki_id")
                 if wiki_id:
-                    key = (center_entity_wiki_id, wiki_id)
-                    reverse_key = (wiki_id, center_entity_wiki_id)
-
-                    # Check if relatedness already exists
-                    if key in relatedness_dict:
-                        entity["relatedness"] = relatedness_dict[key]
-                    elif reverse_key in relatedness_dict:
-                        entity["relatedness"] = relatedness_dict[reverse_key]
+                    relatedness = FeatureExtractor.check_relatedness_from_db(center_entity_wiki_id, wiki_id)
+                    if relatedness:
+                        entity["relatedness"] = relatedness
                     else:
-                        # Compute relatedness and update the dictionary
                         relatedness_score = tagme_manager.relatedness_score(center_entity_wiki_id, wiki_id)
                         entity["relatedness"] = relatedness_score
-                        relatedness_dict[key] = relatedness_score
-                        # Append new relatedness score to the file
-                        with open("../../data/relatedness_scores.txt", "a") as append_file:
-                            append_file.write(f"{center_entity_wiki_id}\t{wiki_id}\t{relatedness_score}\n")
-
+                        FeatureExtractor.upsert_relatedness_to_db(center_entity_wiki_id, wiki_id, relatedness_score)
         return posts
 
     def create_extracted_features_json(self):

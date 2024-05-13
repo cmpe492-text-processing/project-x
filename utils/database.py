@@ -17,7 +17,6 @@ class DatabaseManager:
         try:
             # Connect to the database using DATABASE_URL environment variable
             connection = psycopg2.connect(os.getenv('DATABASE_URL'), sslmode='require')
-            print("Connection to PostgreSQL DB successful")
             self.connection = connection
         except OperationalError as e:
             print(f"The error '{e}' occurred")
@@ -91,4 +90,33 @@ class DatabaseManager:
                 return corpuses
             except OperationalError as e:
                 print(f"The error '{e}' occurred")
+        return None
+
+    def get_relatedness(self, entity_1, entity_2):
+        if self.connection is not None:
+            cursor = self.connection.cursor()
+            query = f"SELECT relatedness FROM entity_relatedness WHERE entity_1 = {entity_1} AND entity_2 = {entity_2}"
+            try:
+                cursor.execute(query)
+                corpuses = cursor.fetchall()
+                return corpuses
+            except OperationalError as e:
+                print(f"The error '{e}' occurred")
+        return None
+
+    def upsert_relatedness(self, entity_1, entity_2, relatedness):
+        if self.connection is not None:
+            cursor = self.connection.cursor()
+            query = f"""
+            INSERT INTO entity_relatedness (entity_1, entity_2, relatedness)
+            VALUES ({entity_1}, {entity_2}, {relatedness})
+            ON CONFLICT (entity_1, entity_2) DO UPDATE SET relatedness = {relatedness};
+            """
+            try:
+                cursor.execute(query)
+            except OperationalError as e:
+                print(f"The error '{e}' occurred")
+
+            self.connection.commit()
+            cursor.close()
         return None
