@@ -39,33 +39,32 @@ class FeatureExtractor:
         return related_corpuses
 
     @staticmethod
-    def check_relatedness_from_db(entity_1, entity_2):
-        db = DatabaseManager()
+    def check_relatedness_from_db(db, entity_1, entity_2):
         small_entity = min(entity_1, entity_2)
         large_entity = max(entity_1, entity_2)
         return db.get_relatedness(small_entity, large_entity)
 
     @staticmethod
-    def upsert_relatedness_to_db(entity_1, entity_2, relatedness):
-        db = DatabaseManager()
+    def upsert_relatedness_to_db(db, entity_1, entity_2, relatedness):
         small_entity = min(entity_1, entity_2)
         large_entity = max(entity_1, entity_2)
         db.upsert_relatedness(small_entity, large_entity, relatedness)
 
     @staticmethod
     def add_relatedness(posts, center_entity_wiki_id, tagme_manager):
+        db = DatabaseManager()
         for post in posts:
             entities = post.get("entities", [])
             for entity in entities:
                 wiki_id = entity.get("wiki_id")
                 if wiki_id:
-                    relatedness = FeatureExtractor.check_relatedness_from_db(center_entity_wiki_id, wiki_id)
+                    relatedness = FeatureExtractor.check_relatedness_from_db(db, center_entity_wiki_id, wiki_id)
                     if relatedness:
                         entity["relatedness"] = relatedness
                     else:
                         relatedness_score = tagme_manager.relatedness_score(center_entity_wiki_id, wiki_id)
                         entity["relatedness"] = relatedness_score
-                        FeatureExtractor.upsert_relatedness_to_db(center_entity_wiki_id, wiki_id, relatedness_score)
+                        FeatureExtractor.upsert_relatedness_to_db(db, center_entity_wiki_id, wiki_id, relatedness_score)
         return posts
 
     def create_extracted_features_json(self):
@@ -96,7 +95,6 @@ class FeatureExtractor:
             for entity in entities:
                 wiki_id = entity["wiki_id"]
                 if wiki_id in results.keys():
-                    # Update the sentiment and n if there is a sentiment
                     if entity.get("sentiment", None) is None or results[wiki_id].get("sentiment", None) is None:
                         continue
                     old_neutral = results[wiki_id]["sentiment"].get("neutral", 0)
