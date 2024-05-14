@@ -1,6 +1,6 @@
 import os
 import json
-from utils import database as db
+from discoverable.utils import database as db
 
 
 class CorpusExtractor:

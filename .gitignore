@@ -3,5 +3,5 @@
 .idea
 post_fetcher/src/reddit/__pycache__
 post_fetcher/src/__pycache__
-data/*
+discoverable/data/*
 vision/src/graphs

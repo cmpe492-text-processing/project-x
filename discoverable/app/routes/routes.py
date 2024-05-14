@@ -1,5 +1,6 @@
 from flask import request, render_template, jsonify
 from app.services.tagging import get_basic_info, get_wikidata_info
+from feature_extractor.src.feature_extractor import FeatureExtractor
 
 
 def init_routes(app):
@@ -62,4 +63,17 @@ def init_routes(app):
     def sentiment_histogram():
         pass
 
+    @app.route('/histogram/co-occurrence', methods=['GET'])
+    def co_occurrence_histogram():
+        wiki_id = request.args.get('id')
+
+        if wiki_id is None or not wiki_id.isdigit():
+            return jsonify({'error': 'Invalid ID'}), 400
+
+        wiki_id = int(wiki_id)
+
+        feature_extractor = FeatureExtractor(wiki_id)
+        response, most_occurred_entities, main_entity = feature_extractor.create_extracted_features_json_wo_relatedness()
+
+        return jsonify({'most_occurred_entities': most_occurred_entities, 'data': response, 'main_entity': main_entity}), 200
 

@@ -1,8 +1,8 @@
 # This file currently fetches posts, then creates the corpuses saves both posts and to DB.
 # TODO It should also extract the corpuses, and then extract features to create several jsons.
-from utils import database as db, reddit as rddt
-from corpus_generator.src.corpus_generator import GenerateCorpus
-from corpus_generator.src.corpus_generator import Platform
+from discoverable.utils import reddit as rddt, database as db
+from discoverable.corpus_generator.src.corpus_generator import GenerateCorpus
+from discoverable.corpus_generator.src.corpus_generator import Platform
 
 
 def main():

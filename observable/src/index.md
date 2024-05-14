@@ -12,7 +12,7 @@ title: 'Project X'
 document.getElementById('search-bar').addEventListener('keypress', function(event) {
     if (event.key === 'Enter') {
         const query = event.target.value;
-        fetch(`http://localhost:5000/search?q=${encodeURIComponent(query)}`)
+        fetch(`http://127.0.0.1:5000/search?q=${encodeURIComponent(query)}`)
             .then(response => response.json())
             .then(data => {
                 console.log('Search results:', data);

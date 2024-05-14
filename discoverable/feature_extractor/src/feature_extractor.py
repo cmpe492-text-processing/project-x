@@ -1,14 +1,16 @@
 import json
-from corpus_generator.src.tagme_manager import TagmeManager
+
 from time import gmtime, strftime
 import os
+
+from corpus_generator.src.tagme_manager import TagmeManager
 from utils.database import DatabaseManager
 
 
 class FeatureExtractor:
     def __init__(self, wiki_id):
         self.wiki_id = wiki_id
-        self.db_dump_filepath = "../../data/db_dumps/db_dump.json"
+        self.db_dump_filepath = "../data/db_dumps/db_dump.json"
 
     @staticmethod
     def read_json_file(filepath):
@@ -66,25 +68,38 @@ class FeatureExtractor:
                         FeatureExtractor.upsert_relatedness_to_db(db, center_entity_wiki_id, wiki_id, relatedness_score)
         return posts
 
-    def create_extracted_features_json(self):
+    @staticmethod
+    def get_most_occurred_entities(data, n):
+        data.sort(key=lambda x: x["n"], reverse=True)
+        return data[:n]
+
+    def get_main_entity(self, data):
+        # Find the entity that has the wiki id of the center entity
+        for entity in data:
+            if entity["wiki_id"] == self.wiki_id:
+                return entity
+
+    def create_extracted_features_json_wo_relatedness(self):
         raw_data = self.read_json_file(self.db_dump_filepath)
         print('read raw data', strftime("%Y-%m-%d %H:%M:%S", gmtime()))
-        tagme_manager = TagmeManager(rho=0.1)
 
         if not isinstance(raw_data, list):
             raise ValueError("Expected a list of dictionaries in JSON file.")
 
         related_corpuses_without_relatedness = self.get_related_corpuses(self.wiki_id, raw_data)
         print('got the corpuses', strftime("%Y-%m-%d %H:%M:%S", gmtime()))
-        related_corpuses = self.add_relatedness(related_corpuses_without_relatedness, self.wiki_id, tagme_manager)
-        print('added the relatedness', strftime("%Y-%m-%d %H:%M:%S", gmtime()))
-        data = related_corpuses
+        # related_corpuses = self.add_relatedness(related_corpuses_without_relatedness, self.wiki_id, tagme_manager)
+        # print('added the relatedness', strftime("%Y-%m-%d %H:%M:%S", gmtime()))
+        # data = related_corpuses
+        data = related_corpuses_without_relatedness
 
         result = self.process_data(data)
         print('processed the data', strftime("%Y-%m-%d %H:%M:%S", gmtime()))
         self.exporter(result, self.wiki_id, "feature_extracted_data")
+        most_occurred_x_entities = self.get_most_occurred_entities(result, 10)
+        main_entity = self.get_main_entity(result)
 
-        return result
+        return result, most_occurred_x_entities, main_entity
 
     @staticmethod
     def process_data(data):
@@ -131,7 +146,7 @@ class FeatureExtractor:
 
 def main():
     feature_extractor = FeatureExtractor(4848272)
-    feature_extractor.create_extracted_features_json()
+    feature_extractor.create_extracted_features_json_wo_relatedness()
 
 
 if __name__ == "__main__":
