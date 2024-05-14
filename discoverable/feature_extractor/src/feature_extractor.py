@@ -68,8 +68,8 @@ class FeatureExtractor:
                         FeatureExtractor.upsert_relatedness_to_db(db, center_entity_wiki_id, wiki_id, relatedness_score)
         return posts
 
-    @staticmethod
-    def get_most_occurred_entities(data, n):
+    def get_most_occurred_entities(self, data, n):
+        data = [entity for entity in data if entity['wiki_id'] != self.wiki_id]
         data.sort(key=lambda x: x["n"], reverse=True)
         return data[:n]
 
