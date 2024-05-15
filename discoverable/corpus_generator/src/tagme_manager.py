@@ -57,7 +57,8 @@ def get_wikidata_item_info_general(wikidata_item_id):
                 'date of death': data.get('entities', {}).get(wikidata_item_id, {}).get('claims', {}).get('P570', []),
                 'place of birth': data.get('entities', {}).get(wikidata_item_id, {}).get('claims', {}).get('P19', []),
                 'place of death': data.get('entities', {}).get(wikidata_item_id, {}).get('claims', {}).get('P20', []),
-                'country of citizenship': data.get('entities', {}).get(wikidata_item_id, {}).get('claims', {}).get('P27', []),
+                'country of citizenship': data.get('entities', {}).get(wikidata_item_id, {}).get('claims', {}).get(
+                    'P27', []),
                 'educated at': data.get('entities', {}).get(wikidata_item_id, {}).get('claims', {}).get('P69', []),
                 'employer': data.get('entities', {}).get(wikidata_item_id, {}).get('claims', {}).get('P108', []),
                 'award received': data.get('entities', {}).get(wikidata_item_id, {}).get('claims', {}).get('P166', []),
@@ -100,7 +101,6 @@ class TagmeManager:
     def get_annotation_info(annotation):
         return get_wikidata_item_info_general(get_wikidata_url_from_curid(annotation.entity_id))
 
-
     @staticmethod
     def process_text(selftext):
         annotations = tagme.annotate(selftext)
@@ -138,3 +138,26 @@ class TagmeManager:
         except Exception as e:
             print(f"Error fetching relatedness score: {e}")
             return None
+
+    def get_relatedness_map(self, entities: list[(int, int)], debug=False) -> dict[(int, int), float]:
+        relatedness_map: dict[(int, int), float] = {}
+        entities = [tuple(sorted(entity_pair)) for entity_pair in entities]
+        tagme.GCUBE_TOKEN = self.api_key
+
+        batch = 100
+        total_entities = len(entities)
+        if debug:
+            print(f"Fetching relatedness scores for {total_entities} entity pairs.")
+        for i in range(0, total_entities, batch):
+            if debug:
+                print(f"Fetching relatedness scores for entities {i} to {i + batch}")
+            for j in range(5):
+                try:
+                    relations = tagme.relatedness_wid(entities[i:i + batch])
+                    for relation in relations.relatedness:
+                        relatedness_map[(relation.title1, relation.title2)] = relation.rel
+                    break
+                except Exception as e:
+                    print(f"Error fetching relatedness score: {e}")
+
+        return relatedness_map

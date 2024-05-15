@@ -1,6 +1,7 @@
 from flask import request, render_template, jsonify
 from app.services.tagging import get_basic_info, get_wikidata_info
 from feature_extractor.src.feature_extractor import FeatureExtractor
+from network import Network
 
 
 def init_routes(app):
@@ -62,6 +63,10 @@ def init_routes(app):
     @app.route('/histogram/sentiment', methods=['GET'])
     def sentiment_histogram():
         pass
+
+    @app.route('/graph', methods=['GET'])
+    def graph():
+        return jsonify(Network().get_graph()), 200
 
     @app.route('/histogram/co-occurrence', methods=['GET'])
     def co_occurrence_histogram():

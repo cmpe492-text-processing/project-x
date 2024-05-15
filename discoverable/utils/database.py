@@ -76,10 +76,11 @@ class DatabaseManager:
             self.connection.commit()
             cursor.close()
 
-    def close_connection(self):
+    def close_connection(self, debug = True):
         if self.connection is not None:
             self.connection.close()
-            print("Database connection closed.")
+            if debug:
+                print("Database connection closed.")
 
     def get_corpuses(self):
         if self.connection is not None:
