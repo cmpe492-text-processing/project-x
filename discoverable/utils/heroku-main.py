@@ -1,16 +1,14 @@
-# This file currently fetches posts, then creates the corpuses saves both posts and to DB.
-# TODO It should also extract the corpuses, and then extract features to create several jsons.
-from discoverable.utils import reddit as rddt, database as db
-from discoverable.corpus_generator.src.corpus_generator import GenerateCorpus
-from discoverable.corpus_generator.src.corpus_generator import Platform
+from discoverable.nlp.corpus_generator import GenerateCorpus, Platform
+from reddit import Reddit, RedditPost
+from database import DatabaseManager
 
 
 def main():
-    reddit = rddt.Reddit()
-    database_manager = db.DatabaseManager()
+    reddit = Reddit()
+    database_manager = DatabaseManager()
     subreddits = ["trump", "politics", "elections", "democrats", "republican", "PoliticalDiscussion"]
     for subreddit in subreddits:
-        post_list: list[rddt.RedditPost] = reddit.get_hot_posts(subreddit, limit=3)
+        post_list: list[RedditPost] = reddit.get_hot_posts(subreddit, limit=3)
 
         corpus_list: list = []
         for post in post_list:
