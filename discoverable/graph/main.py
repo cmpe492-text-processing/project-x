@@ -10,14 +10,14 @@ if __name__ == "__main__":
             f.write("entity1,entity2,edge_thickness,edge_weight\n")
     """
 
-    with open("4848272nodes.csv") as f:
+    with open("../../resources/data/processed/graph/4848272nodes.csv") as f:
         for line in f:
             if line.startswith('wiki_id'):
                 continue
             line = line.strip().split(',')
             network.add_node(int(line[0]), line[1], float(line[2]))
 
-    with open("4848272edges.csv") as f:
+    with open("../../resources/data/processed/graph/4848272edges.csv") as f:
         for line in f:
             if line.startswith('entity1'):
                 continue

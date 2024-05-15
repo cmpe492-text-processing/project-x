@@ -3,8 +3,8 @@ import enum
 from tagme import Annotation
 import re
 
-from corpus_generator.src.processor import TextProcessor
-from corpus_generator.src.tagme_manager import TagmeManager
+from text_processor import TextProcessor
+from utils.tagme_manager import TagmeManager
 
 
 class Platform(enum.Enum):

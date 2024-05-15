@@ -3,11 +3,11 @@ import json
 from time import gmtime, strftime
 import os
 
-from corpus_generator.src.tagme_manager import TagmeManager
 from utils.database import DatabaseManager
 
 
 class FeatureExtractor:
+
     def __init__(self, wiki_id):
         self.wiki_id = wiki_id
         self.db_dump_filepath = "../data/db_dumps/db_dump.json"

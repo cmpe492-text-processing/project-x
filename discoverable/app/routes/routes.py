@@ -1,6 +1,6 @@
 from flask import request, render_template, jsonify
 from app.services.tagging import get_basic_info, get_wikidata_info
-from feature_extractor.src.feature_extractor import FeatureExtractor
+from nlp.feature_extractor import FeatureExtractor
 from network import Network
 
 

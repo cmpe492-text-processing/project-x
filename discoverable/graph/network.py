@@ -44,7 +44,7 @@ class Network:
         plt.show()
 
     def export_gephi(self):
-        nx.write_gexf(self.graph, "graph.gexf")
+        nx.write_gexf(self.graph, "../../resources/gephi/export/trump.gexf")
 
 
     def degree_centrality(self):

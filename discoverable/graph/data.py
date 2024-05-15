@@ -1,12 +1,11 @@
 import json
-import os
 from utils.database import DatabaseManager
-from corpus_generator.src.tagme_manager import TagmeManager
+from utils.tagme_manager import TagmeManager
 
 DEBUG = True
 
-result_path = "../resources/data/processed/graph/"
-raw_path = "./resources/db/corpus.json"
+result_path = "../../resources/data/processed/graph/"
+raw_path = "../../resources/data/db_dumps/corpus.json"
 raw_data: list[dict] = []
 
 # (entity1, entity2) -> occurrences

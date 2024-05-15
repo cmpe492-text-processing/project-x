@@ -1,11 +1,11 @@
 import os
 import json
-from discoverable.utils import database as db
+from utils.database import DatabaseManager
 
 
 class CorpusExtractor:
     def __init__(self, raw_directory):
-        self.db_manager = db.DatabaseManager()
+        self.db_manager = DatabaseManager()
         self.raw_dir = raw_directory
         self.output_file = os.path.join(self.raw_dir, 'db_dump.json')
 

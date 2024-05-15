@@ -3,7 +3,7 @@ from nltk.sentiment import SentimentIntensityAnalyzer
 import spacy
 import re
 
-from discoverable.utils.reddit import RedditPost
+from utils.reddit import RedditPost
 
 
 class TextProcessor:
