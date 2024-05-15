@@ -5,7 +5,7 @@ from corpus_generator.src.tagme_manager import TagmeManager
 
 DEBUG = True
 
-result_path = "../data/processed/graph/"
+result_path = "../resources/data/processed/graph/"
 raw_path = "./resources/db/corpus.json"
 raw_data: list[dict] = []
 
