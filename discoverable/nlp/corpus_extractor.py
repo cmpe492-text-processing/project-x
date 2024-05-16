@@ -1,6 +1,9 @@
 import os
 import json
-from utils.database import DatabaseManager
+
+from dotenv import load_dotenv
+
+from discoverable.utils.database import DatabaseManager
 
 
 class CorpusExtractor:
@@ -25,5 +28,7 @@ class CorpusExtractor:
 
 
 if __name__ == "__main__":
-    extractor = CorpusExtractor('../../data/db_dumps/')
+    # load env
+    load_dotenv("../../.env")
+    extractor = CorpusExtractor(os.getenv("PROJECT_X_ROOT") + "/resources/data/db_dumps/")
     extractor.run_extraction()

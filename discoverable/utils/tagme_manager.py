@@ -8,7 +8,7 @@ from tagme import Annotation
 class TagmeManager:
 
     def __init__(self, rho):
-        load_dotenv('../../../.env')
+        load_dotenv("../../.env")
         self.api_key = os.getenv('TAGME_API_KEY')
         tagme.GCUBE_TOKEN = self.api_key
         self.rho = rho
@@ -129,7 +129,6 @@ class TagmeManager:
             response = requests.get(wikidata_entity_url)
             if response.status_code == 200:
                 data = response.json()
-                # https://hay.toolforge.org/propbrowse/
                 item_info = {
                     'instance of': data.get('entities', {}).get(wikidata_item_id, {}).get('claims', {}).get('P31', []),
                     'sex or gender': data.get('entities', {}).get(wikidata_item_id, {}).get('claims', {}).get('P21',

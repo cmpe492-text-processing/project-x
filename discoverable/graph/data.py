@@ -143,6 +143,41 @@ def main_export_entity(entity_id):
     print("\033[1mDone!\033[0m")
 
 
+def export(entity_id: int = None,
+           node_limit: int = None,
+           edge_limit: int = None,
+           relatedness_threshold: float = None,
+           sentiment_threshold: float = None):
+    global raw_data, occurrences, relatedness, sentiment, entity_titles
+    print("\033[1mStarting...\033[0m")
+    load_data()
+
+    if entity_id:
+        raw_data = [post for post in raw_data if entity_id in [entity["wiki_id"] for entity in post.get("entities", [])]]
+
+    print("\033[1mProcessing data...\033[0m")
+    process_data()
+
+    if node_limit:
+        sentiment = {k: v for k, v in sentiment.items() if len(v) >= node_limit}
+        entity_titles = {k: v for k, v in entity_titles.items() if k in sentiment}
+
+    if sentiment_threshold:
+        sentiment = {k: v for k, v in sentiment.items() if sum([score.get("compound", 0) for score in v]) / len(v) >= sentiment_threshold}
+        entity_titles = {k: v for k, v in entity_titles.items() if k in sentiment}
+
+    if relatedness_threshold:
+        relatedness = {k: v for k, v in relatedness.items() if v >= relatedness_threshold}
+        occurrences = {k: v for k, v in occurrences.items() if k in relatedness}
+
+    if edge_limit:
+        occurrences = {k: v for k, v in occurrences.items() if v >= edge_limit}
+        relatedness = {k: v for k, v in relatedness.items() if k in occurrences}
+
+    print("\033[1mExporting graph...\033[0m")
+    export_graph()
+
+
 """
         edges.csv
         entity1,entity2,edge_thickness,edge_weight
@@ -152,7 +187,6 @@ def main_export_entity(entity_id):
         wiki_id,entity_title,sentiment
         id, str, float (aggregate sentiment score)
 """
-
 
 if __name__ == "__main__":
     main_export_entity(4848272)

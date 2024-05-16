@@ -3,14 +3,16 @@ import json
 from time import gmtime, strftime
 import os
 
-from utils.database import DatabaseManager
+from dotenv import load_dotenv
+from discoverable.utils.database import DatabaseManager
 
 
 class FeatureExtractor:
 
     def __init__(self, wiki_id):
+        load_dotenv("../../.env")
         self.wiki_id = wiki_id
-        self.db_dump_filepath = "../data/db_dumps/db_dump.json"
+        self.db_dump_filepath = os.getenv("PROJECT_X_ROOT") + "/resources/data/db_dumps/corpus.json"
 
     @staticmethod
     def read_json_file(filepath):
@@ -20,7 +22,7 @@ class FeatureExtractor:
 
     @staticmethod
     def exporter(posts, center_entity_wiki_id, directory):
-        direc = os.path.join('../../data', directory)
+        direc = os.path.join(os.getenv("PROJECT_X_ROOT"), "resources/data/feature_extracted_data")
         if not os.path.exists(direc):
             os.makedirs(direc)  # Creates the directory and all intermediate directories if they don't exist
         new_filename = f'{directory}_{center_entity_wiki_id}.json'

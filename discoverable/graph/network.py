@@ -1,6 +1,7 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 import matplotlib.colors as mcolors
+from typing_extensions import deprecated
 
 
 class Network:
@@ -19,6 +20,7 @@ class Network:
         self.edges.append(edge)
         self.graph.add_edge(entity1, entity2, edge_thickness=edge_thickness, edge_weight=edge_weight)
 
+    @deprecated
     def draw(self):
         # Color map for nodes based on sentiment
         cmap = mcolors.LinearSegmentedColormap.from_list("rg", ["red", "green"], N=256)
@@ -46,7 +48,6 @@ class Network:
     def export_gephi(self):
         nx.write_gexf(self.graph, "../../resources/gephi/export/trump.gexf")
 
-
     def degree_centrality(self):
         return nx.degree_centrality(self.graph)
 
@@ -71,13 +72,13 @@ class Network:
 
 
 """
-node: entity
-node: color (graph icindeki communitysine ait renk) 
-node: total sentiment - 
-
-edge:   entity1, entity2, 
-        edge_thickness: co-occurences, 
-        edge_force: relatedness, (pull force)
-
-EDGE_WEIGHT = EDGE_FORCE ... same thing 
+        node: entity
+        node: color (graph icindeki communitysine ait renk) 
+        node: total sentiment - 
+        
+        edge:   entity1, entity2, 
+                edge_thickness: co-occurences, 
+                edge_force: relatedness, (pull force)
+        
+        EDGE_WEIGHT = EDGE_FORCE ... same thing 
 """

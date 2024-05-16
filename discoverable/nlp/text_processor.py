@@ -3,8 +3,6 @@ from nltk.sentiment import SentimentIntensityAnalyzer
 import spacy
 import re
 
-from utils.reddit import RedditPost
-
 
 class TextProcessor:
 
@@ -76,12 +74,6 @@ class TextProcessor:
             sia.polarity_scores(txt)["neg"],
             sia.polarity_scores(txt)["neu"]
         )
-
-    def clean_posts(self, posts: list[RedditPost]) -> list[RedditPost]:
-        for post in posts:
-            post.cleaned_selftext = self.clean_text(post.selftext)
-            post.cleaned_title = self.clean_text(post.title)
-        return posts
 
     @property
     def nlp(self):

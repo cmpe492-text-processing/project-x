@@ -4,7 +4,7 @@ from tagme import Annotation
 import re
 
 from text_processor import TextProcessor
-from utils.tagme_manager import TagmeManager
+from discoverable.utils.tagme_manager import TagmeManager
 
 
 class Platform(enum.Enum):
