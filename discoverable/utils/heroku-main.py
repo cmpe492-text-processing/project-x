@@ -1,4 +1,4 @@
-from discoverable.nlp.corpus_generator import GenerateCorpus, Platform
+from nlp.corpus_generator import GenerateCorpus, Platform
 from reddit import Reddit, RedditPost
 from database import DatabaseManager
 
@@ -6,9 +6,16 @@ from database import DatabaseManager
 def main():
     reddit = Reddit()
     database_manager = DatabaseManager()
-    subreddits = ["trump", "politics", "elections", "democrats", "republican", "PoliticalDiscussion"]
-    for subreddit in subreddits:
-        post_list: list[RedditPost] = reddit.get_hot_posts(subreddit, limit=3)
+    politics_subreddits = ["trump", "politics", "elections", "democrats", "republican", "PoliticalDiscussion"]
+    football_subreddits = ['galatasaray', 'soccer', 'superlig', 'FenerbahceSK']
+    python_subreddits = ['Python', 'PythonProjects2', 'PythonLearning', 'learnpython']
+    c_subreddits = ['C_Programming', 'cpp', 'csharp', 'Cplusplus']
+    programming_subreddits = ['learnprogramming', 'AskProgramming', 'programming']
+    all_subreddits = (politics_subreddits + football_subreddits + python_subreddits
+                      + c_subreddits + programming_subreddits)
+
+    for subreddit in all_subreddits:
+        post_list: list[RedditPost] = reddit.get_hot_posts(subreddit, limit=10)
 
         corpus_list: list = []
         for post in post_list:

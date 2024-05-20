@@ -4,7 +4,7 @@ from time import gmtime, strftime
 import os
 
 from dotenv import load_dotenv
-from discoverable.utils.database import DatabaseManager
+from utils.database import DatabaseManager
 
 
 class FeatureExtractor:

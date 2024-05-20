@@ -3,8 +3,8 @@ import enum
 from tagme import Annotation
 import re
 
-from text_processor import TextProcessor
-from discoverable.utils.tagme_manager import TagmeManager
+from nlp.text_processor import TextProcessor
+from utils.tagme_manager import TagmeManager
 
 
 class Platform(enum.Enum):
@@ -176,13 +176,13 @@ class GenerateCorpus:
         for entity in entities:
             found = False
             for group in entity_groups:
-                if group['sentence'] == entity['sentence']:
+                if group.get('sentence') == entity.get('sentence'):
                     group['entities'].append(entity['wiki_id'])
                     found = True
                     break
             if not found:
                 entity_groups.append({
-                    "sentence": entity['sentence'],
+                    "sentence": entity.get('sentence', ''),
                     "entities": [entity['wiki_id']]
                 })
 
