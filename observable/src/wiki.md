@@ -3,17 +3,6 @@ title: Wiki Page
 toc: false
 ---
 
-[//]: # (<div id="base" style="padding: 20px;">)
-
-[//]: # (    <div>)
-
-[//]: # (        <div id="tableContainer"></div>        )
-
-[//]: # (        <div id="histogram_2"></div>)
-
-[//]: # (    </div>)
-
-[//]: # (</div>)
 
 <div class="grid grid-cols-12">
   <div class="card">
@@ -32,13 +21,11 @@ toc: false
     const table = document.createElement('table');
     const thead = document.createElement('thead');
     const tbody = document.createElement('tbody');
-
-    // Add CSS styles
-    table.style.width = '100%';
-    table.style.borderCollapse = 'collapse';
-
+    
+    table.style.maxWidth = '100%';
+    
     const headerRow = document.createElement('tr');
-    const headers = ['Occurrence Count', 'Name', 'Wiki Info'];
+    const headers = ['Occurrence Count', 'Name', 'Description', 'Instance Of'];
     headers.forEach(headerText => {
         const th = document.createElement('th');
         th.textContent = headerText;
@@ -51,6 +38,10 @@ toc: false
     });
     thead.appendChild(headerRow);
     table.appendChild(thead);
+
+    // Map to store row elements by wiki_id for later updating
+    const rowsMap = new Map();
+    const rowsMapInfo = new Map();
 
     data.forEach(item => {
         const row = document.createElement('tr');
@@ -67,27 +58,63 @@ toc: false
         cellName.style.padding = '10px';
         row.appendChild(cellName);
 
-        const cellWiki = document.createElement('td');
-        const link = document.createElement('a');
-        link.href = item.wiki_info;
-        link.textContent = 'View Info';
-        link.style.color = '#1a73e8';
-        cellWiki.appendChild(link);
-        cellWiki.style.border = '1px solid black';
-        cellWiki.style.padding = '10px';
-        row.appendChild(cellWiki);
+        const cellDescription = document.createElement('td');
+        cellDescription.textContent = 'Loading...';  // Placeholder text
+        cellDescription.style.border = '1px solid black';
+        cellDescription.style.padding = '10px';
+        row.appendChild(cellDescription);
+        
+        const cellInstanceOf = document.createElement('td');
+        cellInstanceOf.textContent = 'Loading...';  // Placeholder text
+        cellInstanceOf.style.border = '1px solid black';
+        cellInstanceOf.style.padding = '10px';
+        row.appendChild(cellInstanceOf);
 
         tbody.appendChild(row);
+
+        // Store the description cell in the map with wiki_id as the key
+        rowsMap.set(item.wiki_id, cellDescription);
+        rowsMapInfo.set(item.wiki_id, cellInstanceOf);
     });
 
     table.appendChild(tbody);
-    return table;
+    return {table, rowsMap, rowsMapInfo};
 }
 
+```
 
+```js
 
+function getWikiInfo(wiki_id) {
+    return fetch(`http://127.0.0.1:5000/wiki-info?id=${wiki_id}`)
+        .then(response => response.json())
+        .then(data => data)
+        .catch(error => {
+            console.error('Error fetching wiki info:', error);
+            return {description: 'Error loading description'};
+        });
+}
 
-    
+function updateDescriptions(rowsMap) {
+    rowsMap.forEach((cell, wiki_id) => {
+        getWikiInfo(wiki_id).then(data => {
+            cell.textContent = data.description || 'No description available';
+        });
+    });
+}
+
+function updateInstanceOf(rowsMap) {
+    rowsMap.forEach((cell, wiki_id) => {
+        getWikiInfo(wiki_id).then(data => {
+            cell.textContent = data.instance_of || 'No instance of available';
+        });
+    });
+}
+
+```
+
+```js
+
 ```
 
 ```js
@@ -119,11 +146,10 @@ if (wiki_id) {
     const positives = main_entity.map(d => d?.positive).filter(d => d?.positive != 0)
         
     const tableContainer = document.getElementById('tableContainer');
-    const table = createTable(most_occurred_entities);
-    console.log(most_occurred_entities);
+    const {table, rowsMap, rowsMapInfo} = createTable(most_occurred_entities);
+    updateDescriptions(rowsMap);
+    updateInstanceOf(rowsMapInfo);
     tableContainer.appendChild(table);
-    
-    
 
     const positiveBinGenerator = d3.bin().domain([0.001, 1]).thresholds(20);
     const negativeBinGenerator = d3.bin().domain([-1, -0.001]).thresholds(20);
@@ -160,7 +186,16 @@ if (wiki_id) {
         height: 600,
     });
     document.getElementById('histogram_2').appendChild(chart);
+    
+    most_occurred_entities.forEach(entity => {
+        data = getWikiInfo(entity.wiki_id).then(data => {
+            
+        })
     });
+        
+    
+    });
+    
     
 } else {
     histogram.textContent = 'No wiki ID provided, please provide a wiki id';
@@ -169,7 +204,4 @@ if (wiki_id) {
 }
 
 ```
-
-
-
 

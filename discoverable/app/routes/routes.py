@@ -16,10 +16,6 @@ def init_routes(app):
         if query.strip() == '':
             return jsonify({'error': 'Empty query'}), 204
 
-        if query.startswith('Q') and query[1:].isdigit():
-            # Fetch label from Wikidata
-            return jsonify(get_wikidata_info(query)), 200
-
         return jsonify(get_basic_info(query)), 200
 
     @app.route('/histogram/occurrence', methods=['GET'])
@@ -68,6 +64,17 @@ def init_routes(app):
     # def graph():
     #     return jsonify(Network().get_graph()), 200
 
+    @app.route('/wiki-info', methods=['GET'])
+    def wiki_info():
+        wiki_id = request.args.get('id')
+
+        if wiki_id is None:
+            return jsonify({'error': 'Invalid ID'}), 400
+
+        wiki_id = str(wiki_id)
+
+        return jsonify(get_wikidata_info(wiki_id)), 200
+
     @app.route('/histogram/co-occurrence', methods=['GET'])
     def co_occurrence_histogram():
         wiki_id = request.args.get('id')
@@ -81,4 +88,5 @@ def init_routes(app):
         response, most_occurred_entities, main_entity = feature_extractor.create_extracted_features_json_wo_relatedness()
 
         return jsonify({'most_occurred_entities': most_occurred_entities, 'data': response, 'main_entity': main_entity}), 200
+
 

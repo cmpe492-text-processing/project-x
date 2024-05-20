@@ -8,14 +8,16 @@ sidebar: false
     <br>
     <input type="text" id="search-bar" placeholder="Donald Trump called Joe Biden 'Dumb Joe'" style="width: 100%; padding: 10px; font-size: 16px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
 </div>
-<div id="search-results" style="padding: 20px;"></div>
-<div id="results"></div>
-
+<div id="results-table"></div>
+<br/>
+<div id="results-sentiment"></div>
+<br/>
+<div id="results-nltk"></div>
 
 ```js
 function sentimentChart(data, {width}) {
   return Plot.plot({
-      width: 900,
+      width: width,
       height: 300,
       marginTop: 20,
       marginLeft: 50,
@@ -27,6 +29,10 @@ function sentimentChart(data, {width}) {
       ]
   });
 }
+
+
+
+
 document.getElementById('search-bar').addEventListener('keypress', function(event) {
     if (event.key === 'Enter') {
         const query = event.target.value;
@@ -34,8 +40,10 @@ document.getElementById('search-bar').addEventListener('keypress', function(even
             .then(response => response.json())
             .then(data => {
                 console.log('Search results:', data);
-                const results = document.getElementById('results');
-                results.innerHTML = '';
+                const results_sentiment = document.getElementById('results-sentiment');
+                const results_table = document.getElementById('results-table');
+                results_sentiment.innerHTML = '';
+                results_table.innerHTML = '';
 
                 
                 const plotData = [
@@ -46,7 +54,6 @@ document.getElementById('search-bar').addEventListener('keypress', function(even
                 ];
 
                 const chart = sentimentChart(plotData, {width: 900});
-                
 
                 const text = data.text;
                 const entities = data.entities;
@@ -62,9 +69,10 @@ document.getElementById('search-bar').addEventListener('keypress', function(even
                     i = entity.end;
                 });
                 textDiv.innerHTML += text.slice(i);
-                results.appendChild(textDiv);
+                results_table.appendChild(textDiv);
                 
-                results.appendChild(chart);
+                results_sentiment.appendChild(chart);
+                
             })
             .catch(error => console.error('Error fetching search results:', error));
     }

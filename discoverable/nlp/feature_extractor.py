@@ -3,6 +3,7 @@ import json
 from time import gmtime, strftime
 import os
 
+import requests
 from dotenv import load_dotenv
 from utils.database import DatabaseManager
 
@@ -12,7 +13,9 @@ class FeatureExtractor:
     def __init__(self, wiki_id):
         load_dotenv("../../.env")
         self.wiki_id = wiki_id
-        self.db_dump_filepath = os.getenv("PROJECT_X_ROOT") + "/resources/data/db_dumps/corpus.json"
+        self.db_dump_filepath = (
+            os.getenv("PROJECT_X_ROOT") + "/resources/data/db_dumps/corpus.json"
+        )
 
     @staticmethod
     def read_json_file(filepath):
@@ -22,13 +25,17 @@ class FeatureExtractor:
 
     @staticmethod
     def exporter(posts, center_entity_wiki_id, directory):
-        direc = os.path.join(os.getenv("PROJECT_X_ROOT"), "resources/data/feature_extracted_data")
+        direc = os.path.join(
+            os.getenv("PROJECT_X_ROOT"), "resources/data/feature_extracted_data"
+        )
         if not os.path.exists(direc):
-            os.makedirs(direc)  # Creates the directory and all intermediate directories if they don't exist
-        new_filename = f'{directory}_{center_entity_wiki_id}.json'
-        with open(os.path.join(direc, new_filename), 'w') as f:
+            os.makedirs(
+                direc
+            )  # Creates the directory and all intermediate directories if they don't exist
+        new_filename = f"{directory}_{center_entity_wiki_id}.json"
+        with open(os.path.join(direc, new_filename), "w") as f:
             json.dump(posts, f, indent=2)
-            print(f'Exported {len(posts)} {directory} to {new_filename}')
+            print(f"Exported {len(posts)} {directory} to {new_filename}")
 
     @staticmethod
     def get_related_corpuses(center_entity_wiki_id, data):
@@ -61,17 +68,23 @@ class FeatureExtractor:
             for entity in entities:
                 wiki_id = entity.get("wiki_id")
                 if wiki_id:
-                    relatedness = FeatureExtractor.check_relatedness_from_db(db, center_entity_wiki_id, wiki_id)
+                    relatedness = FeatureExtractor.check_relatedness_from_db(
+                        db, center_entity_wiki_id, wiki_id
+                    )
                     if relatedness:
                         entity["relatedness"] = relatedness
                     else:
-                        relatedness_score = tagme_manager.relatedness_score(center_entity_wiki_id, wiki_id)
+                        relatedness_score = tagme_manager.relatedness_score(
+                            center_entity_wiki_id, wiki_id
+                        )
                         entity["relatedness"] = relatedness_score
-                        FeatureExtractor.upsert_relatedness_to_db(db, center_entity_wiki_id, wiki_id, relatedness_score)
+                        FeatureExtractor.upsert_relatedness_to_db(
+                            db, center_entity_wiki_id, wiki_id, relatedness_score
+                        )
         return posts
 
     def get_most_occurred_entities(self, data, n):
-        data = [entity for entity in data if entity['wiki_id'] != self.wiki_id]
+        data = [entity for entity in data if entity["wiki_id"] != self.wiki_id]
         data.sort(key=lambda x: x["n"], reverse=True)
         return data[:n]
 
@@ -83,20 +96,22 @@ class FeatureExtractor:
 
     def create_extracted_features_json_wo_relatedness(self):
         raw_data = self.read_json_file(self.db_dump_filepath)
-        print('read raw data', strftime("%Y-%m-%d %H:%M:%S", gmtime()))
+        print("read raw data", strftime("%Y-%m-%d %H:%M:%S", gmtime()))
 
         if not isinstance(raw_data, list):
             raise ValueError("Expected a list of dictionaries in JSON file.")
 
-        related_corpuses_without_relatedness = self.get_related_corpuses(self.wiki_id, raw_data)
-        print('got the corpuses', strftime("%Y-%m-%d %H:%M:%S", gmtime()))
+        related_corpuses_without_relatedness = self.get_related_corpuses(
+            self.wiki_id, raw_data
+        )
+        print("got the corpuses", strftime("%Y-%m-%d %H:%M:%S", gmtime()))
         # related_corpuses = self.add_relatedness(related_corpuses_without_relatedness, self.wiki_id, tagme_manager)
         # print('added the relatedness', strftime("%Y-%m-%d %H:%M:%S", gmtime()))
         # data = related_corpuses
         data = related_corpuses_without_relatedness
 
         result = self.process_data(data)
-        print('processed the data', strftime("%Y-%m-%d %H:%M:%S", gmtime()))
+        print("processed the data", strftime("%Y-%m-%d %H:%M:%S", gmtime()))
         self.exporter(result, self.wiki_id, "feature_extracted_data")
         most_occurred_x_entities = self.get_most_occurred_entities(result, 10)
         main_entity = self.get_main_entity(result)
@@ -111,7 +126,10 @@ class FeatureExtractor:
             for entity in entities:
                 wiki_id = entity["wiki_id"]
                 if wiki_id in results.keys():
-                    if entity.get("sentiment", None) is None or results[wiki_id].get("sentiment", None) is None:
+                    if (
+                        entity.get("sentiment", None) is None
+                        or results[wiki_id].get("sentiment", None) is None
+                    ):
                         continue
                     old_neutral = results[wiki_id]["sentiment"].get("neutral", 0)
                     old_compound = results[wiki_id]["sentiment"].get("compound", 0)
@@ -132,7 +150,9 @@ class FeatureExtractor:
 
                     results[wiki_id]["n"] += 1
 
-                    results[wiki_id]["sentiments_extended"].append(entity.get("sentiment", {}))
+                    results[wiki_id]["sentiments_extended"].append(
+                        entity.get("sentiment", {})
+                    )
                 else:
                     inserted_entity = {
                         "wiki_id": wiki_id,
@@ -140,7 +160,7 @@ class FeatureExtractor:
                         "sentiment": entity.get("sentiment", {}),
                         "relatedness": entity.get("relatedness", None),
                         "sentiments_extended": [entity.get("sentiment", list())],
-                        "n": 1
+                        "n": 1,
                     }
                     results[wiki_id] = inserted_entity
         return list(results.values())

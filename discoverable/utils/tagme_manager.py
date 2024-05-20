@@ -9,7 +9,7 @@ class TagmeManager:
 
     def __init__(self, rho):
         load_dotenv("../../.env")
-        self.api_key = os.getenv('TAGME_API_KEY')
+        self.api_key = os.getenv("TAGME_API_KEY")
         tagme.GCUBE_TOKEN = self.api_key
         self.rho = rho
 
@@ -32,14 +32,38 @@ class TagmeManager:
             "action": "query",
             "prop": "pageprops",
             "pageids": curid,
-            "format": "json"
+            "format": "json",
         }
         wikipedia_api_url = "https://en.wikipedia.org/w/api.php"
 
         response = requests.get(wikipedia_api_url, params=params)
         data = response.json()
         try:
-            wikidata_item_id = data["query"]["pages"][str(curid)]["pageprops"]["wikibase_item"]
+            wikidata_item_id = data["query"]["pages"][str(curid)]["pageprops"][
+                "wikibase_item"
+            ]
+            return wikidata_item_id
+        except KeyError as e:
+            print(f"Error {e} fetching Wikidata URL from cur-id {curid}.")
+            return None
+
+    @staticmethod
+    def get_annotation_info_with_id(curid):
+        print(f"Fetching Wikidata URL for cur-id {curid}.")
+        params = {
+            "action": "query",
+            "prop": "pageprops",
+            "format": "json",
+            "pageids": int(curid),
+        }
+        wikipedia_api_url = "https://en.wikipedia.org/w/api.php"
+
+        response = requests.get(wikipedia_api_url, params=params)
+        data = response.json()
+        try:
+            wikidata_item_id = data["query"]["pages"][str(curid)]["pageprops"][
+                "wikibase_item"
+            ]
             return wikidata_item_id
         except KeyError as e:
             print(f"Error {e} fetching Wikidata URL from cur-id {curid}.")
@@ -61,13 +85,15 @@ class TagmeManager:
     def get_wikidata_name(curid):
         attempts = 0
         max_attempts = 5
-        wikidata_entity_url = f"https://www.wikidata.org/wiki/Special:EntityData/{curid}.json"
+        wikidata_entity_url = (
+            f"https://www.wikidata.org/wiki/Special:EntityData/{curid}.json"
+        )
 
         while attempts < max_attempts:
             response = requests.get(wikidata_entity_url)
             if response.status_code == 200:
                 data = response.json()
-                return data['entities'][curid]['labels']['en']['value']
+                return data["entities"][curid]["labels"]["en"]["value"]
             else:
                 attempts += 1
 
@@ -83,7 +109,9 @@ class TagmeManager:
             print(f"Error fetching relatedness score: {e}")
             return None
 
-    def get_relatedness_map(self, entities: list[(int, int)], debug=False) -> dict[(int, int), float]:
+    def get_relatedness_map(
+        self, entities: list[(int, int)], debug=False
+    ) -> dict[(int, int), float]:
         relatedness_map: dict[(int, int), float] = {}
         entities = [tuple(sorted(entity_pair)) for entity_pair in entities]
         tagme.GCUBE_TOKEN = self.api_key
@@ -97,9 +125,11 @@ class TagmeManager:
                 print(f"Fetching relatedness scores for entities {i} to {i + batch}")
             for j in range(5):
                 try:
-                    relations = tagme.relatedness_wid(entities[i:i + batch])
+                    relations = tagme.relatedness_wid(entities[i : i + batch])
                     for relation in relations.relatedness:
-                        relatedness_map[(relation.title1, relation.title2)] = relation.rel
+                        relatedness_map[(relation.title1, relation.title2)] = (
+                            relation.rel
+                        )
                     break
                 except Exception as e:
                     print(f"Error fetching relatedness score: {e}")
@@ -114,55 +144,114 @@ class TagmeManager:
             response = requests.get(url)
             response.raise_for_status()
             data = response.json()
-            return data['entities'][q_id]['labels']['en']['value']
+            return data["entities"][q_id]["labels"]["en"]["value"]
         except requests.RequestException as e:
             print(f"Failed to fetch data from Wikidata: {e}")
             return None
 
     @staticmethod
     def get_wikidata_item_info_general(wikidata_item_id):
+        print(f"Fetching Wikidata API data for {wikidata_item_id}.")
         attempts = 0
         max_attempts = 5
-        wikidata_entity_url = f"https://www.wikidata.org/wiki/Special:EntityData/{wikidata_item_id}.json"
+        wikidata_entity_url = (
+            f"https://www.wikidata.org/wiki/Special:EntityData/{wikidata_item_id}.json"
+        )
 
         while attempts < max_attempts:
             response = requests.get(wikidata_entity_url)
             if response.status_code == 200:
                 data = response.json()
+                description = (
+                    data.get("entities", {})
+                    .get(wikidata_item_id, {})
+                    .get("descriptions", {})
+                    .get("en", {})
+                    .get("value", "")
+                )
+
                 item_info = {
-                    'instance of': data.get('entities', {}).get(wikidata_item_id, {}).get('claims', {}).get('P31', []),
-                    'sex or gender': data.get('entities', {}).get(wikidata_item_id, {}).get('claims', {}).get('P21',
-                                                                                                              []),
-                    'country': data.get('entities', {}).get(wikidata_item_id, {}).get('claims', {}).get('P17', []),
-                    'occupation': data.get('entities', {}).get(wikidata_item_id, {}).get('claims', {}).get('P106', []),
-                    'given name': data.get('entities', {}).get(wikidata_item_id, {}).get('claims', {}).get('P735', []),
-                    'date of birth': data.get('entities', {}).get(wikidata_item_id, {}).get('claims', {}).get('P569',
-                                                                                                              []),
-                    'date of death': data.get('entities', {}).get(wikidata_item_id, {}).get('claims', {}).get('P570',
-                                                                                                              []),
-                    'place of birth': data.get('entities', {}).get(wikidata_item_id, {}).get('claims', {}).get('P19',
-                                                                                                               []),
-                    'place of death': data.get('entities', {}).get(wikidata_item_id, {}).get('claims', {}).get('P20',
-                                                                                                               []),
-                    'country of citizenship': data.get('entities', {}).get(wikidata_item_id, {}).get('claims', {}).get(
-                        'P27', []),
-                    'educated at': data.get('entities', {}).get(wikidata_item_id, {}).get('claims', {}).get('P69', []),
-                    'employer': data.get('entities', {}).get(wikidata_item_id, {}).get('claims', {}).get('P108', []),
-                    'award received': data.get('entities', {}).get(wikidata_item_id, {}).get('claims', {}).get('P166',
-                                                                                                               []),
-                    'position held': data.get('entities', {}).get(wikidata_item_id, {}).get('claims', {}).get('P39',
-                                                                                                              []),
-                    'work location': data.get('entities', {}).get(wikidata_item_id, {}).get('claims', {}).get('P937',
-                                                                                                              []),
-                    'field of work': data.get('entities', {}).get(wikidata_item_id, {}).get('claims', {}).get('P101',
-                                                                                                              []),
+                    "instance of": data.get("entities", {})
+                    .get(wikidata_item_id, {})
+                    .get("claims", {})
+                    .get("P31", []),
+                    "sex or gender": data.get("entities", {})
+                    .get(wikidata_item_id, {})
+                    .get("claims", {})
+                    .get("P21", []),
+                    "country": data.get("entities", {})
+                    .get(wikidata_item_id, {})
+                    .get("claims", {})
+                    .get("P17", []),
+                    "occupation": data.get("entities", {})
+                    .get(wikidata_item_id, {})
+                    .get("claims", {})
+                    .get("P106", []),
+                    "given name": data.get("entities", {})
+                    .get(wikidata_item_id, {})
+                    .get("claims", {})
+                    .get("P735", []),
+                    "date of birth": data.get("entities", {})
+                    .get(wikidata_item_id, {})
+                    .get("claims", {})
+                    .get("P569", []),
+                    "date of death": data.get("entities", {})
+                    .get(wikidata_item_id, {})
+                    .get("claims", {})
+                    .get("P570", []),
+                    "place of birth": data.get("entities", {})
+                    .get(wikidata_item_id, {})
+                    .get("claims", {})
+                    .get("P19", []),
+                    "place of death": data.get("entities", {})
+                    .get(wikidata_item_id, {})
+                    .get("claims", {})
+                    .get("P20", []),
+                    "country of citizenship": data.get("entities", {})
+                    .get(wikidata_item_id, {})
+                    .get("claims", {})
+                    .get("P27", []),
+                    "educated at": data.get("entities", {})
+                    .get(wikidata_item_id, {})
+                    .get("claims", {})
+                    .get("P69", []),
+                    "employer": data.get("entities", {})
+                    .get(wikidata_item_id, {})
+                    .get("claims", {})
+                    .get("P108", []),
+                    "award received": data.get("entities", {})
+                    .get(wikidata_item_id, {})
+                    .get("claims", {})
+                    .get("P166", []),
+                    "position held": data.get("entities", {})
+                    .get(wikidata_item_id, {})
+                    .get("claims", {})
+                    .get("P39", []),
+                    "work location": data.get("entities", {})
+                    .get(wikidata_item_id, {})
+                    .get("claims", {})
+                    .get("P937", []),
+                    "field of work": data.get("entities", {})
+                    .get(wikidata_item_id, {})
+                    .get("claims", {})
+                    .get("P101", []),
                 }
 
                 item_info = {k: v for k, v in item_info.items() if v is not None}
-                return item_info
+                item_info_instance_of_array = []
+                for values in item_info.get("instance of", []):
+                    result = TagmeManager.fetch_label_from_wikidata(
+                        values["mainsnak"]["datavalue"]["value"]["id"]
+                    )
+                    if result:
+                        item_info_instance_of_array.append(result)
+
+                return {"item_info": item_info, "description": description, "instance_of": item_info_instance_of_array}
             else:
                 attempts += 1
-                print(f"Attempt {attempts}/{max_attempts} failed with status code {response.status_code}. Retrying...")
+                print(
+                    f"Attempt {attempts}/{max_attempts} failed with status code {response.status_code}. Retrying..."
+                )
 
         print("Error fetching Wikidata API data after maximum attempts.")
         return {}
