@@ -20,7 +20,6 @@ class Network:
         self.edges.append(edge)
         self.graph.add_edge(entity1, entity2, edge_thickness=edge_thickness, edge_weight=edge_weight)
 
-    @deprecated
     def draw(self):
         # Color map for nodes based on sentiment
         cmap = mcolors.LinearSegmentedColormap.from_list("rg", ["red", "green"], N=256)

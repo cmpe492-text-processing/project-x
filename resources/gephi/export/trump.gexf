@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <gexf xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd" version="1.2">
-  <meta lastmodifieddate="2024-05-13">
+  <meta lastmodifieddate="2024-05-16">
     <creator>NetworkX 3.2.1</creator>
   </meta>
   <graph defaultedgetype="undirected" mode="static" name="">
@@ -543,8 +543,8 @@
       </node>
       <node id="21377251" label="21377251">
         <attvalues>
-          <attvalue for="0" value="United States presidential election" />
-          <attvalue for="1" value="2016.0" />
+          <attvalue for="0" value="United States presidential election 2016" />
+          <attvalue for="1" value="0.21989999999999998" />
         </attvalues>
       </node>
       <node id="21351321" label="21351321">
@@ -555,8 +555,8 @@
       </node>
       <node id="32077" label="32077">
         <attvalues>
-          <attvalue for="0" value="United States presidential election" />
-          <attvalue for="1" value="1996.0" />
+          <attvalue for="0" value="United States presidential election 1996" />
+          <attvalue for="1" value="0.0" />
         </attvalues>
       </node>
       <node id="238253" label="238253">
@@ -765,8 +765,8 @@
       </node>
       <node id="26937919" label="26937919">
         <attvalues>
-          <attvalue for="0" value="Barack Obama presidential campaign" />
-          <attvalue for="1" value="2012.0" />
+          <attvalue for="0" value="Barack Obama presidential campaign 2012" />
+          <attvalue for="1" value="0.0" />
         </attvalues>
       </node>
       <node id="170717" label="170717">
@@ -1179,8 +1179,8 @@
       </node>
       <node id="48682829" label="48682829">
         <attvalues>
-          <attvalue for="0" value="Puerto Rican general election" />
-          <attvalue for="1" value="2016.0" />
+          <attvalue for="0" value="Puerto Rican general election 2016" />
+          <attvalue for="1" value="0.23745" />
         </attvalues>
       </node>
       <node id="20611504" label="20611504">
@@ -2055,8 +2055,8 @@
       </node>
       <node id="37643953" label="37643953">
         <attvalues>
-          <attvalue for="0" value="Democratic Party presidential primaries" />
-          <attvalue for="1" value="2016.0" />
+          <attvalue for="0" value="Democratic Party presidential primaries 2016" />
+          <attvalue for="1" value="0.0" />
         </attvalues>
       </node>
       <node id="31756" label="31756">
@@ -2385,8 +2385,8 @@
       </node>
       <node id="38705343" label="38705343">
         <attvalues>
-          <attvalue for="0" value="United States elections" />
-          <attvalue for="1" value="2016.0" />
+          <attvalue for="0" value="United States elections 2016" />
+          <attvalue for="1" value="0.5719" />
         </attvalues>
       </node>
       <node id="31737" label="31737">
@@ -2601,8 +2601,8 @@
       </node>
       <node id="37673268" label="37673268">
         <attvalues>
-          <attvalue for="0" value="United States Senate election in North Carolina" />
-          <attvalue for="1" value="2014.0" />
+          <attvalue for="0" value="United States Senate election in North Carolina 2014" />
+          <attvalue for="1" value="-0.5574" />
         </attvalues>
       </node>
       <node id="234226" label="234226">
@@ -2745,8 +2745,8 @@
       </node>
       <node id="44509739" label="44509739">
         <attvalues>
-          <attvalue for="0" value="United States Senate elections" />
-          <attvalue for="1" value="2020.0" />
+          <attvalue for="0" value="United States Senate elections 2020" />
+          <attvalue for="1" value="-0.0196" />
         </attvalues>
       </node>
       <node id="286369" label="286369">
@@ -2817,14 +2817,14 @@
       </node>
       <node id="44235929" label="44235929">
         <attvalues>
-          <attvalue for="0" value="Donbass general elections" />
-          <attvalue for="1" value="2014.0" />
+          <attvalue for="0" value="Donbass general elections 2014" />
+          <attvalue for="1" value="0.0" />
         </attvalues>
       </node>
       <node id="11060668" label="11060668">
         <attvalues>
-          <attvalue for="0" value="Ukrainian parliamentary election" />
-          <attvalue for="1" value="2007.0" />
+          <attvalue for="0" value="Ukrainian parliamentary election 2007" />
+          <attvalue for="1" value="-0.3089" />
         </attvalues>
       </node>
       <node id="49442238" label="49442238">
@@ -2961,14 +2961,14 @@
       </node>
       <node id="44962964" label="44962964">
         <attvalues>
-          <attvalue for="0" value="Baseball Hall of Fame balloting" />
-          <attvalue for="1" value="2016.0" />
+          <attvalue for="0" value="Baseball Hall of Fame balloting 2016" />
+          <attvalue for="1" value="0.5118" />
         </attvalues>
       </node>
       <node id="17881122" label="17881122">
         <attvalues>
-          <attvalue for="0" value="Barack Obama presidential campaign" />
-          <attvalue for="1" value="2008.0" />
+          <attvalue for="0" value="Barack Obama presidential campaign 2008" />
+          <attvalue for="1" value="0.5118" />
         </attvalues>
       </node>
       <node id="39587781" label="39587781">
@@ -2985,8 +2985,8 @@
       </node>
       <node id="44582614" label="44582614">
         <attvalues>
-          <attvalue for="0" value="Bernie Sanders presidential campaign" />
-          <attvalue for="1" value="2016.0" />
+          <attvalue for="0" value="Bernie Sanders presidential campaign 2016" />
+          <attvalue for="1" value="0.0" />
         </attvalues>
       </node>
       <node id="2500271" label="2500271">
@@ -3003,8 +3003,8 @@
       </node>
       <node id="43693674" label="43693674">
         <attvalues>
-          <attvalue for="0" value="Iranian legislative election" />
-          <attvalue for="1" value="2016.0" />
+          <attvalue for="0" value="Iranian legislative election 2016" />
+          <attvalue for="1" value="-0.5719" />
         </attvalues>
       </node>
       <node id="2739671" label="2739671">
@@ -3033,8 +3033,8 @@
       </node>
       <node id="406859" label="406859">
         <attvalues>
-          <attvalue for="0" value="United States presidential election" />
-          <attvalue for="1" value="2008.0" />
+          <attvalue for="0" value="United States presidential election 2008" />
+          <attvalue for="1" value="-0.5267" />
         </attvalues>
       </node>
       <node id="2434267" label="2434267">
@@ -3345,8 +3345,8 @@
       </node>
       <node id="1136363" label="1136363">
         <attvalues>
-          <attvalue for="0" value="1" />
-          <attvalue for="1" value="0.0" />
+          <attvalue for="0" value="1000000000" />
+          <attvalue for="1" value="0.7239" />
         </attvalues>
       </node>
       <node id="6365636" label="6365636">
@@ -3399,8 +3399,8 @@
       </node>
       <node id="40571" label="40571">
         <attvalues>
-          <attvalue for="0" value="United States presidential election" />
-          <attvalue for="1" value="1984.0" />
+          <attvalue for="0" value="United States presidential election 1984" />
+          <attvalue for="1" value="0.5719" />
         </attvalues>
       </node>
       <node id="181322" label="181322">

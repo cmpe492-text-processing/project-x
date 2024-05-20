@@ -1,7 +1,13 @@
-import network
+import os
+
+from dotenv import load_dotenv
+from discoverable.graph.network import Network
+
 
 if __name__ == "__main__":
-    network = network.Network()
+    load_dotenv("../../.env")
+
+    network = Network()
     """
         with open("{}nodes.csv".format(prefix), "w") as f:
             f.write("wiki_id,entity_title,sentiment\n")
@@ -10,14 +16,14 @@ if __name__ == "__main__":
             f.write("entity1,entity2,edge_thickness,edge_weight\n")
     """
 
-    with open("../../resources/data/processed/graph/4848272nodes.csv") as f:
+    with open(os.getenv("PROJECT_X_ROOT") + "/resources/data/graph/4848272_nodes.csv") as f:
         for line in f:
             if line.startswith('wiki_id'):
                 continue
             line = line.strip().split(',')
             network.add_node(int(line[0]), line[1], float(line[2]))
 
-    with open("../../resources/data/processed/graph/4848272edges.csv") as f:
+    with open(os.getenv("PROJECT_X_ROOT") + "/resources/data/graph/4848272_edges.csv") as f:
         for line in f:
             if line.startswith('entity1'):
                 continue
@@ -26,7 +32,4 @@ if __name__ == "__main__":
 
     print(network.degree_centrality())
     print(network.communities())
-    # print(network.shortest_path(1, 4))
-
-    # network.draw()
     network.export_gephi()

@@ -1,11 +1,17 @@
 import json
-from utils.database import DatabaseManager
-from utils.tagme_manager import TagmeManager
+import os
+
+from dotenv import load_dotenv
+
+from discoverable.utils.database import DatabaseManager
+from discoverable.utils.tagme_manager import TagmeManager
 
 DEBUG = True
 
-result_path = "../../resources/data/processed/graph/"
-raw_path = "../../resources/data/db_dumps/corpus.json"
+load_dotenv("../../.env")
+
+result_path = os.getenv("PROJECT_X_ROOT") + "/resources/data/graph/"
+raw_path = os.getenv("PROJECT_X_ROOT") + "/resources/data/db_dumps/corpus.json"
 raw_data: list[dict] = []
 
 # (entity1, entity2) -> occurrences
@@ -91,20 +97,22 @@ def get_relatedness(entity1, entity2):
     return rlt
 
 
-def export_graph(prefix="general_"):
+def export_graph(prefix="general"):
     global raw_data, occurrences, relatedness, sentiment, entity_titles
     okey = []
-    with open("{}nodes.csv".format(prefix), "w") as f:
+    with open(result_path + "{}_nodes.csv".format(prefix), "w") as f:
         f.write("wiki_id,entity_title,sentiment\n")
         for wiki_id in entity_titles:
             sentiment_scores = sentiment.get(wiki_id, [])
             if not sentiment_scores:
                 continue
             sentiment_score = sum([score.get("compound", 0) for score in sentiment_scores]) / len(sentiment_scores)
+            # escape commas in entity titles
+            entity_titles[wiki_id] = entity_titles[wiki_id].replace(",", "")
             f.write(f"{wiki_id},{entity_titles[wiki_id]},{sentiment_score}\n")
             okey.append(wiki_id)
 
-    with open("{}edges.csv".format(prefix), "w") as f:
+    with open(result_path + "{}_edges.csv".format(prefix), "w") as f:
         f.write("entity1,entity2,edge_thickness,edge_weight\n")
         for key in occurrences:
             entity1, entity2 = key
@@ -153,29 +161,33 @@ def export(entity_id: int = None,
     load_data()
 
     if entity_id:
-        raw_data = [post for post in raw_data if entity_id in [entity["wiki_id"] for entity in post.get("entities", [])]]
+        raw_data = [post for post in raw_data if
+                    entity_id in [entity["wiki_id"] for entity in post.get("entities", [])]]
 
     print("\033[1mProcessing data...\033[0m")
     process_data()
 
-    if node_limit:
-        sentiment = {k: v for k, v in sentiment.items() if len(v) >= node_limit}
-        entity_titles = {k: v for k, v in entity_titles.items() if k in sentiment}
-
     if sentiment_threshold:
-        sentiment = {k: v for k, v in sentiment.items() if sum([score.get("compound", 0) for score in v]) / len(v) >= sentiment_threshold}
+        sentiment = {k: v for k, v in sentiment.items() if
+                     any([abs(score.get("compound", 0)) >= sentiment_threshold for score in v])}
         entity_titles = {k: v for k, v in entity_titles.items() if k in sentiment}
 
     if relatedness_threshold:
         relatedness = {k: v for k, v in relatedness.items() if v >= relatedness_threshold}
         occurrences = {k: v for k, v in occurrences.items() if k in relatedness}
 
+    if node_limit:
+        sentiment = {k: v for k, v in
+                     sorted(sentiment.items(), key=lambda x: sum([score.get("compound", 0) for score in x[1]]),
+                            reverse=True)[:node_limit]}
+        entity_titles = {k: v for k, v in entity_titles.items() if k in sentiment}
+
     if edge_limit:
-        occurrences = {k: v for k, v in occurrences.items() if v >= edge_limit}
+        occurrences = {k: v for k, v in sorted(occurrences.items(), key=lambda x: x[1], reverse=True)[:edge_limit]}
         relatedness = {k: v for k, v in relatedness.items() if k in occurrences}
 
     print("\033[1mExporting graph...\033[0m")
-    export_graph()
+    export_graph(prefix=str(entity_id) if entity_id else "general")
 
 
 """
@@ -189,4 +201,4 @@ def export(entity_id: int = None,
 """
 
 if __name__ == "__main__":
-    main_export_entity(4848272)
+    export(entity_id=4848272)  # , node_limit=300, edge_limit = 10000)
