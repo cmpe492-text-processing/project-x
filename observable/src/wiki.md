@@ -3,53 +3,87 @@ title: Wiki Page
 toc: false
 ---
 
-<div id="base" style="padding: 20px;">
-    <div>
-        <div id="tableContainer"></div>        
-        <div id="histogram_2"></div>
-    </div>
+[//]: # (<div id="base" style="padding: 20px;">)
+
+[//]: # (    <div>)
+
+[//]: # (        <div id="tableContainer"></div>        )
+
+[//]: # (        <div id="histogram_2"></div>)
+
+[//]: # (    </div>)
+
+[//]: # (</div>)
+
+<div class="grid grid-cols-12">
+  <div class="card">
+    <h2>Most Occurred Entities Table</h2>
+    <div id="tableContainer"></div>
+  </div>
+  <div class="card">
+    <h2>Sentiment Occurrence Count</h2>
+    <div id="histogram_2"></div>
+  </div>
 </div>
 
 ```js
     
-    function createTable(data) {
-        const table = document.createElement('table');
-        const thead = document.createElement('thead');
-        const tbody = document.createElement('tbody');
+   function createTable(data) {
+    const table = document.createElement('table');
+    const thead = document.createElement('thead');
+    const tbody = document.createElement('tbody');
 
-        // Create table header
-        const headerRow = document.createElement('tr');
-        const headers = ['Occurrence Count', 'Name', 'Wiki Info'];
-        headers.forEach(headerText => {
-            const th = document.createElement('th');
-            th.textContent = headerText;
-            headerRow.appendChild(th);
-        });
-        thead.appendChild(headerRow);
-        table.appendChild(thead);
+    // Add CSS styles
+    table.style.width = '100%';
+    table.style.borderCollapse = 'collapse';
 
-        // Create table rows
-        data.forEach(item => {
-            const row = document.createElement('tr');
+    const headerRow = document.createElement('tr');
+    const headers = ['Occurrence Count', 'Name', 'Wiki Info'];
+    headers.forEach(headerText => {
+        const th = document.createElement('th');
+        th.textContent = headerText;
+        th.style.border = '1px solid black';
+        th.style.padding = '10px';
+        th.style.backgroundColor = '#f2f2f2';
+        th.style.textAlign = 'left';
+        th.style.fontWeight = 'bold';
+        headerRow.appendChild(th);
+    });
+    thead.appendChild(headerRow);
+    table.appendChild(thead);
 
-            const cellCount = document.createElement('td');
-            cellCount.textContent = item.n;
-            row.appendChild(cellCount);
+    data.forEach(item => {
+        const row = document.createElement('tr');
 
-            const cellName = document.createElement('td');
-            cellName.textContent = item.name;
-            row.appendChild(cellName);
+        const cellCount = document.createElement('td');
+        cellCount.textContent = item.n;
+        cellCount.style.border = '1px solid black';
+        cellCount.style.padding = '10px';
+        row.appendChild(cellCount);
 
-            const cellWiki = document.createElement('td');
-            // cellWiki.textContent = item.wiki_info;
-            row.appendChild(cellWiki);
+        const cellName = document.createElement('td');
+        cellName.textContent = item.name;
+        cellName.style.border = '1px solid black';
+        cellName.style.padding = '10px';
+        row.appendChild(cellName);
 
-            tbody.appendChild(row);
-        });
+        const cellWiki = document.createElement('td');
+        const link = document.createElement('a');
+        link.href = item.wiki_info;
+        link.textContent = 'View Info';
+        link.style.color = '#1a73e8';
+        cellWiki.appendChild(link);
+        cellWiki.style.border = '1px solid black';
+        cellWiki.style.padding = '10px';
+        row.appendChild(cellWiki);
 
-        table.appendChild(tbody);
-        return table;
-    }
+        tbody.appendChild(row);
+    });
+
+    table.appendChild(tbody);
+    return table;
+}
+
 
 
 
@@ -122,8 +156,8 @@ if (wiki_id) {
             }),
             Plot.ruleY([0])
         ],
-        width: 800,
-        height: 400
+        width: 1200,
+        height: 600,
     });
     document.getElementById('histogram_2').appendChild(chart);
     });

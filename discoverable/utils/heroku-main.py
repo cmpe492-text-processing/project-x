@@ -15,7 +15,7 @@ def main():
                       + c_subreddits + programming_subreddits)
 
     for subreddit in all_subreddits:
-        post_list: list[RedditPost] = reddit.get_hot_posts(subreddit, limit=10)
+        post_list: list[RedditPost] = reddit.get_new_posts(subreddit, limit=10)
 
         corpus_list: list = []
         for post in post_list:
