@@ -168,7 +168,7 @@ class TagmeManager:
                     .get("descriptions", {})
                     .get("en", {})
                     .get("value", "")
-                )
+                ).capitalize()
 
                 item_info = {
                     "instance of": data.get("entities", {})
@@ -246,7 +246,11 @@ class TagmeManager:
                     if result:
                         item_info_instance_of_array.append(result)
 
-                return {"item_info": item_info, "description": description, "instance_of": item_info_instance_of_array}
+                return {
+                    "item_info": item_info,
+                    "description": description,
+                    "instance_of": item_info_instance_of_array,
+                }
             else:
                 attempts += 1
                 print(
