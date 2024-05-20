@@ -1,5 +1,7 @@
 ---
 title: 'Project X'
+toc: false
+sidebar: false
 ---
 
 <div style="display: flex; justify-content: center; align-items: center; height: 20vh;">
