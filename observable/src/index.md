@@ -11,7 +11,22 @@ sidebar: false
 <div id="search-results" style="padding: 20px;"></div>
 <div id="results"></div>
 
-<script>
+
+```js
+function sentimentChart(data, {width}) {
+  return Plot.plot({
+      width: 900,
+      height: 300,
+      marginTop: 20,
+      marginLeft: 50,
+      x: {domain: [-1,1],grid: true, label: "Score"},
+      y: {domain: data.map(d => d.sentiment), label: null},
+      marks: [
+          Plot.barX(data, {x: "score", y: "sentiment", fill: "color", tip: true}),
+          Plot.ruleX([0])
+      ]
+  });
+}
 document.getElementById('search-bar').addEventListener('keypress', function(event) {
     if (event.key === 'Enter') {
         const query = event.target.value;
@@ -22,19 +37,16 @@ document.getElementById('search-bar').addEventListener('keypress', function(even
                 const results = document.getElementById('results');
                 results.innerHTML = '';
 
-                const scores = data.scores;
-                const scoreDiv = document.createElement('div');
-                scoreDiv.innerHTML = `
-                    <h2>Sentiment scores</h2>
-                    <div style="width: 100%; text-align: left;">
-                        <div style="height: 30px; margin: 5px 0; background-color: green; color: white; text-align: left; line-height: 30px; width: ${scores.pos * 50 + 10}%; max-width: 100%;">Positive: ${scores.pos}</div>
-                        <div style="height: 30px; margin: 5px 0; background-color: red; color: white; text-align: left; line-height: 30px; width: ${scores.neg * 50 + 10}%; max-width: 100%;">Negative: ${scores.neg}</div>
-                        <div style="height: 30px; margin: 5px 0; background-color: gray; color: white; text-align: left; line-height: 30px; width: ${scores.neu * 50 + 10}%; max-width: 100%;">Neutral: ${scores.neu}</div>
-                        <div style="height: 30px; margin: 5px 0; background-color: ${scores.compound > 0 ? `green` : `red`}; color: white; text-align: left; line-height: 30px; width: ${Math.abs(scores.compound) * 50 + 10}%; max-width: 100%;">Compound: ${scores.compound}</div>
-                    </div>
-                    <br></br>
-                `;
-                results.appendChild(scoreDiv);
+                
+                const plotData = [
+                  {sentiment: ' Compound', score: data.scores.compound, color: data.scores.compound >= 0 ? '#4caf50' : '#f44336'},
+                  {sentiment: ' Positive', score: data.scores.pos, color: '#2196f3'},
+                  {sentiment: ' Negative', score: -data.scores.neg, color: '#f44336'},
+                  {sentiment: ' Neutral', score: data.scores.neu, color: '#ffeb3b'}
+                ];
+
+                const chart = sentimentChart(plotData, {width: 900});
+                
 
                 const text = data.text;
                 const entities = data.entities;
@@ -51,8 +63,10 @@ document.getElementById('search-bar').addEventListener('keypress', function(even
                 });
                 textDiv.innerHTML += text.slice(i);
                 results.appendChild(textDiv);
+                
+                results.appendChild(chart);
             })
             .catch(error => console.error('Error fetching search results:', error));
     }
 });
-</script>
+```
