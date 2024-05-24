@@ -1,4 +1,3 @@
-import requests
 from tagme import Annotation, annotate
 from nltk.sentiment import SentimentIntensityAnalyzer
 
@@ -50,10 +49,13 @@ def get_basic_info(text: str) -> dict:
 
 
 def get_wikidata_info(curid) -> dict:
+
     tagme_manager = TagmeManager(rho=0.15)
     wiki_id = tagme_manager.get_annotation_info_with_id(curid)
     result = tagme_manager.get_wikidata_item_info_general(wiki_id)
-    description = result.get("description", "")
-    item_info = result.get('item_info', {})
-    instance_of = result.get('instance_of', [])
-    return {"description": description, "item_info": item_info, "instance_of": instance_of}
+
+    return {
+        "description": result.get("description", ""),
+        "item_info": result.get('item_info', {}),
+        "instance_of": result.get('instance_of', [])
+    }

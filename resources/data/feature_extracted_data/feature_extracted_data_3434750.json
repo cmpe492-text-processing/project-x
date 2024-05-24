@@ -1,0 +1,4776 @@
+[
+  {
+    "wiki_id": 52234,
+    "name": "Chief executive officer",
+    "sentiment": {
+      "neutral": 1.0,
+      "compound": 0.0,
+      "negative": 0.0,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 142690,
+    "name": "Disinformation",
+    "sentiment": {
+      "neutral": 1.0,
+      "compound": 0.0,
+      "negative": 0.0,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 3434750,
+    "name": "United States",
+    "sentiment": {
+      "neutral": 10.11,
+      "compound": 1.7338999999999996,
+      "positive": 1.9819999999999998,
+      "negative": 0.9079999999999999
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.417,
+        "compound": 0.4215,
+        "negative": 0.0,
+        "positive": 0.583
+      },
+      {
+        "neutral": 0.863,
+        "compound": 0.5346,
+        "negative": 0.034,
+        "positive": 0.103
+      },
+      {
+        "neutral": 0.756,
+        "compound": 0.8519,
+        "negative": 0.0,
+        "positive": 0.244
+      },
+      {
+        "neutral": 0.887,
+        "compound": 0.4215,
+        "negative": 0.0,
+        "positive": 0.113
+      },
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      },
+      {
+        "neutral": 0.928,
+        "compound": -0.6597,
+        "negative": 0.072,
+        "positive": 0.0
+      },
+      {
+        "neutral": 0.758,
+        "compound": 0.7506,
+        "negative": 0.0,
+        "positive": 0.242
+      },
+      {
+        "neutral": 0.739,
+        "compound": -0.128,
+        "negative": 0.136,
+        "positive": 0.125
+      },
+      {
+        "neutral": 0.604,
+        "compound": -0.3182,
+        "negative": 0.228,
+        "positive": 0.168
+      },
+      {
+        "neutral": 0.604,
+        "compound": -0.3182,
+        "negative": 0.228,
+        "positive": 0.168
+      },
+      {
+        "neutral": 0.554,
+        "compound": 0.1779,
+        "negative": 0.21,
+        "positive": 0.236
+      },
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      },
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      }
+    ],
+    "n": 13
+  },
+  {
+    "wiki_id": 23627,
+    "name": "Police",
+    "sentiment": {
+      "neutral": 0.879,
+      "compound": -0.4391,
+      "negative": 0.121,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.879,
+        "compound": -0.4391,
+        "negative": 0.121,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 19280537,
+    "name": "Contract",
+    "sentiment": {
+      "neutral": 0.879,
+      "compound": -0.4391,
+      "negative": 0.121,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.879,
+        "compound": -0.4391,
+        "negative": 0.121,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 219599,
+    "name": "Person",
+    "sentiment": {
+      "neutral": 0.879,
+      "compound": -0.4391,
+      "negative": 0.121,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.879,
+        "compound": -0.4391,
+        "negative": 0.121,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 2943008,
+    "name": "Social alienation",
+    "sentiment": {
+      "neutral": 1.879,
+      "compound": -0.4391,
+      "positive": 0.0,
+      "negative": 0.121
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.879,
+        "compound": -0.4391,
+        "negative": 0.121,
+        "positive": 0.0
+      },
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      }
+    ],
+    "n": 2
+  },
+  {
+    "wiki_id": 7959,
+    "name": "Democracy",
+    "sentiment": {
+      "neutral": 2.421,
+      "compound": 0.9275,
+      "positive": 0.401,
+      "negative": 0.178
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      },
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      },
+      {
+        "neutral": 0.421,
+        "compound": 0.9275,
+        "negative": 0.178,
+        "positive": 0.401
+      }
+    ],
+    "n": 3
+  },
+  {
+    "wiki_id": 191253,
+    "name": "Social group",
+    "sentiment": {
+      "neutral": 1.0,
+      "compound": 0.0,
+      "negative": 0.0,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 3488351,
+    "name": "People",
+    "sentiment": {
+      "neutral": 1.0,
+      "compound": 0.0,
+      "negative": 0.0,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 51913,
+    "name": "Legislation",
+    "sentiment": {
+      "neutral": 1.0,
+      "compound": 0.0,
+      "negative": 0.0,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 9561564,
+    "name": "Alienation (property law)",
+    "sentiment": {
+      "neutral": 0.929,
+      "compound": 0.0772,
+      "negative": 0.0,
+      "positive": 0.071
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.929,
+        "compound": 0.0772,
+        "negative": 0.0,
+        "positive": 0.071
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 19017269,
+    "name": "World population",
+    "sentiment": {
+      "neutral": 0.929,
+      "compound": 0.0772,
+      "negative": 0.0,
+      "positive": 0.071
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.929,
+        "compound": 0.0772,
+        "negative": 0.0,
+        "positive": 0.071
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 327672,
+    "name": "Natural and legal rights",
+    "sentiment": {
+      "neutral": 1.0,
+      "compound": 0.0,
+      "negative": 0.0,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 17689,
+    "name": "Ignoratio elenchi",
+    "sentiment": {
+      "neutral": 0.694,
+      "compound": -0.296,
+      "negative": 0.306,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.694,
+        "compound": -0.296,
+        "negative": 0.306,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 534366,
+    "name": "Barack Obama",
+    "sentiment": {
+      "neutral": 0.863,
+      "compound": 0.5346,
+      "negative": 0.034,
+      "positive": 0.103
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.863,
+        "compound": 0.5346,
+        "negative": 0.034,
+        "positive": 0.103
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 15462057,
+    "name": "Backlash (2008)",
+    "sentiment": {
+      "neutral": 0.863,
+      "compound": 0.5346,
+      "negative": 0.034,
+      "positive": 0.103
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.863,
+        "compound": 0.5346,
+        "negative": 0.034,
+        "positive": 0.103
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 18717338,
+    "name": "United States dollar",
+    "sentiment": {
+      "neutral": 1.645,
+      "compound": 0.9799,
+      "positive": 0.355,
+      "negative": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.889,
+        "compound": 0.128,
+        "negative": 0.0,
+        "positive": 0.111
+      },
+      {
+        "neutral": 0.756,
+        "compound": 0.8519,
+        "negative": 0.0,
+        "positive": 0.244
+      }
+    ],
+    "n": 2
+  },
+  {
+    "wiki_id": 24909346,
+    "name": "United States Senate",
+    "sentiment": {
+      "neutral": 0.942,
+      "compound": 0.0258,
+      "negative": 0.0,
+      "positive": 0.058
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.942,
+        "compound": 0.0258,
+        "negative": 0.0,
+        "positive": 0.058
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 58236,
+    "name": "United States Department of Homeland Security",
+    "sentiment": {
+      "neutral": 0.756,
+      "compound": 0.8519,
+      "negative": 0.0,
+      "positive": 0.244
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.756,
+        "compound": 0.8519,
+        "negative": 0.0,
+        "positive": 0.244
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 501244,
+    "name": "United States Intelligence Community",
+    "sentiment": {
+      "neutral": 1.8609999999999998,
+      "compound": 1.056,
+      "positive": 0.882,
+      "negative": 0.257
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.756,
+        "compound": 0.8519,
+        "negative": 0.0,
+        "positive": 0.244
+      },
+      {
+        "neutral": 0.471,
+        "compound": 0.8402,
+        "negative": 0.0,
+        "positive": 0.529
+      },
+      {
+        "neutral": 0.634,
+        "compound": -0.6361,
+        "negative": 0.257,
+        "positive": 0.109
+      }
+    ],
+    "n": 3
+  },
+  {
+    "wiki_id": 1053718,
+    "name": "Congressional Budget Office",
+    "sentiment": null,
+    "relatedness": null,
+    "sentiments_extended": [
+      null
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 1636627,
+    "name": "Federal judiciary of the United States",
+    "sentiment": {
+      "neutral": 0.897,
+      "compound": 0.128,
+      "negative": 0.0,
+      "positive": 0.103
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.897,
+        "compound": 0.128,
+        "negative": 0.0,
+        "positive": 0.103
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 3874731,
+    "name": "United States federal budget",
+    "sentiment": {
+      "neutral": 0.897,
+      "compound": 0.128,
+      "negative": 0.0,
+      "positive": 0.103
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.897,
+        "compound": 0.128,
+        "negative": 0.0,
+        "positive": 0.103
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 31979,
+    "name": "United States Capitol",
+    "sentiment": {
+      "neutral": 0.897,
+      "compound": 0.128,
+      "negative": 0.0,
+      "positive": 0.103
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.897,
+        "compound": 0.128,
+        "negative": 0.0,
+        "positive": 0.103
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 375091,
+    "name": "Policy",
+    "sentiment": {
+      "neutral": 1.5790000000000002,
+      "compound": 1.1435,
+      "positive": 0.366,
+      "negative": 0.055
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.677,
+        "compound": 0.7823,
+        "negative": 0.055,
+        "positive": 0.268
+      },
+      {
+        "neutral": 0.902,
+        "compound": 0.3612,
+        "negative": 0.0,
+        "positive": 0.098
+      }
+    ],
+    "n": 2
+  },
+  {
+    "wiki_id": 314993,
+    "name": "Employment",
+    "sentiment": {
+      "neutral": 0.677,
+      "compound": 0.7823,
+      "negative": 0.055,
+      "positive": 0.268
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.677,
+        "compound": 0.7823,
+        "negative": 0.055,
+        "positive": 0.268
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 240468,
+    "name": "National security",
+    "sentiment": {
+      "neutral": 0.677,
+      "compound": 0.7823,
+      "negative": 0.055,
+      "positive": 0.268
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.677,
+        "compound": 0.7823,
+        "negative": 0.055,
+        "positive": 0.268
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 842911,
+    "name": "Bipartisanship",
+    "sentiment": {
+      "neutral": 0.538,
+      "compound": 0.6908,
+      "negative": 0.103,
+      "positive": 0.359
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.538,
+        "compound": 0.6908,
+        "negative": 0.103,
+        "positive": 0.359
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 77697,
+    "name": "Will and testament",
+    "sentiment": {
+      "neutral": 1.904,
+      "compound": 0.4939,
+      "positive": 0.096,
+      "negative": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      },
+      {
+        "neutral": 0.904,
+        "compound": 0.4939,
+        "negative": 0.0,
+        "positive": 0.096
+      }
+    ],
+    "n": 2
+  },
+  {
+    "wiki_id": 18404191,
+    "name": "So What (Pink song)",
+    "sentiment": {
+      "neutral": 1.0,
+      "compound": 0.0,
+      "negative": 0.0,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 252857,
+    "name": "Classified information",
+    "sentiment": {
+      "neutral": 2.855,
+      "compound": -0.5267,
+      "positive": 0.0,
+      "negative": 0.145
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      },
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      },
+      {
+        "neutral": 0.855,
+        "compound": -0.5267,
+        "negative": 0.145,
+        "positive": 0.0
+      }
+    ],
+    "n": 3
+  },
+  {
+    "wiki_id": 519276,
+    "name": "Intelligence assessment",
+    "sentiment": {
+      "neutral": 1.576,
+      "compound": 1.0442999999999998,
+      "positive": 1.167,
+      "negative": 0.257
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.471,
+        "compound": 0.8402,
+        "negative": 0.0,
+        "positive": 0.529
+      },
+      {
+        "neutral": 0.471,
+        "compound": 0.8402,
+        "negative": 0.0,
+        "positive": 0.529
+      },
+      {
+        "neutral": 0.634,
+        "compound": -0.6361,
+        "negative": 0.257,
+        "positive": 0.109
+      }
+    ],
+    "n": 3
+  },
+  {
+    "wiki_id": 24702,
+    "name": "Peace",
+    "sentiment": {
+      "neutral": 0.661,
+      "compound": 0.7717,
+      "negative": 0.0,
+      "positive": 0.339
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.661,
+        "compound": 0.7717,
+        "negative": 0.0,
+        "positive": 0.339
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 1075896,
+    "name": "Western Bloc",
+    "sentiment": {
+      "neutral": 0.929,
+      "compound": -0.3818,
+      "negative": 0.071,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.929,
+        "compound": -0.3818,
+        "negative": 0.071,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 20611504,
+    "name": "Russian Empire",
+    "sentiment": {
+      "neutral": 1.0,
+      "compound": 0.0,
+      "negative": 0.0,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 40684,
+    "name": "Access control",
+    "sentiment": {
+      "neutral": 1.0,
+      "compound": 0.0,
+      "negative": 0.0,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 66505,
+    "name": "Secrecy",
+    "sentiment": {
+      "neutral": 1.0,
+      "compound": 0.0,
+      "negative": 0.0,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 18985062,
+    "name": "Information",
+    "sentiment": {
+      "neutral": 1.811,
+      "compound": -0.2023,
+      "positive": 0.081,
+      "negative": 0.108
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      },
+      {
+        "neutral": 0.811,
+        "compound": -0.2023,
+        "negative": 0.108,
+        "positive": 0.081
+      }
+    ],
+    "n": 2
+  },
+  {
+    "wiki_id": 14617,
+    "name": "Intel",
+    "sentiment": {
+      "neutral": 2.1029999999999998,
+      "compound": 0.9316,
+      "positive": 0.747,
+      "negative": 0.15
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.423,
+        "compound": 0.6249,
+        "negative": 0.0,
+        "positive": 0.577
+      },
+      {
+        "neutral": 0.83,
+        "compound": 0.6249,
+        "negative": 0.0,
+        "positive": 0.17
+      },
+      {
+        "neutral": 0.85,
+        "compound": -0.3182,
+        "negative": 0.15,
+        "positive": 0.0
+      }
+    ],
+    "n": 3
+  },
+  {
+    "wiki_id": 15559466,
+    "name": "Outlook.com",
+    "sentiment": {
+      "neutral": 0.83,
+      "compound": 0.6249,
+      "negative": 0.0,
+      "positive": 0.17
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.83,
+        "compound": 0.6249,
+        "negative": 0.0,
+        "positive": 0.17
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 9087364,
+    "name": "Islamic State of Iraq and the Levant",
+    "sentiment": {
+      "neutral": 0.777,
+      "compound": -0.872,
+      "negative": 0.223,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.777,
+        "compound": -0.872,
+        "negative": 0.223,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 149109,
+    "name": "Carole King",
+    "sentiment": {
+      "neutral": 0.634,
+      "compound": -0.6361,
+      "negative": 0.257,
+      "positive": 0.109
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.634,
+        "compound": -0.6361,
+        "negative": 0.257,
+        "positive": 0.109
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 2646438,
+    "name": "Islamic state",
+    "sentiment": {
+      "neutral": 0.634,
+      "compound": -0.6361,
+      "negative": 0.257,
+      "positive": 0.109
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.634,
+        "compound": -0.6361,
+        "negative": 0.257,
+        "positive": 0.109
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 312572,
+    "name": "United States territory",
+    "sentiment": {
+      "neutral": 0.634,
+      "compound": -0.6361,
+      "negative": 0.257,
+      "positive": 0.109
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.634,
+        "compound": -0.6361,
+        "negative": 0.257,
+        "positive": 0.109
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 33583,
+    "name": "World Health Organization",
+    "sentiment": {
+      "neutral": 0.811,
+      "compound": -0.2023,
+      "negative": 0.108,
+      "positive": 0.081
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.811,
+        "compound": -0.2023,
+        "negative": 0.108,
+        "positive": 0.081
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 48203,
+    "name": "Article (grammar)",
+    "sentiment": {
+      "neutral": 1.0,
+      "compound": 0.0,
+      "negative": 0.0,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 23040,
+    "name": "Political philosophy",
+    "sentiment": {
+      "neutral": 1.0,
+      "compound": 0.0,
+      "negative": 0.0,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 15928,
+    "name": "Journalism",
+    "sentiment": {
+      "neutral": 0.85,
+      "compound": -0.3182,
+      "negative": 0.15,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.85,
+        "compound": -0.3182,
+        "negative": 0.15,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 9282173,
+    "name": "Israel",
+    "sentiment": null,
+    "relatedness": null,
+    "sentiments_extended": [
+      null
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 147767,
+    "name": "Private property",
+    "sentiment": {
+      "neutral": 1.0,
+      "compound": 0.0,
+      "negative": 0.0,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 249429,
+    "name": "Home",
+    "sentiment": {
+      "neutral": 1.0,
+      "compound": 0.0,
+      "negative": 0.0,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 572687,
+    "name": "Search and seizure",
+    "sentiment": {
+      "neutral": 1.887,
+      "compound": 0.4215,
+      "positive": 0.113,
+      "negative": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      },
+      {
+        "neutral": 0.887,
+        "compound": 0.4215,
+        "negative": 0.0,
+        "positive": 0.113
+      }
+    ],
+    "n": 2
+  },
+  {
+    "wiki_id": 209287,
+    "name": "Warrant (law)",
+    "sentiment": {
+      "neutral": 1.0,
+      "compound": 0.0,
+      "negative": 0.0,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 44719,
+    "name": "Judge",
+    "sentiment": {
+      "neutral": 2.441,
+      "compound": 0.923,
+      "positive": 0.489,
+      "negative": 0.07
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.93,
+        "compound": -0.3252,
+        "negative": 0.07,
+        "positive": 0.0
+      },
+      {
+        "neutral": 0.816,
+        "compound": 0.5574,
+        "negative": 0.0,
+        "positive": 0.184
+      },
+      {
+        "neutral": 0.695,
+        "compound": 0.6908,
+        "negative": 0.0,
+        "positive": 0.305
+      }
+    ],
+    "n": 3
+  },
+  {
+    "wiki_id": 306902,
+    "name": "Magistrate",
+    "sentiment": {
+      "neutral": 0.93,
+      "compound": -0.3252,
+      "negative": 0.07,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.93,
+        "compound": -0.3252,
+        "negative": 0.07,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 20550772,
+    "name": "Evidence",
+    "sentiment": {
+      "neutral": 0.93,
+      "compound": -0.3252,
+      "negative": 0.07,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.93,
+        "compound": -0.3252,
+        "negative": 0.07,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 52563,
+    "name": "United States Department of Justice",
+    "sentiment": {
+      "neutral": 1.0,
+      "compound": 0.0,
+      "negative": 0.0,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 661042,
+    "name": "Same-sex marriage in Massachusetts",
+    "sentiment": {
+      "neutral": 0.887,
+      "compound": 0.4215,
+      "negative": 0.0,
+      "positive": 0.113
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.887,
+        "compound": 0.4215,
+        "negative": 0.0,
+        "positive": 0.113
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 251540,
+    "name": "Private sector",
+    "sentiment": {
+      "neutral": 0.887,
+      "compound": 0.4215,
+      "negative": 0.0,
+      "positive": 0.113
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.887,
+        "compound": 0.4215,
+        "negative": 0.0,
+        "positive": 0.113
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 24113,
+    "name": "President of the United States",
+    "sentiment": {
+      "neutral": 5.45,
+      "compound": 3.8188,
+      "positive": 1.075,
+      "negative": 0.4750000000000001
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.887,
+        "compound": 0.4215,
+        "negative": 0.0,
+        "positive": 0.113
+      },
+      {
+        "neutral": 0.616,
+        "compound": 0.5859,
+        "negative": 0.144,
+        "positive": 0.24
+      },
+      {
+        "neutral": 0.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      },
+      {
+        "neutral": 0.776,
+        "compound": -0.5267,
+        "negative": 0.151,
+        "positive": 0.073
+      },
+      {
+        "neutral": 0.705,
+        "compound": 0.765,
+        "negative": 0.075,
+        "positive": 0.22
+      },
+      {
+        "neutral": 0.822,
+        "compound": 0.8577,
+        "negative": 0.035,
+        "positive": 0.143
+      },
+      {
+        "neutral": 0.822,
+        "compound": 0.8577,
+        "negative": 0.035,
+        "positive": 0.143
+      },
+      {
+        "neutral": 0.822,
+        "compound": 0.8577,
+        "negative": 0.035,
+        "positive": 0.143
+      }
+    ],
+    "n": 8
+  },
+  {
+    "wiki_id": 146745,
+    "name": "Search warrant",
+    "sentiment": {
+      "neutral": 0.887,
+      "compound": 0.4215,
+      "negative": 0.0,
+      "positive": 0.113
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.887,
+        "compound": 0.4215,
+        "negative": 0.0,
+        "positive": 0.113
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 1452754,
+    "name": "Mar-a-Lago",
+    "sentiment": {
+      "neutral": 1.822,
+      "compound": 1.7614,
+      "positive": 0.178,
+      "negative": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.911,
+        "compound": 0.8807,
+        "negative": 0.0,
+        "positive": 0.089
+      },
+      {
+        "neutral": 0.911,
+        "compound": 0.8807,
+        "negative": 0.0,
+        "positive": 0.089
+      }
+    ],
+    "n": 2
+  },
+  {
+    "wiki_id": 18933066,
+    "name": "Florida",
+    "sentiment": {
+      "neutral": 0.911,
+      "compound": 0.8807,
+      "negative": 0.0,
+      "positive": 0.089
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.911,
+        "compound": 0.8807,
+        "negative": 0.0,
+        "positive": 0.089
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 25161934,
+    "name": "Siege of Malta (1798\u20131800)",
+    "sentiment": {
+      "neutral": 0.911,
+      "compound": 0.8807,
+      "negative": 0.0,
+      "positive": 0.089
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.911,
+        "compound": 0.8807,
+        "negative": 0.0,
+        "positive": 0.089
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 816214,
+    "name": "Military occupation",
+    "sentiment": {
+      "neutral": 0.911,
+      "compound": 0.8807,
+      "negative": 0.0,
+      "positive": 0.089
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.911,
+        "compound": 0.8807,
+        "negative": 0.0,
+        "positive": 0.089
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 11127,
+    "name": "Federal Bureau of Investigation",
+    "sentiment": {
+      "neutral": 4.275,
+      "compound": -2.6334999999999997,
+      "positive": 0.0,
+      "negative": 0.725
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.855,
+        "compound": -0.5267,
+        "negative": 0.145,
+        "positive": 0.0
+      },
+      {
+        "neutral": 0.855,
+        "compound": -0.5267,
+        "negative": 0.145,
+        "positive": 0.0
+      },
+      {
+        "neutral": 0.855,
+        "compound": -0.5267,
+        "negative": 0.145,
+        "positive": 0.0
+      },
+      {
+        "neutral": 0.855,
+        "compound": -0.5267,
+        "negative": 0.145,
+        "positive": 0.0
+      },
+      {
+        "neutral": 0.855,
+        "compound": -0.5267,
+        "negative": 0.145,
+        "positive": 0.0
+      }
+    ],
+    "n": 5
+  },
+  {
+    "wiki_id": 1681761,
+    "name": "NBC Sports",
+    "sentiment": {
+      "neutral": 1.71,
+      "compound": -1.0534,
+      "positive": 0.0,
+      "negative": 0.29
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.855,
+        "compound": -0.5267,
+        "negative": 0.145,
+        "positive": 0.0
+      },
+      {
+        "neutral": 0.855,
+        "compound": -0.5267,
+        "negative": 0.145,
+        "positive": 0.0
+      }
+    ],
+    "n": 2
+  },
+  {
+    "wiki_id": 33057,
+    "name": "White House",
+    "sentiment": {
+      "neutral": 0.911,
+      "compound": 0.8807,
+      "negative": 0.0,
+      "positive": 0.089
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.911,
+        "compound": 0.8807,
+        "negative": 0.0,
+        "positive": 0.089
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 293990,
+    "name": "Seaside resort",
+    "sentiment": {
+      "neutral": 0.911,
+      "compound": 0.8807,
+      "negative": 0.0,
+      "positive": 0.089
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.911,
+        "compound": 0.8807,
+        "negative": 0.0,
+        "positive": 0.089
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 63876,
+    "name": "History of the United States",
+    "sentiment": {
+      "neutral": 1.526,
+      "compound": 0.3308,
+      "positive": 0.28500000000000003,
+      "negative": 0.189
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.875,
+        "compound": 0.4588,
+        "negative": 0.0,
+        "positive": 0.125
+      },
+      {
+        "neutral": 0.651,
+        "compound": -0.128,
+        "negative": 0.189,
+        "positive": 0.16
+      }
+    ],
+    "n": 2
+  },
+  {
+    "wiki_id": 37307,
+    "name": "Political prisoner",
+    "sentiment": {
+      "neutral": 0.875,
+      "compound": 0.4588,
+      "negative": 0.0,
+      "positive": 0.125
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.875,
+        "compound": 0.4588,
+        "negative": 0.0,
+        "positive": 0.125
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 188955,
+    "name": "Headquarters of the United Nations",
+    "sentiment": {
+      "neutral": 0.746,
+      "compound": 0.5267,
+      "negative": 0.0,
+      "positive": 0.254
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.746,
+        "compound": 0.5267,
+        "negative": 0.0,
+        "positive": 0.254
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 1669562,
+    "name": "List of FBI field offices",
+    "sentiment": {
+      "neutral": 0.925,
+      "compound": 0.2732,
+      "negative": 0.0,
+      "positive": 0.075
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.925,
+        "compound": 0.2732,
+        "negative": 0.0,
+        "positive": 0.075
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 8645,
+    "name": "Declension",
+    "sentiment": {
+      "neutral": 1.85,
+      "compound": 0.5464,
+      "positive": 0.15,
+      "negative": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.925,
+        "compound": 0.2732,
+        "negative": 0.0,
+        "positive": 0.075
+      },
+      {
+        "neutral": 0.925,
+        "compound": 0.2732,
+        "negative": 0.0,
+        "positive": 0.075
+      }
+    ],
+    "n": 2
+  },
+  {
+    "wiki_id": 603325,
+    "name": "Topic and comment",
+    "sentiment": {
+      "neutral": 0.925,
+      "compound": 0.2732,
+      "negative": 0.0,
+      "positive": 0.075
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.925,
+        "compound": 0.2732,
+        "negative": 0.0,
+        "positive": 0.075
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 193178,
+    "name": "Official language",
+    "sentiment": {
+      "neutral": 0.925,
+      "compound": 0.2732,
+      "negative": 0.0,
+      "positive": 0.075
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.925,
+        "compound": 0.2732,
+        "negative": 0.0,
+        "positive": 0.075
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 945646,
+    "name": "Above the Law (group)",
+    "sentiment": {
+      "neutral": 1.0,
+      "compound": 0.0,
+      "negative": 0.0,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 759519,
+    "name": "NBCNews.com",
+    "sentiment": {
+      "neutral": 0.855,
+      "compound": -0.5267,
+      "negative": 0.145,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.855,
+        "compound": -0.5267,
+        "negative": 0.145,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 15104000,
+    "name": "Element (criminal law)",
+    "sentiment": {
+      "neutral": 0.855,
+      "compound": -0.5267,
+      "negative": 0.145,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.855,
+        "compound": -0.5267,
+        "negative": 0.145,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 5785,
+    "name": "Crime",
+    "sentiment": {
+      "neutral": 0.855,
+      "compound": -0.5267,
+      "negative": 0.145,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.855,
+        "compound": -0.5267,
+        "negative": 0.145,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 40967660,
+    "name": "Dorothy Awes Haaland",
+    "sentiment": {
+      "neutral": 3.0,
+      "compound": 0.0,
+      "positive": 0.0,
+      "negative": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      },
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      },
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      }
+    ],
+    "n": 3
+  },
+  {
+    "wiki_id": 37235,
+    "name": "Society",
+    "sentiment": {
+      "neutral": 0.826,
+      "compound": 0.2732,
+      "negative": 0.0,
+      "positive": 0.174
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.826,
+        "compound": 0.2732,
+        "negative": 0.0,
+        "positive": 0.174
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 19159508,
+    "name": "Culture",
+    "sentiment": {
+      "neutral": 1.826,
+      "compound": 0.2732,
+      "positive": 0.174,
+      "negative": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.826,
+        "compound": 0.2732,
+        "negative": 0.0,
+        "positive": 0.174
+      },
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      }
+    ],
+    "n": 2
+  },
+  {
+    "wiki_id": 21649,
+    "name": "New Mexico",
+    "sentiment": null,
+    "relatedness": null,
+    "sentiments_extended": [
+      null
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 21217,
+    "name": "Native Americans in the United States",
+    "sentiment": {
+      "neutral": 1.0,
+      "compound": 0.0,
+      "negative": 0.0,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 500578,
+    "name": "Cabinet Secretary",
+    "sentiment": {
+      "neutral": 1.0,
+      "compound": 0.0,
+      "negative": 0.0,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 9649,
+    "name": "Energy",
+    "sentiment": {
+      "neutral": 0.839,
+      "compound": 0.6908,
+      "negative": 0.0,
+      "positive": 0.161
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.839,
+        "compound": 0.6908,
+        "negative": 0.0,
+        "positive": 0.161
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 48146,
+    "name": "Fossil fuel",
+    "sentiment": {
+      "neutral": 0.839,
+      "compound": 0.6908,
+      "negative": 0.0,
+      "positive": 0.161
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.839,
+        "compound": 0.6908,
+        "negative": 0.0,
+        "positive": 0.161
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 156371,
+    "name": "Federation",
+    "sentiment": {
+      "neutral": 0.839,
+      "compound": 0.6908,
+      "negative": 0.0,
+      "positive": 0.161
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.839,
+        "compound": 0.6908,
+        "negative": 0.0,
+        "positive": 0.161
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 177912,
+    "name": "Public housing",
+    "sentiment": {
+      "neutral": 0.902,
+      "compound": 0.3612,
+      "negative": 0.0,
+      "positive": 0.098
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.902,
+        "compound": 0.3612,
+        "negative": 0.0,
+        "positive": 0.098
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 215415,
+    "name": "Trespass",
+    "sentiment": {
+      "neutral": 0.902,
+      "compound": 0.3612,
+      "negative": 0.0,
+      "positive": 0.098
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.902,
+        "compound": 0.3612,
+        "negative": 0.0,
+        "positive": 0.098
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 47962,
+    "name": "Musical composition",
+    "sentiment": {
+      "neutral": 1.0,
+      "compound": 0.0,
+      "negative": 0.0,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 205818,
+    "name": "Legalization",
+    "sentiment": {
+      "neutral": 1.0,
+      "compound": 0.0,
+      "negative": 0.0,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 5254,
+    "name": "Common law",
+    "sentiment": {
+      "neutral": 0.748,
+      "compound": -0.6597,
+      "negative": 0.167,
+      "positive": 0.085
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.748,
+        "compound": -0.6597,
+        "negative": 0.167,
+        "positive": 0.085
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 28151,
+    "name": "State (polity)",
+    "sentiment": {
+      "neutral": 1.496,
+      "compound": -1.3194,
+      "positive": 0.17,
+      "negative": 0.334
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.748,
+        "compound": -0.6597,
+        "negative": 0.167,
+        "positive": 0.085
+      },
+      {
+        "neutral": 0.748,
+        "compound": -0.6597,
+        "negative": 0.167,
+        "positive": 0.085
+      }
+    ],
+    "n": 2
+  },
+  {
+    "wiki_id": 18949668,
+    "name": "Law",
+    "sentiment": {
+      "neutral": 2.126,
+      "compound": 0.1441,
+      "positive": 0.41900000000000004,
+      "negative": 0.45299999999999996
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.748,
+        "compound": -0.6597,
+        "negative": 0.167,
+        "positive": 0.085
+      },
+      {
+        "neutral": 0.689,
+        "compound": 0.4019,
+        "negative": 0.143,
+        "positive": 0.167
+      },
+      {
+        "neutral": 0.689,
+        "compound": 0.4019,
+        "negative": 0.143,
+        "positive": 0.167
+      }
+    ],
+    "n": 3
+  },
+  {
+    "wiki_id": 18957,
+    "name": "Medicine",
+    "sentiment": {
+      "neutral": 0.748,
+      "compound": -0.6597,
+      "negative": 0.167,
+      "positive": 0.085
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.748,
+        "compound": -0.6597,
+        "negative": 0.167,
+        "positive": 0.085
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 25949,
+    "name": "Recreational drug use",
+    "sentiment": {
+      "neutral": 0.748,
+      "compound": -0.6597,
+      "negative": 0.167,
+      "positive": 0.085
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.748,
+        "compound": -0.6597,
+        "negative": 0.167,
+        "positive": 0.085
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 218449,
+    "name": "Illegal drug trade",
+    "sentiment": {
+      "neutral": 0.748,
+      "compound": -0.6597,
+      "negative": 0.167,
+      "positive": 0.085
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.748,
+        "compound": -0.6597,
+        "negative": 0.167,
+        "positive": 0.085
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 183895,
+    "name": "Presidency of George W. Bush",
+    "sentiment": {
+      "neutral": 1.0,
+      "compound": 0.0,
+      "negative": 0.0,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 38970527,
+    "name": "Run On (band)",
+    "sentiment": {
+      "neutral": 1.0,
+      "compound": 0.0,
+      "negative": 0.0,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 168917,
+    "name": "Legality of cannabis",
+    "sentiment": {
+      "neutral": 1.0,
+      "compound": 0.0,
+      "negative": 0.0,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 24462958,
+    "name": "Risk",
+    "sentiment": {
+      "neutral": 0.714,
+      "compound": -0.6808,
+      "negative": 0.286,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.714,
+        "compound": -0.6808,
+        "negative": 0.286,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 48212,
+    "name": "Ice cream",
+    "sentiment": {
+      "neutral": 2.8,
+      "compound": 0.5232,
+      "positive": 0.137,
+      "negative": 0.062
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.847,
+        "compound": 0.25,
+        "negative": 0.062,
+        "positive": 0.09
+      },
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      },
+      {
+        "neutral": 0.953,
+        "compound": 0.2732,
+        "negative": 0.0,
+        "positive": 0.047
+      }
+    ],
+    "n": 3
+  },
+  {
+    "wiki_id": 600368,
+    "name": "Shelf life",
+    "sentiment": {
+      "neutral": 0.847,
+      "compound": 0.25,
+      "negative": 0.062,
+      "positive": 0.09
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.847,
+        "compound": 0.25,
+        "negative": 0.062,
+        "positive": 0.09
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 96665,
+    "name": "Palestinian territories",
+    "sentiment": {
+      "neutral": 2.665,
+      "compound": 1.0537999999999998,
+      "positive": 0.272,
+      "negative": 0.062
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.847,
+        "compound": 0.25,
+        "negative": 0.062,
+        "positive": 0.09
+      },
+      {
+        "neutral": 0.909,
+        "compound": 0.4019,
+        "negative": 0.0,
+        "positive": 0.091
+      },
+      {
+        "neutral": 0.909,
+        "compound": 0.4019,
+        "negative": 0.0,
+        "positive": 0.091
+      }
+    ],
+    "n": 3
+  },
+  {
+    "wiki_id": 1416148,
+    "name": "Licensee",
+    "sentiment": {
+      "neutral": 0.904,
+      "compound": 0.4939,
+      "negative": 0.0,
+      "positive": 0.096
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.904,
+        "compound": 0.4939,
+        "negative": 0.0,
+        "positive": 0.096
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 39754840,
+    "name": "Naftali Bennett",
+    "sentiment": {
+      "neutral": 0.953,
+      "compound": 0.2732,
+      "negative": 0.0,
+      "positive": 0.047
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.953,
+        "compound": 0.2732,
+        "negative": 0.0,
+        "positive": 0.047
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 6450688,
+    "name": "Voices of Animals and Men",
+    "sentiment": {
+      "neutral": 1.881,
+      "compound": -0.38649999999999995,
+      "positive": 0.047,
+      "negative": 0.072
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.953,
+        "compound": 0.2732,
+        "negative": 0.0,
+        "positive": 0.047
+      },
+      {
+        "neutral": 0.928,
+        "compound": -0.6597,
+        "negative": 0.072,
+        "positive": 0.0
+      }
+    ],
+    "n": 2
+  },
+  {
+    "wiki_id": 18591996,
+    "name": "Boycott",
+    "sentiment": {
+      "neutral": 0.953,
+      "compound": 0.2732,
+      "negative": 0.0,
+      "positive": 0.047
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.953,
+        "compound": 0.2732,
+        "negative": 0.0,
+        "positive": 0.047
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 171275,
+    "name": "Ben &amp; Jerry's",
+    "sentiment": {
+      "neutral": 0.953,
+      "compound": 0.2732,
+      "negative": 0.0,
+      "positive": 0.047
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.953,
+        "compound": 0.2732,
+        "negative": 0.0,
+        "positive": 0.047
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 9988187,
+    "name": "Twitter",
+    "sentiment": {
+      "neutral": 0.953,
+      "compound": 0.2732,
+      "negative": 0.0,
+      "positive": 0.047
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.953,
+        "compound": 0.2732,
+        "negative": 0.0,
+        "positive": 0.047
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 6036,
+    "name": "Coalition government",
+    "sentiment": {
+      "neutral": 1.856,
+      "compound": -1.3194,
+      "positive": 0.0,
+      "negative": 0.144
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.928,
+        "compound": -0.6597,
+        "negative": 0.072,
+        "positive": 0.0
+      },
+      {
+        "neutral": 0.928,
+        "compound": -0.6597,
+        "negative": 0.072,
+        "positive": 0.0
+      }
+    ],
+    "n": 2
+  },
+  {
+    "wiki_id": 1078,
+    "name": "Antisemitism",
+    "sentiment": {
+      "neutral": 1.856,
+      "compound": -1.3194,
+      "positive": 0.0,
+      "negative": 0.144
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.928,
+        "compound": -0.6597,
+        "negative": 0.072,
+        "positive": 0.0
+      },
+      {
+        "neutral": 0.928,
+        "compound": -0.6597,
+        "negative": 0.072,
+        "positive": 0.0
+      }
+    ],
+    "n": 2
+  },
+  {
+    "wiki_id": 15775275,
+    "name": "State governments of the United States",
+    "sentiment": {
+      "neutral": 0.928,
+      "compound": -0.6597,
+      "negative": 0.072,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.928,
+        "compound": -0.6597,
+        "negative": 0.072,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 620724,
+    "name": "State law (United States)",
+    "sentiment": {
+      "neutral": 0.928,
+      "compound": -0.6597,
+      "negative": 0.072,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.928,
+        "compound": -0.6597,
+        "negative": 0.072,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 739237,
+    "name": "Minister (government)",
+    "sentiment": {
+      "neutral": 0.925,
+      "compound": -0.2584,
+      "negative": 0.075,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.925,
+        "compound": -0.2584,
+        "negative": 0.075,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 14166634,
+    "name": "Press for Time",
+    "sentiment": {
+      "neutral": 0.925,
+      "compound": -0.2584,
+      "negative": 0.075,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.925,
+        "compound": -0.2584,
+        "negative": 0.075,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 7485775,
+    "name": "Unilever Pakistan Limited",
+    "sentiment": {
+      "neutral": 0.657,
+      "compound": 0.296,
+      "negative": 0.116,
+      "positive": 0.227
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.657,
+        "compound": 0.296,
+        "negative": 0.116,
+        "positive": 0.227
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 2200527,
+    "name": "Apartheid",
+    "sentiment": {
+      "neutral": 0.867,
+      "compound": 0.431,
+      "negative": 0.0,
+      "positive": 0.133
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.867,
+        "compound": 0.431,
+        "negative": 0.0,
+        "positive": 0.133
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 102226,
+    "name": "The Washington Post",
+    "sentiment": {
+      "neutral": 0.867,
+      "compound": 0.431,
+      "negative": 0.0,
+      "positive": 0.133
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.867,
+        "compound": 0.431,
+        "negative": 0.0,
+        "positive": 0.133
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 5043544,
+    "name": "Democratic Party (United States)",
+    "sentiment": {
+      "neutral": 0.787,
+      "compound": 0.5859,
+      "negative": 0.0,
+      "positive": 0.213
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.787,
+        "compound": 0.5859,
+        "negative": 0.0,
+        "positive": 0.213
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 37532725,
+    "name": "Trifecta (Judge Dredd story)",
+    "sentiment": {
+      "neutral": 0.787,
+      "compound": 0.5859,
+      "negative": 0.0,
+      "positive": 0.213
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.787,
+        "compound": 0.5859,
+        "negative": 0.0,
+        "positive": 0.213
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 2610287,
+    "name": "Advice and consent",
+    "sentiment": {
+      "neutral": 2.374,
+      "compound": 1.3365,
+      "positive": 0.482,
+      "negative": 0.144
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.758,
+        "compound": 0.7506,
+        "negative": 0.0,
+        "positive": 0.242
+      },
+      {
+        "neutral": 0.616,
+        "compound": 0.5859,
+        "negative": 0.144,
+        "positive": 0.24
+      },
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      }
+    ],
+    "n": 3
+  },
+  {
+    "wiki_id": 70235,
+    "name": "United States district court",
+    "sentiment": {
+      "neutral": 0.554,
+      "compound": 0.8176,
+      "negative": 0.128,
+      "positive": 0.317
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.554,
+        "compound": 0.8176,
+        "negative": 0.128,
+        "positive": 0.317
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 8536948,
+    "name": "National Organization for Women",
+    "sentiment": {
+      "neutral": 0.66,
+      "compound": 0.5574,
+      "negative": 0.0,
+      "positive": 0.34
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.66,
+        "compound": 0.5574,
+        "negative": 0.0,
+        "positive": 0.34
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 6675,
+    "name": "Conservatism",
+    "sentiment": {
+      "neutral": 0.66,
+      "compound": 0.5574,
+      "negative": 0.0,
+      "positive": 0.34
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.66,
+        "compound": 0.5574,
+        "negative": 0.0,
+        "positive": 0.34
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 21627,
+    "name": "Nation state",
+    "sentiment": {
+      "neutral": 1.0,
+      "compound": 0.0,
+      "negative": 0.0,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 758833,
+    "name": "Past",
+    "sentiment": {
+      "neutral": 1.0,
+      "compound": 0.0,
+      "negative": 0.0,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 31737,
+    "name": "Supreme Court of the United States",
+    "sentiment": {
+      "neutral": 3.7620000000000005,
+      "compound": -0.45849999999999996,
+      "positive": 0.5720000000000001,
+      "negative": 0.666
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      },
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      },
+      {
+        "neutral": 0.604,
+        "compound": -0.3182,
+        "negative": 0.228,
+        "positive": 0.168
+      },
+      {
+        "neutral": 0.604,
+        "compound": -0.3182,
+        "negative": 0.228,
+        "positive": 0.168
+      },
+      {
+        "neutral": 0.554,
+        "compound": 0.1779,
+        "negative": 0.21,
+        "positive": 0.236
+      }
+    ],
+    "n": 5
+  },
+  {
+    "wiki_id": 21183551,
+    "name": "First inauguration of Lyndon B. Johnson",
+    "sentiment": {
+      "neutral": 0.616,
+      "compound": 0.5859,
+      "negative": 0.144,
+      "positive": 0.24
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.616,
+        "compound": 0.5859,
+        "negative": 0.144,
+        "positive": 0.24
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 21204000,
+    "name": "First inauguration of Ronald Reagan",
+    "sentiment": {
+      "neutral": 0.616,
+      "compound": 0.5859,
+      "negative": 0.144,
+      "positive": 0.24
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.616,
+        "compound": 0.5859,
+        "negative": 0.144,
+        "positive": 0.24
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 8107490,
+    "name": "United States congressional hearing",
+    "sentiment": {
+      "neutral": 1.0,
+      "compound": 0.0,
+      "negative": 0.0,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 406859,
+    "name": "United States presidential election, 2008",
+    "sentiment": {
+      "neutral": 1.776,
+      "compound": -0.5267,
+      "positive": 0.073,
+      "negative": 0.151
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      },
+      {
+        "neutral": 0.776,
+        "compound": -0.5267,
+        "negative": 0.151,
+        "positive": 0.073
+      }
+    ],
+    "n": 2
+  },
+  {
+    "wiki_id": 155434,
+    "name": "By-election",
+    "sentiment": {
+      "neutral": 0.554,
+      "compound": 0.8176,
+      "negative": 0.128,
+      "positive": 0.317
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.554,
+        "compound": 0.8176,
+        "negative": 0.128,
+        "positive": 0.317
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 40570,
+    "name": "United States presidential election, 1980",
+    "sentiment": {
+      "neutral": 0.554,
+      "compound": 0.8176,
+      "negative": 0.128,
+      "positive": 0.317
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.554,
+        "compound": 0.8176,
+        "negative": 0.128,
+        "positive": 0.317
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 32070,
+    "name": "Republican Party (United States)",
+    "sentiment": {
+      "neutral": 0.554,
+      "compound": 0.8176,
+      "negative": 0.128,
+      "positive": 0.317
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.554,
+        "compound": 0.8176,
+        "negative": 0.128,
+        "positive": 0.317
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 163103,
+    "name": "Future",
+    "sentiment": {
+      "neutral": 0.859,
+      "compound": -0.1027,
+      "negative": 0.076,
+      "positive": 0.065
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.859,
+        "compound": -0.1027,
+        "negative": 0.076,
+        "positive": 0.065
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 261925,
+    "name": "Health care",
+    "sentiment": {
+      "neutral": 3.433,
+      "compound": 0.3948999999999999,
+      "positive": 0.7690000000000001,
+      "negative": 0.7939999999999999
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.859,
+        "compound": -0.1027,
+        "negative": 0.076,
+        "positive": 0.065
+      },
+      {
+        "neutral": 0.598,
+        "compound": -0.1531,
+        "negative": 0.216,
+        "positive": 0.185
+      },
+      {
+        "neutral": 0.689,
+        "compound": 0.4019,
+        "negative": 0.143,
+        "positive": 0.167
+      },
+      {
+        "neutral": 0.598,
+        "compound": -0.1531,
+        "negative": 0.216,
+        "positive": 0.185
+      },
+      {
+        "neutral": 0.689,
+        "compound": 0.4019,
+        "negative": 0.143,
+        "positive": 0.167
+      }
+    ],
+    "n": 5
+  },
+  {
+    "wiki_id": 765,
+    "name": "Abortion",
+    "sentiment": {
+      "neutral": 10.209,
+      "compound": 3.6169,
+      "positive": 2.468,
+      "negative": 2.31
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.859,
+        "compound": -0.1027,
+        "negative": 0.076,
+        "positive": 0.065
+      },
+      {
+        "neutral": 0.598,
+        "compound": -0.1531,
+        "negative": 0.216,
+        "positive": 0.185
+      },
+      {
+        "neutral": 0.598,
+        "compound": -0.1531,
+        "negative": 0.216,
+        "positive": 0.185
+      },
+      {
+        "neutral": 0.689,
+        "compound": 0.4019,
+        "negative": 0.143,
+        "positive": 0.167
+      },
+      {
+        "neutral": 0.689,
+        "compound": 0.4019,
+        "negative": 0.143,
+        "positive": 0.167
+      },
+      {
+        "neutral": 0.689,
+        "compound": 0.4019,
+        "negative": 0.143,
+        "positive": 0.167
+      },
+      {
+        "neutral": 0.689,
+        "compound": 0.4019,
+        "negative": 0.143,
+        "positive": 0.167
+      },
+      {
+        "neutral": 0.689,
+        "compound": 0.4019,
+        "negative": 0.143,
+        "positive": 0.167
+      },
+      {
+        "neutral": 0.598,
+        "compound": -0.1531,
+        "negative": 0.216,
+        "positive": 0.185
+      },
+      {
+        "neutral": 0.598,
+        "compound": -0.1531,
+        "negative": 0.216,
+        "positive": 0.185
+      },
+      {
+        "neutral": 0.689,
+        "compound": 0.4019,
+        "negative": 0.143,
+        "positive": 0.167
+      },
+      {
+        "neutral": 0.689,
+        "compound": 0.4019,
+        "negative": 0.143,
+        "positive": 0.167
+      },
+      {
+        "neutral": 0.689,
+        "compound": 0.4019,
+        "negative": 0.143,
+        "positive": 0.167
+      },
+      {
+        "neutral": 0.689,
+        "compound": 0.4019,
+        "negative": 0.143,
+        "positive": 0.167
+      },
+      {
+        "neutral": 0.757,
+        "compound": 0.7149,
+        "negative": 0.083,
+        "positive": 0.16
+      }
+    ],
+    "n": 15
+  },
+  {
+    "wiki_id": 4157940,
+    "name": "History of the United States Republican Party",
+    "sentiment": {
+      "neutral": 0.859,
+      "compound": -0.1027,
+      "negative": 0.076,
+      "positive": 0.065
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.859,
+        "compound": -0.1027,
+        "negative": 0.076,
+        "positive": 0.065
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 19280734,
+    "name": "Liberalism",
+    "sentiment": {
+      "neutral": 0.695,
+      "compound": 0.6908,
+      "negative": 0.0,
+      "positive": 0.305
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.695,
+        "compound": 0.6908,
+        "negative": 0.0,
+        "positive": 0.305
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 216313,
+    "name": "Majority",
+    "sentiment": {
+      "neutral": 0.695,
+      "compound": 0.6908,
+      "negative": 0.0,
+      "positive": 0.305
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.695,
+        "compound": 0.6908,
+        "negative": 0.0,
+        "positive": 0.305
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 13018310,
+    "name": "Argument",
+    "sentiment": {
+      "neutral": 0.796,
+      "compound": -0.5574,
+      "negative": 0.204,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.796,
+        "compound": -0.5574,
+        "negative": 0.204,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 47921,
+    "name": "Free will",
+    "sentiment": {
+      "neutral": 0.796,
+      "compound": -0.5574,
+      "negative": 0.204,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.796,
+        "compound": -0.5574,
+        "negative": 0.204,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 2892508,
+    "name": "Golden mean (philosophy)",
+    "sentiment": {
+      "neutral": 0.796,
+      "compound": -0.5574,
+      "negative": 0.204,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.796,
+        "compound": -0.5574,
+        "negative": 0.204,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 30808,
+    "name": "Tao",
+    "sentiment": {
+      "neutral": 0.796,
+      "compound": -0.5574,
+      "negative": 0.204,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.796,
+        "compound": -0.5574,
+        "negative": 0.204,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 47353,
+    "name": "Object (philosophy)",
+    "sentiment": {
+      "neutral": 0.796,
+      "compound": -0.5574,
+      "negative": 0.204,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.796,
+        "compound": -0.5574,
+        "negative": 0.204,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 615670,
+    "name": "Candidate",
+    "sentiment": {
+      "neutral": 0.762,
+      "compound": 0.7964,
+      "negative": 0.0,
+      "positive": 0.238
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.762,
+        "compound": 0.7964,
+        "negative": 0.0,
+        "positive": 0.238
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 15750500,
+    "name": "Republican and conservative support for Barack Obama in 2008",
+    "sentiment": {
+      "neutral": 0.762,
+      "compound": 0.7964,
+      "negative": 0.0,
+      "positive": 0.238
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.762,
+        "compound": 0.7964,
+        "negative": 0.0,
+        "positive": 0.238
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 16369,
+    "name": "Justice",
+    "sentiment": {
+      "neutral": 1.183,
+      "compound": 1.7239,
+      "positive": 0.639,
+      "negative": 0.178
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.762,
+        "compound": 0.7964,
+        "negative": 0.0,
+        "positive": 0.238
+      },
+      {
+        "neutral": 0.421,
+        "compound": 0.9275,
+        "negative": 0.178,
+        "positive": 0.401
+      }
+    ],
+    "n": 2
+  },
+  {
+    "wiki_id": 154708,
+    "name": "List of national legal systems",
+    "sentiment": {
+      "neutral": 0.762,
+      "compound": 0.7964,
+      "negative": 0.0,
+      "positive": 0.238
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.762,
+        "compound": 0.7964,
+        "negative": 0.0,
+        "positive": 0.238
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 161999,
+    "name": "Idea",
+    "sentiment": {
+      "neutral": 1.0,
+      "compound": 0.0,
+      "negative": 0.0,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 157861,
+    "name": "Filibuster",
+    "sentiment": {
+      "neutral": 1.0,
+      "compound": 0.0,
+      "negative": 0.0,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 505825,
+    "name": "Term limit",
+    "sentiment": {
+      "neutral": 1.0,
+      "compound": 0.0,
+      "negative": 0.0,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 26495,
+    "name": "Retirement",
+    "sentiment": {
+      "neutral": 1.0,
+      "compound": 0.0,
+      "negative": 0.0,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 638313,
+    "name": "Supermajority",
+    "sentiment": {
+      "neutral": 2.0,
+      "compound": 0.0,
+      "positive": 0.0,
+      "negative": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      },
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      }
+    ],
+    "n": 2
+  },
+  {
+    "wiki_id": 113258,
+    "name": "Lawsuit",
+    "sentiment": {
+      "neutral": 1.822,
+      "compound": 0.8577,
+      "positive": 0.143,
+      "negative": 0.035
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      },
+      {
+        "neutral": 0.822,
+        "compound": 0.8577,
+        "negative": 0.035,
+        "positive": 0.143
+      }
+    ],
+    "n": 2
+  },
+  {
+    "wiki_id": 28561,
+    "name": "Separation of powers",
+    "sentiment": {
+      "neutral": 1.246,
+      "compound": 1.7668,
+      "positive": 0.754,
+      "negative": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.623,
+        "compound": 0.8834,
+        "negative": 0.0,
+        "positive": 0.377
+      },
+      {
+        "neutral": 0.623,
+        "compound": 0.8834,
+        "negative": 0.0,
+        "positive": 0.377
+      }
+    ],
+    "n": 2
+  },
+  {
+    "wiki_id": 9457,
+    "name": "Election",
+    "sentiment": {
+      "neutral": 0.623,
+      "compound": 0.8834,
+      "negative": 0.0,
+      "positive": 0.377
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.623,
+        "compound": 0.8834,
+        "negative": 0.0,
+        "positive": 0.377
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 7142713,
+    "name": "The Solution (Beanie Sigel album)",
+    "sentiment": {
+      "neutral": 0.623,
+      "compound": 0.8834,
+      "negative": 0.0,
+      "positive": 0.377
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.623,
+        "compound": 0.8834,
+        "negative": 0.0,
+        "positive": 0.377
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 7839905,
+    "name": "Go (Mario album)",
+    "sentiment": {
+      "neutral": 0.623,
+      "compound": 0.8834,
+      "negative": 0.0,
+      "positive": 0.377
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.623,
+        "compound": 0.8834,
+        "negative": 0.0,
+        "positive": 0.377
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 23187993,
+    "name": "Your Party",
+    "sentiment": {
+      "neutral": 0.651,
+      "compound": -0.128,
+      "negative": 0.189,
+      "positive": 0.16
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.651,
+        "compound": -0.128,
+        "negative": 0.189,
+        "positive": 0.16
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 633816,
+    "name": "Sludge metal",
+    "sentiment": {
+      "neutral": 0.739,
+      "compound": -0.128,
+      "negative": 0.136,
+      "positive": 0.125
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.739,
+        "compound": -0.128,
+        "negative": 0.136,
+        "positive": 0.125
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 12178732,
+    "name": "Sacred",
+    "sentiment": {
+      "neutral": 0.739,
+      "compound": -0.128,
+      "negative": 0.136,
+      "positive": 0.125
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.739,
+        "compound": -0.128,
+        "negative": 0.136,
+        "positive": 0.125
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 8944898,
+    "name": "The Mail on Sunday",
+    "sentiment": {
+      "neutral": 0.766,
+      "compound": -0.1027,
+      "negative": 0.125,
+      "positive": 0.109
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.766,
+        "compound": -0.1027,
+        "negative": 0.125,
+        "positive": 0.109
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 13658,
+    "name": "House of Lords",
+    "sentiment": {
+      "neutral": 0.766,
+      "compound": -0.1027,
+      "negative": 0.125,
+      "positive": 0.109
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.766,
+        "compound": -0.1027,
+        "negative": 0.125,
+        "positive": 0.109
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 98066,
+    "name": "Member of parliament",
+    "sentiment": {
+      "neutral": 0.766,
+      "compound": -0.1027,
+      "negative": 0.125,
+      "positive": 0.109
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.766,
+        "compound": -0.1027,
+        "negative": 0.125,
+        "positive": 0.109
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 1545612,
+    "name": "Culture of fear",
+    "sentiment": {
+      "neutral": 0.421,
+      "compound": 0.9275,
+      "negative": 0.178,
+      "positive": 0.401
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.421,
+        "compound": 0.9275,
+        "negative": 0.178,
+        "positive": 0.401
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 14520306,
+    "name": "Gender inequality",
+    "sentiment": {
+      "neutral": 0.421,
+      "compound": 0.9275,
+      "negative": 0.178,
+      "positive": 0.401
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.421,
+        "compound": 0.9275,
+        "negative": 0.178,
+        "positive": 0.401
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 58687,
+    "name": "Aggression",
+    "sentiment": {
+      "neutral": 0.421,
+      "compound": 0.9275,
+      "negative": 0.178,
+      "positive": 0.401
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.421,
+        "compound": 0.9275,
+        "negative": 0.178,
+        "positive": 0.401
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 30636,
+    "name": "Terrorism",
+    "sentiment": {
+      "neutral": 0.421,
+      "compound": 0.9275,
+      "negative": 0.178,
+      "positive": 0.401
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.421,
+        "compound": 0.9275,
+        "negative": 0.178,
+        "positive": 0.401
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 4095924,
+    "name": "Value (ethics)",
+    "sentiment": {
+      "neutral": 0.421,
+      "compound": 0.9275,
+      "negative": 0.178,
+      "positive": 0.401
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.421,
+        "compound": 0.9275,
+        "negative": 0.178,
+        "positive": 0.401
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 43854,
+    "name": "Reality",
+    "sentiment": {
+      "neutral": 0.421,
+      "compound": 0.9275,
+      "negative": 0.178,
+      "positive": 0.401
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.421,
+        "compound": 0.9275,
+        "negative": 0.178,
+        "positive": 0.401
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 74746,
+    "name": "Act of Congress",
+    "sentiment": {
+      "neutral": 1.208,
+      "compound": -0.6364,
+      "positive": 0.336,
+      "negative": 0.456
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.604,
+        "compound": -0.3182,
+        "negative": 0.228,
+        "positive": 0.168
+      },
+      {
+        "neutral": 0.604,
+        "compound": -0.3182,
+        "negative": 0.228,
+        "positive": 0.168
+      }
+    ],
+    "n": 2
+  },
+  {
+    "wiki_id": 14607,
+    "name": "Idaho",
+    "sentiment": {
+      "neutral": 6.278999999999999,
+      "compound": 3.0208999999999997,
+      "positive": 1.466,
+      "negative": 1.251
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.604,
+        "compound": -0.3182,
+        "negative": 0.228,
+        "positive": 0.168
+      },
+      {
+        "neutral": 0.689,
+        "compound": 0.4019,
+        "negative": 0.143,
+        "positive": 0.167
+      },
+      {
+        "neutral": 0.689,
+        "compound": 0.4019,
+        "negative": 0.143,
+        "positive": 0.167
+      },
+      {
+        "neutral": 0.801,
+        "compound": 0.6199,
+        "negative": 0.057,
+        "positive": 0.142
+      },
+      {
+        "neutral": 0.604,
+        "compound": -0.3182,
+        "negative": 0.228,
+        "positive": 0.168
+      },
+      {
+        "neutral": 0.689,
+        "compound": 0.4019,
+        "negative": 0.143,
+        "positive": 0.167
+      },
+      {
+        "neutral": 0.689,
+        "compound": 0.4019,
+        "negative": 0.143,
+        "positive": 0.167
+      },
+      {
+        "neutral": 0.757,
+        "compound": 0.7149,
+        "negative": 0.083,
+        "positive": 0.16
+      },
+      {
+        "neutral": 0.757,
+        "compound": 0.7149,
+        "negative": 0.083,
+        "positive": 0.16
+      }
+    ],
+    "n": 9
+  },
+  {
+    "wiki_id": 4126896,
+    "name": "Master of Arts",
+    "sentiment": {
+      "neutral": 1.566,
+      "compound": -0.7224,
+      "positive": 0.0,
+      "negative": 0.434
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.783,
+        "compound": -0.3612,
+        "negative": 0.217,
+        "positive": 0.0
+      },
+      {
+        "neutral": 0.783,
+        "compound": -0.3612,
+        "negative": 0.217,
+        "positive": 0.0
+      }
+    ],
+    "n": 2
+  },
+  {
+    "wiki_id": 77799,
+    "name": "C-SPAN",
+    "sentiment": {
+      "neutral": 3.938,
+      "compound": 3.5273,
+      "positive": 0.747,
+      "negative": 0.31500000000000006
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.801,
+        "compound": 0.6199,
+        "negative": 0.057,
+        "positive": 0.142
+      },
+      {
+        "neutral": 0.801,
+        "compound": 0.6199,
+        "negative": 0.057,
+        "positive": 0.142
+      },
+      {
+        "neutral": 0.757,
+        "compound": 0.7149,
+        "negative": 0.083,
+        "positive": 0.16
+      },
+      {
+        "neutral": 0.757,
+        "compound": 0.7149,
+        "negative": 0.083,
+        "positive": 0.16
+      },
+      {
+        "neutral": 0.822,
+        "compound": 0.8577,
+        "negative": 0.035,
+        "positive": 0.143
+      }
+    ],
+    "n": 5
+  },
+  {
+    "wiki_id": 425164,
+    "name": "Oral argument in the United States",
+    "sentiment": {
+      "neutral": 1.196,
+      "compound": -0.3062,
+      "positive": 0.37,
+      "negative": 0.432
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.598,
+        "compound": -0.1531,
+        "negative": 0.216,
+        "positive": 0.185
+      },
+      {
+        "neutral": 0.598,
+        "compound": -0.1531,
+        "negative": 0.216,
+        "positive": 0.185
+      }
+    ],
+    "n": 2
+  },
+  {
+    "wiki_id": 21537950,
+    "name": "Mike Moyle",
+    "sentiment": {
+      "neutral": 1.558,
+      "compound": 1.3348,
+      "positive": 0.302,
+      "negative": 0.14
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.801,
+        "compound": 0.6199,
+        "negative": 0.057,
+        "positive": 0.142
+      },
+      {
+        "neutral": 0.757,
+        "compound": 0.7149,
+        "negative": 0.083,
+        "positive": 0.16
+      }
+    ],
+    "n": 2
+  },
+  {
+    "wiki_id": 232687,
+    "name": "Federal law",
+    "sentiment": {
+      "neutral": 2.574,
+      "compound": 0.49759999999999993,
+      "positive": 0.704,
+      "negative": 0.718
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.598,
+        "compound": -0.1531,
+        "negative": 0.216,
+        "positive": 0.185
+      },
+      {
+        "neutral": 0.689,
+        "compound": 0.4019,
+        "negative": 0.143,
+        "positive": 0.167
+      },
+      {
+        "neutral": 0.598,
+        "compound": -0.1531,
+        "negative": 0.216,
+        "positive": 0.185
+      },
+      {
+        "neutral": 0.689,
+        "compound": 0.4019,
+        "negative": 0.143,
+        "positive": 0.167
+      }
+    ],
+    "n": 4
+  },
+  {
+    "wiki_id": 146334,
+    "name": "Emergency",
+    "sentiment": {
+      "neutral": 1.196,
+      "compound": -0.3062,
+      "positive": 0.37,
+      "negative": 0.432
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.598,
+        "compound": -0.1531,
+        "negative": 0.216,
+        "positive": 0.185
+      },
+      {
+        "neutral": 0.598,
+        "compound": -0.1531,
+        "negative": 0.216,
+        "positive": 0.185
+      }
+    ],
+    "n": 2
+  },
+  {
+    "wiki_id": 9198606,
+    "name": "Oyez Project",
+    "sentiment": null,
+    "relatedness": null,
+    "sentiments_extended": [
+      null
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 2119202,
+    "name": "SCOTUSblog",
+    "sentiment": null,
+    "relatedness": null,
+    "sentiments_extended": [
+      null
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 23004,
+    "name": "Precedent",
+    "sentiment": {
+      "neutral": 5.2219999999999995,
+      "compound": 4.1807,
+      "positive": 1.097,
+      "negative": 0.677
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.689,
+        "compound": 0.4019,
+        "negative": 0.143,
+        "positive": 0.167
+      },
+      {
+        "neutral": 0.689,
+        "compound": 0.4019,
+        "negative": 0.143,
+        "positive": 0.167
+      },
+      {
+        "neutral": 0.689,
+        "compound": 0.4019,
+        "negative": 0.143,
+        "positive": 0.167
+      },
+      {
+        "neutral": 0.689,
+        "compound": 0.4019,
+        "negative": 0.143,
+        "positive": 0.167
+      },
+      {
+        "neutral": 0.822,
+        "compound": 0.8577,
+        "negative": 0.035,
+        "positive": 0.143
+      },
+      {
+        "neutral": 0.822,
+        "compound": 0.8577,
+        "negative": 0.035,
+        "positive": 0.143
+      },
+      {
+        "neutral": 0.822,
+        "compound": 0.8577,
+        "negative": 0.035,
+        "positive": 0.143
+      }
+    ],
+    "n": 7
+  },
+  {
+    "wiki_id": 29697232,
+    "name": "NPR",
+    "sentiment": null,
+    "relatedness": null,
+    "sentiments_extended": [
+      null
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 44848537,
+    "name": "Vox (website)",
+    "sentiment": null,
+    "relatedness": null,
+    "sentiments_extended": [
+      null
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 256024,
+    "name": "Abortion in the United States",
+    "sentiment": {
+      "neutral": 2.0669999999999997,
+      "compound": 1.2057,
+      "positive": 0.501,
+      "negative": 0.42899999999999994
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.689,
+        "compound": 0.4019,
+        "negative": 0.143,
+        "positive": 0.167
+      },
+      {
+        "neutral": 0.689,
+        "compound": 0.4019,
+        "negative": 0.143,
+        "positive": 0.167
+      },
+      {
+        "neutral": 0.689,
+        "compound": 0.4019,
+        "negative": 0.143,
+        "positive": 0.167
+      }
+    ],
+    "n": 3
+  },
+  {
+    "wiki_id": 5734,
+    "name": "Consequentialism",
+    "sentiment": {
+      "neutral": 1.378,
+      "compound": 0.8038,
+      "positive": 0.334,
+      "negative": 0.286
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.689,
+        "compound": 0.4019,
+        "negative": 0.143,
+        "positive": 0.167
+      },
+      {
+        "neutral": 0.689,
+        "compound": 0.4019,
+        "negative": 0.143,
+        "positive": 0.167
+      }
+    ],
+    "n": 2
+  },
+  {
+    "wiki_id": 18998750,
+    "name": "Reuters",
+    "sentiment": null,
+    "relatedness": null,
+    "sentiments_extended": [
+      null
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 44793,
+    "name": "Emergency Medical Treatment and Active Labor Act",
+    "sentiment": {
+      "neutral": 1.558,
+      "compound": 1.3348,
+      "positive": 0.302,
+      "negative": 0.14
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.801,
+        "compound": 0.6199,
+        "negative": 0.057,
+        "positive": 0.142
+      },
+      {
+        "neutral": 0.757,
+        "compound": 0.7149,
+        "negative": 0.083,
+        "positive": 0.16
+      }
+    ],
+    "n": 2
+  },
+  {
+    "wiki_id": 23271659,
+    "name": "Federal preemption",
+    "sentiment": {
+      "neutral": 1.558,
+      "compound": 1.3348,
+      "positive": 0.302,
+      "negative": 0.14
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.801,
+        "compound": 0.6199,
+        "negative": 0.057,
+        "positive": 0.142
+      },
+      {
+        "neutral": 0.757,
+        "compound": 0.7149,
+        "negative": 0.083,
+        "positive": 0.16
+      }
+    ],
+    "n": 2
+  },
+  {
+    "wiki_id": 3524766,
+    "name": "YouTube",
+    "sentiment": null,
+    "relatedness": null,
+    "sentiments_extended": [
+      null
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 298565,
+    "name": "Legal immunity",
+    "sentiment": {
+      "neutral": 3.125,
+      "compound": 1.9537,
+      "positive": 0.579,
+      "negative": 0.29600000000000004
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.776,
+        "compound": -0.5267,
+        "negative": 0.151,
+        "positive": 0.073
+      },
+      {
+        "neutral": 0.705,
+        "compound": 0.765,
+        "negative": 0.075,
+        "positive": 0.22
+      },
+      {
+        "neutral": 0.822,
+        "compound": 0.8577,
+        "negative": 0.035,
+        "positive": 0.143
+      },
+      {
+        "neutral": 0.822,
+        "compound": 0.8577,
+        "negative": 0.035,
+        "positive": 0.143
+      }
+    ],
+    "n": 4
+  },
+  {
+    "wiki_id": 440936,
+    "name": "Prosecutor",
+    "sentiment": {
+      "neutral": 0.776,
+      "compound": -0.5267,
+      "negative": 0.151,
+      "positive": 0.073
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.776,
+        "compound": -0.5267,
+        "negative": 0.151,
+        "positive": 0.073
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 2434267,
+    "name": "Allegation",
+    "sentiment": {
+      "neutral": 0.776,
+      "compound": -0.5267,
+      "negative": 0.151,
+      "positive": 0.073
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.776,
+        "compound": -0.5267,
+        "negative": 0.151,
+        "positive": 0.073
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 725182,
+    "name": "Official",
+    "sentiment": {
+      "neutral": 0.776,
+      "compound": -0.5267,
+      "negative": 0.151,
+      "positive": 0.073
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.776,
+        "compound": -0.5267,
+        "negative": 0.151,
+        "positive": 0.073
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 12160028,
+    "name": "Above the Law (blog)",
+    "sentiment": {
+      "neutral": 1.0,
+      "compound": 0.0,
+      "negative": 0.0,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 6509278,
+    "name": "Trump",
+    "sentiment": {
+      "neutral": 0.705,
+      "compound": 0.765,
+      "negative": 0.075,
+      "positive": 0.22
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.705,
+        "compound": 0.765,
+        "negative": 0.075,
+        "positive": 0.22
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 3417508,
+    "name": "Glossary of contract bridge terms",
+    "sentiment": {
+      "neutral": 0.705,
+      "compound": 0.765,
+      "negative": 0.075,
+      "positive": 0.22
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.705,
+        "compound": 0.765,
+        "negative": 0.075,
+        "positive": 0.22
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 1291819,
+    "name": "CBS Sports",
+    "sentiment": null,
+    "relatedness": null,
+    "sentiments_extended": [
+      null
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 4848272,
+    "name": "Donald Trump",
+    "sentiment": {
+      "neutral": 3.054,
+      "compound": 3.2454,
+      "positive": 0.726,
+      "negative": 0.22
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.705,
+        "compound": 0.765,
+        "negative": 0.075,
+        "positive": 0.22
+      },
+      {
+        "neutral": 0.705,
+        "compound": 0.765,
+        "negative": 0.075,
+        "positive": 0.22
+      },
+      {
+        "neutral": 0.822,
+        "compound": 0.8577,
+        "negative": 0.035,
+        "positive": 0.143
+      },
+      {
+        "neutral": 0.822,
+        "compound": 0.8577,
+        "negative": 0.035,
+        "positive": 0.143
+      }
+    ],
+    "n": 4
+  },
+  {
+    "wiki_id": 38539,
+    "name": "Reality television",
+    "sentiment": {
+      "neutral": 0.705,
+      "compound": 0.765,
+      "negative": 0.075,
+      "positive": 0.22
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.705,
+        "compound": 0.765,
+        "negative": 0.075,
+        "positive": 0.22
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 21780,
+    "name": "NBC",
+    "sentiment": null,
+    "relatedness": null,
+    "sentiments_extended": [
+      null
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 6814294,
+    "name": "Listen (Beyonc\u00e9 song)",
+    "sentiment": {
+      "neutral": 0.822,
+      "compound": 0.8577,
+      "negative": 0.035,
+      "positive": 0.143
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 0.822,
+        "compound": 0.8577,
+        "negative": 0.035,
+        "positive": 0.143
+      }
+    ],
+    "n": 1
+  },
+  {
+    "wiki_id": 32087,
+    "name": "United States Army",
+    "sentiment": {
+      "neutral": 1.0,
+      "compound": 0.0,
+      "negative": 0.0,
+      "positive": 0.0
+    },
+    "relatedness": null,
+    "sentiments_extended": [
+      {
+        "neutral": 1.0,
+        "compound": 0.0,
+        "negative": 0.0,
+        "positive": 0.0
+      }
+    ],
+    "n": 1
+  }
+]
