@@ -14,6 +14,14 @@ sidebar: false
     <h2>Sentiment Occurrence Count</h2>
     <div id="histogram_2"></div>
   </div>
+  <div class="card">
+    <h2>Occurrence Histogram</h2>
+    <div id="histogram"></div>
+  </div>
+  <div class="card">
+    <h2>Graph</h2>
+    <div id="graph"></div>
+  </div>
 </div>
 
 ```js
@@ -115,10 +123,6 @@ function updateInstanceOf(rowsMap) {
 ```
 
 ```js
-
-```
-
-```js
 const base = document.getElementById('base');
 const histogram = document.getElementById('histogram');
 const histogram_2 = document.getElementById('histogram_2');
@@ -200,3 +204,41 @@ most_occurred_entities.forEach(entity => {
     
 ```
 
+
+
+```js
+import { createForceGraph } from "./components/graph.js";
+
+const graphContainer = document.getElementById('graph');
+
+// fetch from /graph?id=wiki_id endpoint, the result is a JSON object
+/* 
+{
+                            nodes: [
+                                {
+                                    id: int,
+                                    name: str,
+                                    type: str
+                                }
+                            ],
+                            links: [
+                                {
+                                    source: int,
+                                    target: int,
+                                    type: str
+                                }
+                            ]
+                        }
+ */
+
+
+createForceGraph(wiki_id, (event, d) => {
+    console.log('Node clicked:', d);
+}).then(graph => {
+    graphContainer.appendChild(graph);
+}).catch(error => {
+    console.error('Error fetching graph data:', error);
+    graphContainer.textContent = 'Error loading graph data';
+});
+
+```
