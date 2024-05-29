@@ -1,6 +1,7 @@
 ---
 title: Wiki Page
 toc: false
+sidebar: false
 ---
 
 
@@ -136,72 +137,66 @@ async function fetchFeatureExtractionJSON(wikiId) {
     
 }
 
-if (wiki_id) {
-    document.title = `Wiki ID: ${wiki_id}`;
-        
-    fetchFeatureExtractionJSON(wiki_id).then(data => {
-    const most_occurred_entities = data.most_occurred_entities;
-    const main_entity = data.main_entity?.sentiments_extended;
-    const negatives = main_entity.map(d => -d?.negative).filter(d => d?.negative != 0)
-    const positives = main_entity.map(d => d?.positive).filter(d => d?.positive != 0)
-        
-    const tableContainer = document.getElementById('tableContainer');
-    const {table, rowsMap, rowsMapInfo} = createTable(most_occurred_entities);
-    updateDescriptions(rowsMap);
-    updateInstanceOf(rowsMapInfo);
-    tableContainer.appendChild(table);
-
-    const positiveBinGenerator = d3.bin().domain([0.001, 1]).thresholds(20);
-    const negativeBinGenerator = d3.bin().domain([-1, -0.001]).thresholds(20);
-
-    const binsPositives = positiveBinGenerator(positives);
-    const binsNegatives = negativeBinGenerator(negatives);
-
-    const chart = Plot.plot({
-        x: {
-            label: "Value Range (0 to 1)",
-            domain: [-1, 1]
-        },
-        y: {
-            label: "Occurrence Count"
-        },
-        marks: [
-            Plot.rectY(binsPositives, {
-                x1: d => d.x0,
-                x2: d => d.x1,
-                y: d => d.length,
-                fill: "green",
-                title: "Positive Values",
-            }),
-            Plot.rectY(binsNegatives, {
-                x1: d => d.x0,
-                x2: d => d.x1,
-                y: d => d.length,
-                fill: "red",
-                title: "Negative Values"
-            }),
-            Plot.ruleY([0])
-        ],
-        width: 1200,
-        height: 600,
-    });
-    document.getElementById('histogram_2').appendChild(chart);
-    
-    most_occurred_entities.forEach(entity => {
-        data = getWikiInfo(entity.wiki_id).then(data => {
-            
-        })
-    });
-        
-    
-    });
-    
-    
-} else {
+if (!wiki_id) {
     histogram.textContent = 'No wiki ID provided, please provide a wiki id';
-    
-    
 }
 
+document.title = `Wiki ID: ${wiki_id}`;
+    
+fetchFeatureExtractionJSON(wiki_id).then(data => {
+const most_occurred_entities = data.most_occurred_entities;
+const main_entity = data.main_entity?.sentiments_extended;
+const negatives = main_entity.map(d => -d?.negative).filter(d => d?.negative != 0)
+const positives = main_entity.map(d => d?.positive).filter(d => d?.positive != 0)
+    
+const tableContainer = document.getElementById('tableContainer');
+const {table, rowsMap, rowsMapInfo} = createTable(most_occurred_entities);
+updateDescriptions(rowsMap);
+updateInstanceOf(rowsMapInfo);
+tableContainer.appendChild(table);
+
+const positiveBinGenerator = d3.bin().domain([0.001, 1]).thresholds(20);
+const negativeBinGenerator = d3.bin().domain([-1, -0.001]).thresholds(20);
+
+const binsPositives = positiveBinGenerator(positives);
+const binsNegatives = negativeBinGenerator(negatives);
+
+const chart = Plot.plot({
+    x: {
+        label: "Value Range (0 to 1)",
+        domain: [-1, 1]
+    },
+    y: {
+        label: "Occurrence Count"
+    },
+    marks: [
+        Plot.rectY(binsPositives, {
+            x1: d => d.x0,
+            x2: d => d.x1,
+            y: d => d.length,
+            fill: "green",
+            title: "Positive Values",
+        }),
+        Plot.rectY(binsNegatives, {
+            x1: d => d.x0,
+            x2: d => d.x1,
+            y: d => d.length,
+            fill: "red",
+            title: "Negative Values"
+        }),
+        Plot.ruleY([0])
+    ],
+    width: 1200,
+    height: 600,
+});
+document.getElementById('histogram_2').appendChild(chart);
+
+most_occurred_entities.forEach(entity => {
+    data = getWikiInfo(entity.wiki_id).then(data => {
+        
+    })
+}); });
+    
+    
 ```
 
