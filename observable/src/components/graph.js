@@ -3,7 +3,7 @@ import * as d3 from "https://cdn.jsdelivr.net/npm/d3@6/+esm";
 export async function createForceGraph(wikiId) {
     try {
         const response = await fetch(
-            `https://project-x-back-a4ab947e69c6.herokuapp.com/graph?id=${wikiId}`
+            `http://127.0.0.1:5000/graph?id=${wikiId}`
         );
         const data = await response.json();
 
@@ -33,7 +33,11 @@ export async function createForceGraph(wikiId) {
             );
             const neighbourNodesWithWeights = neighbours.map((l) => {
                 const neighbour = l.source === d.id ? l.target : l.source;
-                return { ...nodes.find((n) => n.id === neighbour), weight: l.weight };
+                return {
+                    ...nodes.find((n) => n.id === neighbour),
+                    weight: l.weight,
+                    thickness: l.thickness,
+                }
             });
 
             // Clear the existing content
@@ -51,7 +55,7 @@ export async function createForceGraph(wikiId) {
             // Create the table header
             const thead = document.createElement("thead");
             const headerRow = document.createElement("tr");
-            ["Name", "Sentiment", "Weight"].forEach((text) => {
+            ["Name", "Co-occurrence", "Sentiment", "Relatedness"].forEach((text) => {
                 const th = document.createElement("th");
                 th.style.border = "1px solid black";
                 th.style.padding = "10px";
@@ -67,9 +71,10 @@ export async function createForceGraph(wikiId) {
             // Create the table body
             const tbody = document.createElement("tbody");
             tbody.id = "neighbours-table";
+            neighbourNodesWithWeights.sort((a, b) => b.thickness - a.thickness);
             neighbourNodesWithWeights.forEach((n) => {
                 const tr = document.createElement("tr");
-                [n.title, n.sentiment, n.weight].forEach((text) => {
+                [n.title, n.thickness, n.sentiment, n.weight].forEach((text) => {
                     const td = document.createElement("td");
                     td.style.border = "1px solid black";
                     td.style.padding = "10px";
